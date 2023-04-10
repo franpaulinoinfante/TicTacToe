@@ -9,6 +9,8 @@
 
 ## Domain Model
 
+![image](https://user-images.githubusercontent.com/46433173/230940546-84fa61b0-b6b0-4251-947b-cf5c5b46f81e.png)
+
 ## Vocabulary
 
 ## Initial State
