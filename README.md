@@ -9,7 +9,8 @@
 
 ## Domain Model
 
-![image](https://user-images.githubusercontent.com/46433173/230941361-cc1741cd-865c-40b1-9793-9abc2a106cba.png)
+|  ![image](https://user-images.githubusercontent.com/46433173/230941361-cc1741cd-865c-40b1-9793-9abc2a106cba.png)  |
+| :------- | 
 
 ## Vocabulary
 
