@@ -1,75 +1,34 @@
 @startuml Domain Model
    
-    TicTacToe *-down-> Board
-    TicTacToe *-down-> Turn
-    TicTacToe *-down-> "2" Player
+    TicTacToe *--> Board
+    TicTacToe *--> Turn
+    TicTacToe *--> "2" Player
 
     Turn "exchange" --> "2" Player
 
-    Board *-down-> "3x3" Square
-    Square o-down-> "0..1" Token
-    Square *-down-> Coordinate
+    Board *--> "3x3" Square
+    Square o--> "0..1" Token
+    Square *--> Coordinate
 
     Player -right-> Board
-    Player *-down-> "3" Token
-    Player *-down-> Color
-    Player "has" .down.> Goal
+    Player *--> "3" Token
+    Player *--> Color
+    Player "has" ..> Goal
 
     Color <|-- X
     Color <|-- O
     Token *--> Color
 
-    Goal <|-down- Row
-    Goal <|-down- Colunm
-    Goal <|-down- MainDiagonal
-    Goal <|-down- InversedDiagonal
-    Goal "need" .down.> "3" Token
-    Goal .down.> Action
+    Goal <|-- Row
+    Goal <|-- Colunm
+    Goal <|-- MainDiagonal
+    Goal <|-- InversedDiagonal
+    Goal "need" ..> "3" Token
+    Goal ..> Action : make
 
-    Action .down.> "target" Square
-    Action "need" .down.> "1" Token
-    Action <|-down- Put
-    Action <|-down- Move
-    Move .down.> "origin" Square
-@enduml
-
-@startuml Vocabulario
-
-TicTacToe *-down-> "2" Player
-TicTacToe *-down-> Board
-TicTacToe *-down-> Turn
-
-Turn -down-> "2" Player
-
-Player -down-> Board
-Player o-down-> "0..3" Piece
-Player o-down-> Goal
-Player *-down-> Color
-
-
-Action <|-down- Put
-Action <|-down- Move
-
-Piece *-down-> Color
-
-Color <|-down- X
-Color <|-down- O
-
-Goal ..> "3" Put
-Goal ..> "*" Move
-Goal ..> "3" Square
-
-Board *-down-> "3x3" Square
-Square *-down-> Coordinate
-Square o-down-> "0..1" Piece
-
-Action .down.> Piece
-Action .down.> Square : target
-Move .down.> Square : origin
-
-Goal <|-down- Row
-Goal <|-down- Column
-Goal <|-down- MainDiagonal
-Goal <|-down- InvertedDiagonal
-
+    Action ..>Square : target
+    Action ..> "1" Token : need
+    Action <|-- Put
+    Action <|-- Move
+    Move ..>Square : origin
 @enduml
