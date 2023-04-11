@@ -1,0 +1,134 @@
+@startuml Use Cases
+    Title Use Case View
+    left to right direction
+
+    actor Player
+
+    usecase Start
+    usecase Play
+    usecase Resume
+
+    Player --> Start
+    Player --> Play
+    Player --> Resume
+@enduml
+
+@startuml Context
+    title Context
+
+    state INITIAL
+    state IN_GAME
+    state OUT_GAME
+    state if <<choice>>
+    state if2 <<choice>>
+
+    [*] --> INITIAL
+    INITIAL --> IN_GAME : start
+    IN_GAME --> if : Play
+        if --> IN_GAME 
+    if --> OUT_GAME : [IsFinished]
+    OUT_GAME --> if2 : Resume
+        if2 --> INITIAL : [IsContinue]
+    if2 --> [*]
+@enduml
+
+@startuml Specification of the use case start
+    title Specification of the use case start
+
+    state INITIAL
+    state IN_GAME
+    state A as " "
+    state B as " "
+    state C as " "
+    
+    [*] --> INITIAL
+    INITIAL --> A : Player requests to Start a new game
+    A --> B : The system displays Title and Board
+    B --> C : The system allows Play
+    C --> IN_GAME 
+    IN_GAME --> [*]
+@enduml
+
+@startuml Specification of the use case Play
+    title Specification of the use case Play
+
+    state IN_GAME
+    state A as " "
+    state B as " "
+    state C as " "
+    state D as " "
+    state E as " "
+    state F as " "
+    state G as " "
+    state H as " "
+    state I as " "
+    state L as " "
+    state M as " "
+    state N as " "
+    state O as " "
+    state P as " "
+    state Q as " "
+
+    state if1 <<choice>>
+    state if2 <<choice>>
+    state if3 <<choice>>
+    state if4 <<choice>>
+
+    [*] --> IN_GAME
+    IN_GAME --> if1 : Player requests to Play
+    if1 --> A : [Tokens of current player on board < 3]
+        if1 --> G
+        G --> H : System requests to introduce origin coordinate
+        H --> I : Current turn player introduces origin coordinate
+        I --> if4
+            if4 --> O : [error]
+            note on link
+                coordinate is out range
+                coordinate is empty
+                token is not of current player
+            endnote
+            O --> P : System displays error message
+            P --> if1 : System allows Play
+        if4 --> L 
+        L --> M : System requests to introduce target coordinate
+        M --> N : Current turn player introduces target coordinate
+        N --> if2
+    A --> B : System requests to introduce target coordinate
+    B --> C : Current turn player introduces target coordinate
+    C --> if2
+        if2 --> Q : [error]
+        note on link
+            coordinate out of range
+            coordinate is occuped
+        endnote
+        Q --> P : System displays error message
+    if2 --> D
+    D --> E : System displays updated board
+    E --> if3
+        if3 --> P
+    if3 --> F : [IsWinner]
+    F --> OUT_GAME : System displays winner messager
+    OUT_GAME --> [*] : System allows Resume
+@enduml
+
+
+@startuml Specification of the use case Resume
+    title Specification of the use case Resume
+    
+    state OUT_GAME
+    state INITIAL
+    state EXIT
+
+    state A as " "
+    state if <<choice>>
+
+    [*] --> OUT_GAME
+    OUT_GAME --> A : System requests to continue
+    A --> if
+    if --> INITIAL : Player introduces Yes
+    if --> EXIT : Player introduces No
+    INITIAL --> [*]
+    EXIT --> [*]
+
+@enduml
+    
