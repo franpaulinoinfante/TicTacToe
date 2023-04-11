@@ -5,7 +5,8 @@
     1.1 [Vocabulary](#Vocabulary)  
     1.2 [Initial State](#Initial-State)  
     1.3 [Final State](#Final-State)  
-    1.4 [Instructions](#Instructions)
+    1.4 [Functionalities](#Functionalities)  
+    1.5 [Activities}](#Activities)  
 
 ## Domain Model
 
