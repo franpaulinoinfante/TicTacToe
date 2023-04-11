@@ -26,9 +26,10 @@
     Goal "need" ..> "3" Token
     Goal ..> Action : make
 
-    Action ..>Square : target
+    Action ..> Square : target
     Action ..> "1" Token : need
     Action <|-- Put
     Action <|-- Move
-    Move ..>Square : origin
+    Move ..> Square : origin
+
 @enduml
