@@ -33,19 +33,17 @@
 @enduml
 
 @startuml Specification of the use case start
-    title Specification of the use case start
+    title Specification of the use case Start
 
     state INITIAL
     state IN_GAME
     state A as " "
     state B as " "
-    state C as " "
     
     [*] --> INITIAL
     INITIAL --> A : Player requests to Start a new game
     A --> B : The system displays Title and Board
-    B --> C : The system allows Play
-    C --> IN_GAME 
+    B --> IN_GAME : The system allows Play
     IN_GAME --> [*]
 @enduml
 
