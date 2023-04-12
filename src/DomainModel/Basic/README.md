@@ -3,17 +3,17 @@
 **Index**
 - [Requirements](#Requirements)  
     -   [Use Case Specifications](#Use-Case-Specifications)   
-        -   [Start](#Start)  
-        -   [Play](#Play)  
-        -   [Resume](#Resume)  
+        -   [Specifications Start](#Specifications-Start)  
+        -   [Specifications Play](#Specifications-Play)  
+        -   [Specifications-Resume](#Specifications-Resume)  
     -   [Use Interface Prototype](#Use-Interface-Prototype)  
     -   [Analysis](#Analysis)  
         -   [Architecture](#Architecture)  
         -   [ConsoleApp](#ConsoleApp)  
     -   [Use Case Analysis](#Use-Case-Analysis)  
-        -   [Start](#Start)  
-        -   [Play](#Play)  
-        -   [Resume](#Resume)  
+        -   [Analysis Start](#Analysis-Start)  
+        -   [Analysis Play](#Analysis-Play)  
+        -   [Resume Analysis](#Analysis-Resume)  
 
 ## Requirements
 
