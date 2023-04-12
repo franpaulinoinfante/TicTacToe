@@ -12,6 +12,9 @@
 | * _Functionality: **Simple** _<br/> * _Interface: **Text**_<br/> * _Distribution: **Standalone**_<br/> _Persistence: **No**<br/> | pic here |
 | :------ | :------ |
 
+| * _Functionality: **Simple**_<br/>  * _Interface: **Text**_<br/>  * _Distribution: **Standalone**_<br/>  * _Persistence: **No**_<br/> |  
+| :------- | :------: |  
+
 ## Use Case Specifications
 
 ### Start
