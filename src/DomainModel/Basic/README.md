@@ -225,7 +225,7 @@ Thanks, Good Bye!!
 
 ### Class Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/231547188-b2788d18-44a5-4df2-bb4a-7a207dbccf7c.png)
+![image](https://user-images.githubusercontent.com/46433173/231547920-e4a38df2-28b3-4281-90eb-f60bd8184d34.png)
 
 ## Design
 
