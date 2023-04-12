@@ -13,6 +13,8 @@
             -   [Analysis Start](#Analysis-Start)  
             -   [Analysis Play](#Analysis-Play)  
             -   [Analysis Resume](#Analysis-Resume)  
+            -   [Package Analysis](#Package-Analysis)  
+            -   [Class Analysis](#Class-Analysis)
         -   [Package](#Package)  
     - [Design](#Design)  
         -   [Design Architecture](#Design-Architecture)  
@@ -201,17 +203,29 @@ Thanks, Good Bye!!
 
 ## Analysis
 
-### Analysis Architecture
+![image](https://user-images.githubusercontent.com/46433173/231546588-3f9a9642-d190-4139-a47f-c094756d1be5.png)
 
-### Use Case Analysis
+### Use Cases Analysis
 
 ### Analysis Start
 
+![image](https://user-images.githubusercontent.com/46433173/231546804-c577d5da-91ab-421e-b751-a85b80c07dc2.png)
+
 ### Analysis Play
+
+![image](https://user-images.githubusercontent.com/46433173/231546922-a2f653f6-81ba-4382-b06c-85d4e22f121e.png)
 
 ### Analysis Resume
 
-### Package
+![image](https://user-images.githubusercontent.com/46433173/231546979-82bc62c5-9ebb-4fde-8f5e-601702944c79.png)
+
+### Package Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/231547056-c3a236ca-2e68-401f-8c39-da1563255800.png)
+
+### Class Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/231547920-e4a38df2-28b3-4281-90eb-f60bd8184d34.png)
 
 ## Design
 
