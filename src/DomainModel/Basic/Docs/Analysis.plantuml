@@ -179,6 +179,7 @@
             }
 
             class Turn{
+                ~Turn(Players)
                 ~RandomTurn() : Player
                 ~GetCurrent() : Player
                 ~Next()
