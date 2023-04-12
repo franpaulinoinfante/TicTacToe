@@ -9,8 +9,10 @@
 
 ## Requirements
 
-| * _Functionality: **Simple**_<br/>  * _Interface: **Text**_<br/>  * _Distribution: **Standalone**_<br/>  * _Persistence: **No**_<br/> 
-| :------- | :------: |  
+- **Functionality:** Simple  
+- **Interface:** Text  
+- **Distribution:** Standalone  
+- **Persistence:** No  
 
 ## Use Case Specifications
 
