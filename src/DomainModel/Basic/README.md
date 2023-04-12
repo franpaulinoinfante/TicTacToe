@@ -10,10 +10,10 @@
     -   [Analysis](#Analysis)  
         -   [Architecture](#Architecture)  
         -   [ConsoleApp](#ConsoleApp)  
-    -   [Use Case Analysis](#Use-Case-Analysis)  
-        -   [Analysis Start](#Analysis-Start)  
-        -   [Analysis Play](#Analysis-Play)  
-        -   [Resume Analysis](#Analysis-Resume)  
+        -   [Use Case Analysis](#Use-Case-Analysis)  
+            -   [Analysis Start](#Analysis-Start)  
+            -   [Analysis Play](#Analysis-Play)  
+            -   [Resume Analysis](#Analysis-Resume)  
 
 ## Requirements
 
