@@ -1,0 +1,247 @@
+@startuml Analysis - Domain Model
+    title Analysis - Domain Model
+
+    package TicTacToe.ConsoleApp{
+        namespace Models{
+            class TicTacToe{
+            }
+            TicTacToe *--> Board
+            TicTacToe *--> Turn
+            TicTacToe *--> "2" Player
+
+            class Board{
+            }
+
+            class Turn{
+            }
+            Turn --> "2" Player : exchange
+
+            class Player{
+            }
+            Player --> Board
+        }
+        Models ..> Types
+        Models ..> Utils
+        
+        namespace Utils {            
+
+            class Coordinate{
+            }
+            Coordinate ..> Interval
+
+            class Interval{
+            }
+        }
+        Utils ..> Types
+
+        namespace Types{
+            enum Token{
+            }
+
+            enum Message{
+            }
+
+            enum Error{
+            }
+        }
+        
+    }
+@enduml
+
+@startuml Analysis Start
+    left to right direction
+    title Analysis Start
+
+    actor User
+
+    package ConsoleApp{
+        
+        entity TicTacToe
+        entity Board
+        entity Turn
+        entity Player
+        entity Message
+        entity Token
+        entity Coordinate
+    }
+
+    User -- TicTacToe
+    TicTacToe -- Message
+    TicTacToe -- Board
+    Board -- Message
+    Board -- Coordinate
+    Board -- Token
+
+    TicTacToe -- Turn
+    Turn -- Player
+    Player -- Token
+@enduml
+
+@startuml Analysis Play
+    left to right direction
+    title Analysis Play
+
+    actor User
+
+    package ConsoleApp{
+        
+        entity TicTacToe
+        entity Board
+        entity Turn
+        entity Player
+        entity Message
+        entity Token
+        entity Coordinate
+        entity Error
+    }
+
+    User -- TicTacToe
+    TicTacToe -- Turn
+    Turn -- Player
+    Player -- Token
+    TicTacToe -- Message
+
+    TicTacToe -- Player
+    Player -- Message
+    Player -- Coordinate
+    Coordinate -- Error
+    
+    TicTacToe -- Board
+    Board .. Coordinate
+    Board .. Token
+@enduml
+
+@startuml Analysis Resume
+    left to right direction
+    title Analysis Resume
+
+    actor User
+
+    package ConsoleApp{
+        
+        entity TicTacToe
+        entity Player
+        entity Message
+        entity Token
+        entity YesNotDialog
+    }
+
+    User -- TicTacToe
+    TicTacToe -- Player
+    Player -- Token
+    TicTacToe -- Message
+
+    TicTacToe -- YesNotDialog
+    YesNotDialog -- Message
+@enduml
+
+@startuml Packages
+    title Packages
+
+    package TicTacToe{
+        package ConsoleApp #White{
+            namespace Models #SkyBlue{}
+            namespace Types #GreenYellow{}
+            namespace ConsoleIOs #DarkRed{}
+            namespace Utils #Grey {}
+
+            Models ..> Types
+            Models ..> Utils
+            Models ..> ConsoleIOs
+        }            
+    }
+@enduml
+
+@startuml Class Analysis
+    title Class Analysis
+
+    package TicTacToe.ConsoleApp{
+        namespace Models{
+            class TicTacToe{
+                ~Start()
+                ~Play()
+                ~Resume() : boolean
+            }
+            TicTacToe *--> Board
+            TicTacToe *--> Turn
+            TicTacToe *--> "2" Player
+
+            class Board{
+                ~Board()
+                ~NewGame()
+                ~Write()
+                ~PutToken(Coordinate, Token)
+                ~MoveToken(origin, target)
+                ~GetToken() : Token
+                ~IsOccupied() : boolean
+                ~IsEmpty() : boolean
+                ~IsTicTacToe() : boolean
+            }
+
+            class Turn{
+                ~RandomTurn() : Player
+                ~GetCurrent() : Player
+                ~Next()
+            }
+            Turn --> "2" Player : exchange
+
+            class Player{
+                ~GetToken() : Token
+                ~HasToken() : boolean
+                ~PutToken()
+                -ReadTargetToPut(message) : Coordinate
+                -GetErrorToPutToken(Coordinate) : Error
+                ~MoveToken(origin, target)
+                -Readorigin(message) : Coordinate
+                -GetErrorToMoveoriginToken(origin) : Error
+                -ReadTarget(message) : Coordinate       
+                -GetErrorToMoveTargetToken(target) : Error
+            }
+            Player --> Board
+        }
+        Models ..> Types
+        Models ..> Utils
+
+        namespace Types{
+            class Coordinate{
+                ~Read() : Coordinate
+                ~IsOutOfRange(Coordinate) : boolean
+            }
+            Coordinate ..> Interval
+
+            class Interval{
+                ~Contains(min, max) : boolean
+            }
+        }
+
+        namespace Utils{
+            enum Token{
+                ~X,
+                ~O,
+                ~Null
+            }
+
+            enum Message{
+                ~TicTacToe,
+                ~HorizontalLine,
+                ~VerticalLine,
+                ~CurrentTurn,
+                ~EnterCoordinateToPut,
+                ~EnterCoordinateToMove,
+                ~WinnerMessage,
+                ~ResumeMessage,
+                ~GoodByeMessage
+                ~WriteLine(message, title)
+            }
+
+            enum Error{
+                ~CoordinateOutOfRange,
+                ~CoordinateIsOccupied,
+                ~CoordinateIsEmpty,
+                ~TokenIsNotOfCurrentPlayer
+                ~Write(error)
+            }
+        }
+    }
+
+@enduml
