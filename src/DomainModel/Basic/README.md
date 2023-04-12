@@ -3,9 +3,9 @@
 **Index**
 1. [Requirements](#Requirements)  
     1.1 [Use Case Specifications](#Use-Case-Specifications)   
-    1.2 [Start](#Start)  
-    1.3 [Play](#Play)  
-    1.4 [Resume](#Resume)  
+        1.1.1 [Start](#Start)  
+        1.1.2 [Play](#Play)  
+        1.1.3 [Resume](#Resume)  
 
 ## Requirements
 
