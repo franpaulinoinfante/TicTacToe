@@ -8,12 +8,18 @@
         -   [Specifications-Resume](#Specifications-Resume)  
     -   [Use Interface Prototype](#Use-Interface-Prototype)  
     -   [Analysis](#Analysis)  
-        -   [Architecture](#Architecture)  
-        -   [ConsoleApp](#ConsoleApp)  
+        -   [Analysis Architecture](#Analysis-Architecture)  
         -   [Use Case Analysis](#Use-Case-Analysis)  
             -   [Analysis Start](#Analysis-Start)  
             -   [Analysis Play](#Analysis-Play)  
-            -   [Resume Analysis](#Analysis-Resume)  
+            -   [Analysis Resume](#Analysis-Resume)  
+        -   [Package](#Package)  
+    - [Design](#Design)  
+        -   [Design Architecture](#Design-Architecture)  
+        -   [Design Use Cases](#Design-Use-Cases)  
+            -   [Design Start](#Start-Start)  
+            -   [Design Play](#Play-Play)  
+            -   [Design Resume](#Design-Resume)  
 
 ## Requirements
 
@@ -195,9 +201,7 @@ Thanks, Good Bye!!
 
 ## Analysis
 
-### Architecture
-
-### ConsoleApp
+### Analysis Architecture
 
 ### Use Case Analysis
 
@@ -206,3 +210,17 @@ Thanks, Good Bye!!
 ### Analysis Play
 
 ### Analysis Resume
+
+### Package
+
+## Design
+
+### Design Architecture
+
+### Design Use Cases
+
+### Design Start
+
+### Design Play
+
+### Design Resume
