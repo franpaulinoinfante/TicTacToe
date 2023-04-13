@@ -1,0 +1,15 @@
+@startuml Shopping
+    title Shopping
+
+    Shopping *--> Address
+    Shopping *--> Product
+    Shopping *--> Sale
+
+    Product *--> Category
+    Product *--> "0..n" Image
+
+    Sale *--> "o..n" LineSale
+    Sale *--> State
+
+    LineSale "1" --> "1" Product
+@enduml

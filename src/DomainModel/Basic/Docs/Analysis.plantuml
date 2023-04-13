@@ -166,7 +166,7 @@
             TicTacToe *--> Turn
             TicTacToe *--> "2" Player
 
-            class Board{
+            class Board{    
                 ~Board()
                 ~NewGame()
                 ~Write()
