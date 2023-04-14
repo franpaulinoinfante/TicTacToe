@@ -23,7 +23,7 @@
 
     internal void Next()
     {
-        _current = Changer();
+        _current = (_current + 1) % Turn.NumPlayers;
     }
 
     private int Changer()
