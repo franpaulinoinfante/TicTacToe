@@ -24,6 +24,11 @@
             -   [Design Resume](#Design-Resume)  
         -   [Class Design](#Class-Design)  
             -   [TicTacToe Class Design](#TicTacToe-Class-Design)  
+            -   [Turn Class Design](#Turn-Class-Design)  
+            -   [Player Class Design](#Player-Class-Design)  
+            -   [Board Class Design](#Board-Class-Design)  
+            -   [Enums Design](#Enums-Design)  
+            -   [Types Class Design](#Types-Class-Design)  
 
 ## Requirements
 
