@@ -1,0 +1,26 @@
+@startuml Implementation View
+    package "  " as TicTacToe.ConsoleApp {
+    }
+
+    package "  " as System.IO {
+    }    
+
+    [TicTacToe.exe] as exe
+
+    exe *--> TicTacToe.ConsoleApp
+    exe *--> System.IO
+@enduml
+
+@startuml Deplyoment
+    title Deplyoment
+
+    node node #DDDDDD [
+    <b>Personal Computer</b>
+    ----
+
+    ]
+
+    [ TicTacToe.exe ] as component
+
+    node *--> component
+@enduml

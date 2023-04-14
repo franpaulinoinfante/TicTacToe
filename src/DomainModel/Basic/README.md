@@ -29,6 +29,8 @@
             -   [Board Class Design](#Board-Class-Design)  
             -   [Enums Design](#Enums-Design)  
             -   [Types Class Design](#Types-Class-Design)  
+    -   [Implementation](#Implementation)  
+    -   [Deployment](#Deployment)  
 
 ## Requirements
 
@@ -280,4 +282,6 @@ Thanks, Good Bye!!
 
 ![image](https://user-images.githubusercontent.com/46433173/232085042-9c3d957d-8277-4270-931e-b40f03e71d77.png)
 
+## Implementation
 
+## Deploymnet
