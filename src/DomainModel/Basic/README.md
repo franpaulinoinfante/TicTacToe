@@ -23,7 +23,7 @@
             -   [Design Play](#Play-Play)  
             -   [Design Resume](#Design-Resume)  
         -   [Class Design](#Class-Design)  
-            -   [TicTacToe Class Design](#TicTacToe-Class-Design)  
+            -   [TicTacToe Class Design](*TicTacToe-Class-Design)  
 
 **TicTacToe Class Design**
 
