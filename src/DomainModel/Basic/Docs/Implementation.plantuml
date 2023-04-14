@@ -11,16 +11,3 @@
     exe *--> System.IO
 @enduml
 
-@startuml Deplyoment
-    title Deplyoment
-
-    node node #DDDDDD [
-    <b>Personal Computer</b>
-    ----
-
-    ]
-
-    [ TicTacToe.exe ] as component
-
-    node *--> component
-@enduml
