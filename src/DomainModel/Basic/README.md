@@ -23,34 +23,7 @@
             -   [Design Play](#Play-Play)  
             -   [Design Resume](#Design-Resume)  
         -   [Class Design](#Class-Design)  
-            -   [TicTacToe Class Design](*TicTacToe-Class-Design)  
-
-**TicTacToe Class Design**
-
-![image](https://user-images.githubusercontent.com/46433173/232084527-578032c8-8bb3-43fb-a0f7-1172bce17dcb.png)
-
-**Turn Class Design**
-
-![image](https://user-images.githubusercontent.com/46433173/232084668-fe81456a-885d-4e1e-8871-695b8c1c77d5.png)
-
-**Player Class Design**
-
-![image](https://user-images.githubusercontent.com/46433173/232084767-0e81acbb-2c3c-42ff-8466-66e846aea41c.png)
-
-**Board Class Design**
-
-![image](https://user-images.githubusercontent.com/46433173/232084842-cb5ae4ce-aa93-4311-8bf3-747940dcccb5.png)
-
-**Enums Design**
-
-![image](https://user-images.githubusercontent.com/46433173/232084955-dcb09ed6-650d-4521-9693-fb1ed33991c0.png)
-
-**Types Class Design**
-
-![image](https://user-images.githubusercontent.com/46433173/232085042-9c3d957d-8277-4270-931e-b40f03e71d77.png)
-
-
-
+            -   [TicTacToe Class Design](#TicTacToe-Class-Design)  
 
 ## Requirements
 
@@ -264,48 +237,41 @@ Thanks, Good Bye!!
 
 ### Design Use Cases
 
-**Start Use Case Design**
+#### Design Start
 
 ![image](https://user-images.githubusercontent.com/46433173/232084089-0eaa56a9-0bd6-4052-84a1-5a05e940d87f.png)
 
-**Play Use Case Design**
+#### Design Play
 
 ![image](https://user-images.githubusercontent.com/46433173/232084223-4e377ed6-a3d0-4bfa-acc4-a89ea435c116.png)
 
-**Resume Use Case Design**
+#### Design Resume
 
 ![image](https://user-images.githubusercontent.com/46433173/232084346-0a8a2668-939a-49bd-a6a9-df6114a0535d.png)
 
-
-### Design Start
-
-### Design Play
-
-### Design Resume
-
 ### Class Design
 
-**TicTacToe Class Design**
+#### TicTacToe Class Design
 
 ![image](https://user-images.githubusercontent.com/46433173/232084527-578032c8-8bb3-43fb-a0f7-1172bce17dcb.png)
 
-**Turn Class Design**
+#### Turn Class Design
 
 ![image](https://user-images.githubusercontent.com/46433173/232084668-fe81456a-885d-4e1e-8871-695b8c1c77d5.png)
 
-**Player Class Design**
+#### Player Class Design
 
 ![image](https://user-images.githubusercontent.com/46433173/232084767-0e81acbb-2c3c-42ff-8466-66e846aea41c.png)
 
-**Board Class Design**
+#### Board Class Design
 
 ![image](https://user-images.githubusercontent.com/46433173/232084842-cb5ae4ce-aa93-4311-8bf3-747940dcccb5.png)
 
-**Enums Design**
+#### Enums Design
 
 ![image](https://user-images.githubusercontent.com/46433173/232084955-dcb09ed6-650d-4521-9693-fb1ed33991c0.png)
 
-**Types Class Design**
+#### Types Class Design
 
 ![image](https://user-images.githubusercontent.com/46433173/232085042-9c3d957d-8277-4270-931e-b40f03e71d77.png)
 
