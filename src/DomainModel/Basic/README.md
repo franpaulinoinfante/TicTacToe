@@ -40,6 +40,12 @@
 - **Distribution:** Standalone  
 - **Persistence:** No  
 
+## Use Cases
+
+|   Use Case View    |   Use Case Context   |
+| ![image](https://user-images.githubusercontent.com/46433173/232233785-773c6b10-7d1b-4e4a-98dd-00dcf65545f8.png) |  Pic here   |
+| :------ | : ------ |
+
 ## Use Case Specifications
 
 ### Specifications Start
