@@ -2,6 +2,7 @@
 
 **Index**
 - [Requirements](#Requirements)  
+    -   [Use Cases](#Use-Cases)
     -   [Use Case Specifications](#Use-Case-Specifications)   
         -   [Specifications Start](#Specifications-Start)  
         -   [Specifications Play](#Specifications-Play)  
