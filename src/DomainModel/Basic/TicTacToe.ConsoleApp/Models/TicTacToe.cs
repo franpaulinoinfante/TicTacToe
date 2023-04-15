@@ -19,8 +19,8 @@
             Play();
         } while (Resume());
 
+        Task.Delay(1500);
         Message.Goodbye.WriteLine();
-        Task.Delay(400);
     }
 
     private void Start()
@@ -55,7 +55,6 @@
             }
 
             _board.Write();
-            var tokenss = _players[_turn.GetCurrentPlayer()].GetToken();
         } while (!_board.IsTicTacToe(_players[_turn.GetCurrentPlayer()].GetToken()));
 
         Message.WinnerMessage.WriteLine(_players[_turn.GetCurrentPlayer()].GetToken().ToString());
@@ -63,6 +62,6 @@
 
     private bool Resume()
     {
-        return _players[_turn.GetCurrentPlayer()].Continue();
+        return _players[_turn.GetCurrentPlayer()].IsContinue();
     }
 }
