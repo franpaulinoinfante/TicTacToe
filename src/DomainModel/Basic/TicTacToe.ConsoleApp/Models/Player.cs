@@ -109,7 +109,7 @@ internal class Player
         return Error.Null;
     }
 
-    internal bool IsContinue()
+    internal bool Continue()
     {
         YesNoDialog yesNoDialog = new YesNoDialog();
         yesNoDialog.Read(Message.Resume.ToString());
