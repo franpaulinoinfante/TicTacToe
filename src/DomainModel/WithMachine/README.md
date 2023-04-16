@@ -72,6 +72,218 @@
 
 ## Use Interface Prototype
 
+### Machine vs Machice
+
+```
+--- TIC TAC TOE ---
+
+Introduce the players [0-2]:  3
+
+-------------
+Error! 
+Players is out range
+-------------
+
+Introduce the players [0-2]:  2
+
+-------------
+|   |   |   |
+|   |   |   |
+|   |   |   |
+-------------
+
+Current turn: 
+
+
+Congratulations player: X, you WON!!!! :-)
+
+Do you want to continue? (y/n): n
+
+Thanks, Good Bye!!
+```
+
+### Player vs Machine
+
+```
+--- TIC TAC TOE ---
+
+Introduce the players [0-2]:  
+
+-------------
+|   |   |   |
+|   |   |   |
+|   |   |   |
+-------------
+
+Current turn: 
+
+
+Congratulations player: X, you WON!!!! :-)
+
+Do you want to continue? (y/n): n
+
+Thanks, Good Bye!!
+```
+
+### Player vs Player
+
+```
+--- TIC TAC TOE ---
+
+Introduce the players [0-2]:  
+
+-------------
+|   |   |   |
+|   |   |   |
+|   |   |   |
+-------------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 5
+Column: -3
+
+-------------
+Error! 
+The coordinate is out range
+-------------
+
+Enter a coordinate to put a token:
+Row: 2
+Column: 2
+-------------
+|   |   |   |
+|   | X |   |
+|   |   |   |
+-------------
+
+Curren turn: O
+Enter a coordinate to put a token:
+Row: 2
+Column: 2
+
+-------------
+Error!
+The square is occupied
+-------------
+
+Enter a coordinate to put a token:
+Row: 3
+Column: 3
+-------------
+|   |   |   |
+|   | X |   |
+|   |   | O |
+-------------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 1
+Column: 1
+-------------
+| X |   |   |
+|   | X |   |
+|   |   | O |
+-------------
+
+Current turn: O
+Enter a coordinate to put a token:
+Row: 3
+Column: 1
+-------------
+| X |   |   |
+|   | X |   |
+| O |   | O |
+-------------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 3
+Column: 2
+-------------
+| X |   |   |
+|   | X |   |
+| O | X | O |
+-------------
+
+Current turn: O
+Enter a coordinate to put a token:
+Row: 1
+Column: 2
+-------------
+| X | O |   |
+|   | X |   |
+| O | X | O |
+-------------
+
+Current turn: X
+Enter the origin coordinate to move
+Row: 3
+Column: 3
+
+-------------
+Error!
+Token is not of current player
+-------------
+
+Enter the origin coordinate to move
+Row: 1
+Column: 1
+
+Enter the target coordinate to move
+Row: 1
+Column: 1
+
+-------------
+Error!
+The squares of origin and destination cannot be the same.
+-------------
+
+Enter the target coordinate to move
+Row: 2
+Column: 1
+-------------
+|   | O |   |
+| X | X |   |
+| O | X | O |
+-------------
+
+Current turn: O
+Enter the origin coordinate to move
+Row: 3
+Column: 1
+
+Enter the target coordinate to move
+Row: 1
+Column: 1
+-------------
+| O | O |   |
+| X | X |   |
+|   | X | O |
+-------------
+
+Current turn: X
+Enter the origin coordinate to move
+Row: 3
+Column: 2
+
+Enter the target coordinate to move
+Row: 2
+Column: 3
+-------------
+|   | O |   |
+| X | X | X |
+| O |   | O |
+-------------
+
+Congratulations player: X, you WON!!!! :-)
+
+Do you want to continue? (y/n): n
+
+Thanks, Good Bye!!
+```
+
+
 ## Analysis
 
 #### Use Cases Analysis
