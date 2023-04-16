@@ -74,8 +74,7 @@
 
 | Machine vs Machice | Player vs Machine |  Player vs Player |
 | :------- | :------: |  :------: | 
-|    
-```
+| ```
 --- TIC TAC TOE ---
 
 Introduce the players [0-2]:  3
@@ -101,7 +100,33 @@ Do you want to continue? (y/n): n
 
 Thanks, Good Bye!!
 ```    
-|    2     |     3     | 
+| ```
+--- TIC TAC TOE ---
+
+Introduce the players [0-2]:  3
+
+-------------
+Error! 
+Players is out range
+-------------
+
+Introduce the players [0-2]:  2
+
+-------------
+|   |   |   |
+|   |   |   |
+|   |   |   |
+-------------
+
+Current turn: 
+
+Congratulations player: X, you WON!!!! :-)
+
+Do you want to continue? (y/n): n
+
+Thanks, Good Bye!!
+```    
+|     3     | 
 
 ### Machine vs Machice
 
