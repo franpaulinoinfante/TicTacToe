@@ -117,7 +117,6 @@
     state N as " "
     state O as " "
     state P as " "
-    state Q as " "
     state if1 <<choice>>
     state if2 <<choice>>
     state if3 <<choice>>
