@@ -5,6 +5,7 @@
     -   [Use Cases](#Use-Cases)
     -   [Initial Description of Use Cases](#Initial-Description-of-Use-Cases)  
     -   [Use Case Specifications](#Use-Case-Specifications)   
+        -   [Configure Players](#Configure-Players)   
         -   [Specifications Start](#Specifications-Start)  
         -   [Specifications Play](#Specifications-Play)  
         -   [Specifications-Resume](#Specifications-Resume)  
@@ -53,11 +54,21 @@
 
 ## Use Case Specifications
 
+## Configure Players
+
+![image](https://user-images.githubusercontent.com/46433173/232328353-78da963c-953c-449e-bc6c-db4965e671c1.png)
+
 ### Specifications Start
+
+![image](https://user-images.githubusercontent.com/46433173/232328321-c6724e9a-f610-48ed-af3f-8a9135d129f4.png)
 
 ### Specifications Play
 
+![image](https://user-images.githubusercontent.com/46433173/232328278-c357d51e-9548-40cc-92bf-431654771aa1.png)
+
 ### Specifications Resume
+
+![image](https://user-images.githubusercontent.com/46433173/232328263-168ba59f-081b-41c6-bb79-3f524185d063.png)
 
 ## Use Interface Prototype
 
