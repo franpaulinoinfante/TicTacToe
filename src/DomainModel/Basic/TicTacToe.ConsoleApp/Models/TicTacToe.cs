@@ -7,8 +7,13 @@
     public TicTacToe()
     {
         _board = new Board();
-        _players = new Player[Turn.NumPlayers];
+        _players = new Player[Turn.MaxPlayers];
         _turn = new Turn(_players, _board);
+    }
+
+    private Player Player()
+    {
+       return _turn.GetCurrent();
     }
 
     internal void Init()
@@ -17,7 +22,7 @@
         {
             Start();
             Play();
-        } while (Resume());
+        } while (IsResume());
 
         Message.Goodbye.WriteLine();
         Task.Delay(400);
@@ -32,10 +37,10 @@
 
     private void NewGame()
     {
-        _board.NewGame();
+        _board.Reset();
         for (int i = 0; i < _players.Length; i++)
         {
-            _players[i].NewGame();
+            _players[i].Reset();
         }
     }
 
@@ -44,25 +49,24 @@
         do
         {
             _turn.Next();
-            Message.CurrentTurn.WriteLine(_players[_turn.GetCurrentPlayer()].GetToken().ToString());
-            if (_players[_turn.GetCurrentPlayer()].HasToken())
+            Message.CurrentTurn.WriteLine(_players[(int)Player().GetToken()].GetToken().ToString());
+            if (_players[(int)Player().GetToken()].HasToken())
             {
-                _players[_turn.GetCurrentPlayer()].PutToken();
+                _players[(int)Player().GetToken()].PutToken();
             }
             else
             {
-                _players[_turn.GetCurrentPlayer()].MoveToken();
+                _players[(int)Player().GetToken()].MoveToken();
             }
 
             _board.Write();
-            var tokenss = _players[_turn.GetCurrentPlayer()].GetToken();
-        } while (!_board.IsTicTacToe(_players[_turn.GetCurrentPlayer()].GetToken()));
+        } while (!_board.IsTicTacToe(Player().GetToken()));
 
-        Message.WinnerMessage.WriteLine(_players[_turn.GetCurrentPlayer()].GetToken().ToString());
+        Message.WinnerMessage.WriteLine(Player().GetToken().ToString());
     }
 
-    private bool Resume()
+    private bool IsResume()
     {
-        return _players[_turn.GetCurrentPlayer()].Continue();
+        return _players[(int)Player().GetToken()].IsContinue();
     }
 }

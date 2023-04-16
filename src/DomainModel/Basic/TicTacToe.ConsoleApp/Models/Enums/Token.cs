@@ -1,4 +1,6 @@
-﻿internal enum Token
+﻿using System.Runtime.InteropServices;
+
+internal enum Token
 {
     X,
     O,
@@ -7,7 +9,7 @@
 
 internal static class TokenExtension
 {
-    internal static string GetToken(this Token token)
+    internal static string ToString(this Token token)
     {
         return token.IsNull() ? " " : token.ToString();
     }

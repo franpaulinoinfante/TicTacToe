@@ -14,10 +14,10 @@ internal class Player
         _token = token;
         _board = board;
 
-        NewGame();
+        Reset();
     }
 
-    internal void NewGame()
+    internal void Reset()
     {
         _tokenCount = Player.MaxToken;
     }
@@ -109,7 +109,7 @@ internal class Player
         return Error.Null;
     }
 
-    internal bool Continue()
+    internal bool IsContinue()
     {
         YesNoDialog yesNoDialog = new YesNoDialog();
         yesNoDialog.Read(Message.Resume.ToString());

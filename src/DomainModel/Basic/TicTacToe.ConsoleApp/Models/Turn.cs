@@ -1,6 +1,6 @@
 ﻿internal class Turn
 {
-    internal const int NumPlayers = 2;
+    internal const int MaxPlayers = 2;
 
     private Player[] _players;
     private int _current;
@@ -8,7 +8,7 @@
     public Turn(Player[] players, Board _board)
     {
         _players = players;
-        for (int i = 0; i < Turn.NumPlayers; i++)
+        for (int i = 0; i < Turn.MaxPlayers; i++)
         {
             _players[i] = new Player(Enum.GetValues<Token>()[i], _board);
         }
@@ -21,13 +21,18 @@
         return _current;
     }
 
+    internal Player GetCurrent()
+    {
+        return _players[_current];
+    }
+
     internal void Next()
     {
-        _current = (_current + 1) % Turn.NumPlayers;
+        _current = (_current + 1) % Turn.MaxPlayers;
     }
 
     private int Changer()
     {
-        return (_current + 1) % Turn.NumPlayers;
+        return (_current + 1) % Turn.MaxPlayers;
     }
 }

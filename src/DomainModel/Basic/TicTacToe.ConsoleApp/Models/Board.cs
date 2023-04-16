@@ -9,7 +9,7 @@ internal class Board
         _tokens = new Token[Coordinate.Dimension, Coordinate.Dimension];
     }
 
-    internal void NewGame()
+    internal void Reset()
     {
         for (int i = 0; i < Coordinate.Dimension; i++)
         {
@@ -126,7 +126,7 @@ internal class Board
             Message.VerticalLine.Write();
             for (int j = 0; j < Coordinate.Dimension; j++)
             {
-                ConsoleIO.Instance.Write(_tokens[i, j].GetToken());
+                ConsoleIO.Instance.Write(TokenExtension.ToString(_tokens[i, j]));
                 Message.VerticalLine.Write();
             }
             ConsoleIO.Instance.WriteLine();
