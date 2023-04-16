@@ -10,7 +10,7 @@
         -   [Specifications Play](#Specifications-Play)  
         -   [Specifications-Resume](#Specifications-Resume)  
     -   [Use Interface Prototype](#Use-Interface-Prototype)  
-        -   [Player vs Machine](#Player =-vs-Machine)  
+        -   [Player vs Machine](#Player-vs-Machine)  
         -   [Player vs Machine](#Player-vs-Machine)  
         -   [Player vs Player](#Player-vs-Player)  
     -   [Analysis](#Analysis)  
