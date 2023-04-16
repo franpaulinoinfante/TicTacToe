@@ -10,6 +10,9 @@
         -   [Specifications Play](#Specifications-Play)  
         -   [Specifications-Resume](#Specifications-Resume)  
     -   [Use Interface Prototype](#Use-Interface-Prototype)  
+        -   [Player vs Machine](#Player =-vs-Machine)  
+        -   [Player vs Machine](#Player-vs-Machine)  
+        -   [Player vs Player](#Player-vs-Player)  
     -   [Analysis](#Analysis)  
         -   [Analysis Architecture](#Analysis-Architecture)  
         -   [Use Case Analysis](#Use-Case-Analysis)  
@@ -71,6 +74,29 @@
 ![image](https://user-images.githubusercontent.com/46433173/232328263-168ba59f-081b-41c6-bb79-3f524185d063.png)
 
 ## Use Interface Prototype
+
+### Player vs Machine
+
+```
+--- TIC TAC TOE ---
+
+Introduce the players [0-2]:  
+
+-------------
+|   |   |   |
+|   |   |   |
+|   |   |   |
+-------------
+
+Current turn: 
+
+
+Congratulations player: X, you WON!!!! :-)
+
+Do you want to continue? (y/n): n
+
+Thanks, Good Bye!!
+```
 
 ### Player vs Machine
 
