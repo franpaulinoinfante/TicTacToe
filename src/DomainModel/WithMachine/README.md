@@ -74,7 +74,8 @@
 
 | Machine vs Machice | Player vs Machine |  Player vs Player |
 | :------- | :------: |  :------: | 
-| ```
+| 
+```
 --- TIC TAC TOE ---
 
 Introduce the players [0-2]:  3
@@ -100,7 +101,8 @@ Do you want to continue? (y/n): n
 
 Thanks, Good Bye!!
 ```    
-| ```
+| 
+```
 --- TIC TAC TOE ---
 
 Introduce the players [0-2]:  3
