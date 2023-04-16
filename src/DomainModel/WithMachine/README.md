@@ -3,6 +3,7 @@
 **Index**
 - [Requirements](#Requirements)  
     -   [Use Cases](#Use-Cases)
+    -   [Initial Description of Use Cases](#Initial-Description-of-Use-Cases)  
     -   [Use Case Specifications](#Use-Case-Specifications)   
         -   [Specifications Start](#Specifications-Start)  
         -   [Specifications Play](#Specifications-Play)  
@@ -40,6 +41,13 @@
 | Use Case View | Use Case Context |  
 | :------- | :------: | 
 | ![image](https://user-images.githubusercontent.com/46433173/232233785-773c6b10-7d1b-4e4a-98dd-00dcf65545f8.png) | ![image](https://user-images.githubusercontent.com/46433173/232234032-ac7baa56-abba-453d-97af-50ee7721d64e.png) |  
+
+## Initial Description of Use Cases
+
+| Use Case | Description |  
+| :------- | :------: | 
+| Configure Player | Select  |  
+
 
 
 ## Use Case Specifications

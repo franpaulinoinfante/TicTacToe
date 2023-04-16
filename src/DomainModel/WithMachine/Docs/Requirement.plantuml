@@ -1,0 +1,54 @@
+@startuml Use Cases 
+    !theme blueprint
+    title Use Cases View    
+
+    actor Player as P <<Player>>
+    actor UserPlayer
+    actor MachinePlayer
+    rectangle Features{
+        usecase ConfigurePlayers
+        usecase Start
+        usecase Play
+        usecase Resume
+    }
+
+    P <|-down- UserPlayer
+    P <|-down- MachinePlayer
+
+    P -right-> ConfigurePlayers
+    P -right-> Start
+    P -right-> Play
+    P -right-> Resume
+@enduml
+
+@startuml Use Cases Context
+    !theme blueprint
+    title Use Cases Context
+
+    state IN_CONFIGURATION
+    state INITIAL
+    state IN_GAME
+    state OUT_GAME
+    state EXIT
+    state if1 <<choice>>
+    state if2 <<choice>>
+
+    [*] --> IN_CONFIGURATION
+    IN_CONFIGURATION --> INITIAL : Configure Player
+    INITIAL --> IN_GAME : Start
+    IN_GAME --> if1 : Play
+        if1 --> IN_GAME
+    if1 --> OUT_GAME : [Is Finished]
+    OUT_GAME --> if2 : Resume
+        if2 --> IN_CONFIGURATION : [Is Continue]
+    if2 --> EXIT 
+    EXIT --> [*]
+@enduml
+
+@startuml Initial Description of Use Cases
+    !theme blueprint
+
+    title Initial Description of Use Cases
+    
+
+@enduml
