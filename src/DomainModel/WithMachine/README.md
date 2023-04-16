@@ -64,7 +64,7 @@
 
 ### Specifications Play
 
-![image](https://user-images.githubusercontent.com/46433173/232328278-c357d51e-9548-40cc-92bf-431654771aa1.png)
+![image](https://user-images.githubusercontent.com/46433173/232329012-1cd90dd3-59d6-4e6d-9666-85a2db8ca82b.png)
 
 ### Specifications Resume
 
