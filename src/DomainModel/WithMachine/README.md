@@ -46,10 +46,10 @@
 
 | Use Case | Description |  
 | :------- | :------: | 
-| Configure Player | Select  | 
-| Start            | Select  | 
-| Play             | Select  | 
-| Resume           | Select  |  
+| Configure Player | The system allow select one of three game options: 1. Machine vs. Machine, 2. Player vs. Machine, and 3. Player vs. Player.  | 
+| Start            | The system allow start the game. | 
+| Play             | The system allow play the game.  | 
+| Resume           | The system asks if the user wants a new game or exit.  |  
 
 ## Use Case Specifications
 
