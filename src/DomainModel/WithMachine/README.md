@@ -46,9 +46,7 @@
 
 | Use Case | Description |  
 | :------- | :------: | 
-| Configure Player | Select  |   Configure Player | Select  |   Configure Player | Select  |   Configure Player | Select  |  
-
-
+| Configure Player | Select  | Start | Select  | Play | Select  | Resume | Select  |  
 
 ## Use Case Specifications
 
