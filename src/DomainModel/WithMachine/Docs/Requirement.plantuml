@@ -149,8 +149,8 @@
     L --> M : Player introduces origin coordinate
     M --> if4
         if4 --> N 
-        N --> O : System requests to introduces coordinate to move
-        O --> P : Player introduces coordinate to move
+        N --> O : System requests to introduces target coordinate to move
+        O --> P : Player introduces target coordinate to move
         P --> if5
             if5 --> E
         if5 --> I : [Error!!!]
