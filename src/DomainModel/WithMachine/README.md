@@ -72,6 +72,10 @@
 
 ## Use Interface Prototype
 
+| Machine vs Machice | Player vs Machine |  Player vs Player |
+| :------- | :------: |  :------: | 
+|    1     |    2     |     3     | 
+
 ### Machine vs Machice
 
 ```
