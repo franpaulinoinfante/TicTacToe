@@ -45,10 +45,144 @@
     EXIT --> [*]
 @enduml
 
-@startuml Initial Description of Use Cases
+@startuml Configure Players Specification
     !theme blueprint
 
-    title Initial Description of Use Cases
-    
+    title Configure Players Specification
 
+    state CONFIGURE_PLAYER
+    state INITIAL
+    state A as " "
+    state B as " "
+    state C as " "
+    state D as " "
+    state E as " "
+    state if1 <<choice>>
+    state if2 <<choice>>
+
+    [*] --> CONFIGURE_PLAYER
+    CONFIGURE_PLAYER --> A : Player requests Configure Players
+    A --> B : System requests to select one option of three game options
+    B --> C : Player introduces the option
+    C --> if1 
+        if1 -right-> E : Error! 
+            note on link
+                Option select is not valid
+            endnote
+        E -up-> if2 : System show the errors
+        if2 -left-> B
+    if1 --> D
+    D --> INITIAL : System allow start the game
+    INITIAL --> [*]
 @enduml
+
+@startuml Start Specification
+    !theme blueprint
+
+    title Specification Start
+
+    state INITIAL
+    state IN_GAME
+    state A as " "
+    state B as " "
+    state C as " "
+
+    [*] --> INITIAL
+    INITIAL --> A : Player requests to start a new game
+    A --> B : System allows start new game
+    B --> C : System show the title and grid
+    C --> IN_GAME : System allows play
+    IN_GAME --> [*]
+@enduml
+
+@startuml Play Specifications
+    !theme blueprint
+
+    title Play Specifications
+    
+    state IN_GAME
+    state OUT_GAME
+    state A as " "
+    state B as " "
+    state C as " "
+    state D as " "
+    state E as " "
+    state F as " "
+    state G as " "
+    state H as " "
+    state I as " "
+    state K as " "
+    state L as " "
+    state M as " "
+    state N as " "
+    state O as " "
+    state P as " "
+    state Q as " "
+    state if1 <<choice>>
+    state if2 <<choice>>
+    state if3 <<choice>>
+    state if4 <<choice>>
+    state if5 <<choice>>
+
+    [*] --> IN_GAME
+    IN_GAME --> A : Player requests to play
+    A --> if1
+        if1 --> B  : [Token of current player on grid < 3]
+        B --> C : System requests to introduce target coordinate to put
+        C --> D : Player introduces target coordinate
+        D --> if2
+            if2 --> E 
+            E --> if3 : System show update grid
+                if3 --> F
+                F --> G : System change turn
+                G --> [*] : The system allows it to continue playing
+            if3 --> H : [Is Winner]
+            H --> OUT_GAME : System show winner message
+        if2 --> I : [Error!!!]
+            note on link
+                Coordinate out of range
+                Square is occupied
+            endnote
+        I --> G : System show message error
+    if1 --> K
+    K --> L : System requests to introduce origin coordinate to move
+    L --> M : Player introduces origin coordinate
+    M --> if4
+        if4 --> N 
+        N --> O : System requests to introduces coordinate to move
+        O --> P : Player introduces coordinate to move
+        P --> if5
+            if5 --> E
+        if5 --> I : [Error!!!]
+            note on link
+                Coordinate is out of range
+                The origin and origin coordinate cannot be the same
+            endnote
+    if4 --> I : [Error!!!]        
+        note on link
+            The Coordinate is out of range
+            The token in this coordinate it's not your!
+        endnote      
+    OUT_GAME --> [*] : System allow to Resume
+@enduml
+
+@startuml Resume Specification
+    !theme blueprint
+
+    title Resume Specification
+    
+    state OUT_GAME
+    state CONFIGURE_PLAYER
+    state EXIT
+    state A as " "
+    state if1 <<choice>>
+
+    [*] --> OUT_GAME
+    OUT_GAME --> A : Player requests to resume
+    A --> if1 : System asks if player wants to continue
+    if1 --> CONFIGURE_PLAYER : Player respond yes
+        CONFIGURE_PLAYER --> [*]
+    if1 --> EXIT : Player answers no
+        EXIT --> [*]
+@enduml
+
