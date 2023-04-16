@@ -80,7 +80,7 @@
 ```
 --- TIC TAC TOE ---
 
-Introduce the players [0-2]:  
+Introduce the players [0-2]: 0
 
 -------------
 |   |   |   |
@@ -88,14 +88,94 @@ Introduce the players [0-2]:
 |   |   |   |
 -------------
 
-Current turn: 
+Current turn: O
+Coordinate to put: [1,1]
+-------------
+| O |   |   |
+|   |   |   |
+|   |   |   |
+-------------
 
+Current turn: X
+Coordinate to put: [1,3]
+-------------
+| O |   | X |
+|   |   |   |
+|   |   |   |
+-------------
+
+Current turn: O
+Coordinate to put: [3,2]
+-------------
+| O |   | X |
+|   |   |   |
+|   | O |   |
+-------------
+
+Current turn: X
+Coordinate to put: [2,2]
+-------------
+| O |   | X |
+|   | X |   |
+|   | O |   |
+-------------
+
+Current turn: O
+Coordinate to put: [3,3]
+-------------
+| O |   | X |
+|   | X |   |
+|   | O | O |
+-------------
+
+Current turn: X
+Coordinate to put: [1,2]
+-------------
+| O | X | X |
+|   | X |   |
+|   | O | O |
+-------------
+
+Current turn: O
+Origin coordinate to move: [3,2]
+Target coordinate to move: [2,3]
+-------------
+| O | X | X |
+|   | X | O |
+|   | O |   |
+-------------
+
+Current turn: X
+Origin coordinate to move: [2,2]
+Target coordinate to move: [3,1]
+-------------
+| O | X | X |
+|   |   | O |
+| X | O |   |
+-------------
+
+Current turn: O
+Origin coordinate to move: [1,1]
+Target coordinate to move: [3,3]
+-------------
+|   | X | X |
+|   |   | O |
+| X | O | O |
+-------------
+
+Current turn: X
+Origin coordinate to move: [1,2]
+Target coordinate to move: [2,2]
+-------------
+|   |   | X |
+|   | X | O |
+| X | O | O |
+-------------
 
 Congratulations player: X, you WON!!!! :-)
 
-Do you want to continue? (y/n): n
+Do you want to continue? (y/n): y
 
-Thanks, Good Bye!!
 ```
 
 ### Player vs Machine
@@ -103,7 +183,7 @@ Thanks, Good Bye!!
 ```
 --- TIC TAC TOE ---
 
-Introduce the players [0-2]:  
+Introduce the players [0-2]:  1
 
 -------------
 |   |   |   |
@@ -111,14 +191,73 @@ Introduce the players [0-2]:
 |   |   |   |
 -------------
 
-Current turn: 
+Current turn: O
+Coordinate to put: [1,1]
+-------------
+| O |   |   |
+|   |   |   |
+|   |   |   |
+-------------
 
+Current turn: X
+Enter a coordinate to put a token:
+Row: 2
+Column: 2
+-------------
+| O |   |   |
+|   | X |   |
+|   |   |   |
+-------------
 
-Congratulations player: X, you WON!!!! :-)
+Current turn: O
+Coordinate to put: [3,2]
+-------------
+| O |   |   |
+|   | X |   |
+|   |   | O |
+-------------
 
-Do you want to continue? (y/n): n
+Current turn: X
+Enter a coordinate to put a token:
+Row: 3
+Column: 1
+-------------
+| O |   |   |
+|   | X |   |
+| X |   | O |
+-------------
 
-Thanks, Good Bye!!
+Current turn: O
+Coordinate to put: [1,3]
+-------------
+| O |   | O |
+|   | X |   |
+| X |   | O |
+-------------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 3
+Column: 2
+-------------
+| O |   | O |
+|   | X |   |
+| X | X | O |
+-------------
+
+Current turn: O
+Origin coordinate to move: [1,1]
+Target coordinate to move: [2,3]
+-------------
+|   |   | O |
+|   | X | O |
+| X | X | O |
+-------------
+
+Congratulations player: O, you WON!!!! :-)
+
+Do you want to continue? (y/n): y
+
 ```
 
 ### Player vs Player
@@ -126,8 +265,7 @@ Thanks, Good Bye!!
 ```
 --- TIC TAC TOE ---
 
-Introduce the players [0-2]:  
-
+Introduce the players [0-2]: 2
 -------------
 |   |   |   |
 |   |   |   |
@@ -275,7 +413,6 @@ Column: 3
 Congratulations player: X, you WON!!!! :-)
 
 Do you want to continue? (y/n): n
-
 Thanks, Good Bye!!
 ```
 
