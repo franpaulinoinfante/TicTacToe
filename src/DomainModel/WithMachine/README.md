@@ -46,7 +46,7 @@
 
 | Use Case | Description |  
 | :------- | :------: | 
-| Configure Player | Select  |  
+| Configure Player | Select  |   Configure Player | Select  |   Configure Player | Select  |   Configure Player | Select  |  
 
 
 
