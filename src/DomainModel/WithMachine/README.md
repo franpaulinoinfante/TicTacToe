@@ -1,4 +1,4 @@
-# ------------- TicTacToe Domain Model Version -------------
+# ------------- TicTacToe Domain Model Version With Machine Player -------------
 
 **Index**
 - [Requirements](#Requirements)  
@@ -480,11 +480,24 @@ Thanks, Good Bye!!
 
 ### Design Use Cases
 
+![image](https://user-images.githubusercontent.com/46433173/232539276-52622330-b16d-4358-8aab-0e713975a1a7.png)
+
+#### Design Player Configuration
+
+![image](https://user-images.githubusercontent.com/46433173/232539167-7f530937-07af-4533-92dc-fa7d4197c715.png)
+
 #### Design Start
+
+![image](https://user-images.githubusercontent.com/46433173/232539065-12254b45-9e27-47b9-8774-30107c0a467d.png)
 
 #### Design Play
 
+![image](https://user-images.githubusercontent.com/46433173/232539005-8924746f-f5c2-4218-92ab-a74797f272f4.png)
+
 #### Design Resume
+
+![image](https://user-images.githubusercontent.com/46433173/232538886-97b5f3a8-ab2d-4229-b05c-da70c888f626.png)
+
 
 ### Class Design
 
