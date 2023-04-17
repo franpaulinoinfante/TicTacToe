@@ -418,17 +418,61 @@ Thanks, Good Bye!!
 
 ## Analysis
 
-#### Use Cases Analysis
+### Architecture Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232495039-8900f0bf-9b03-4530-ac35-42a26744184f.png)
+
+### Use Cases Analysis
+
+#### Configure Player Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232495472-94ff5927-befd-4b12-812c-5ef82292ecb2.png)
 
 #### Analysis Start
 
+![image](https://user-images.githubusercontent.com/46433173/232495570-b91c9bbd-dea4-4d22-ba28-70c8cdeede40.png)
+
 #### Analysis Play
+
+![image](https://user-images.githubusercontent.com/46433173/232495920-7eb0cbaa-587a-4a7d-a31b-4ab73b0924f8.png)
 
 #### Analysis Resume
 
-### Package Analysis
+![image](https://user-images.githubusercontent.com/46433173/232496240-d8b727ea-d3c7-4f73-b357-b33ac3fd3191.png)
 
 ### Class Analysis
+
+#### TicTacToe Class' Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232497248-b90cfdcf-9693-4202-b16b-29ada3a29115.png)
+
+#### Turn Class' Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232497362-992fd85f-0011-4a4c-beb3-48ca4c859aa6.png)
+
+#### Player Class' Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232497517-d84ba170-76fb-410e-a09b-06c5c300f21d.png)
+
+#### Board Class' Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232497801-a0092e57-e354-42ac-b452-4b064e2ae907.png)
+
+#### PlayerConfiguration Class' Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232498030-d5662946-5fbd-4b5f-bd10-9b7c7d2b0d14.png)
+
+#### Types Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232500973-2ea97fb7-361c-49e6-9ee8-c6dc9201b219.png)
+
+#### Enums Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232498201-cf102c6f-68ca-4c2b-9a55-0ca0895167ee.png)
+
+### Package Analysis
+
+![image](https://user-images.githubusercontent.com/46433173/232501041-e6b982a0-72cf-4ece-978f-7692acd08c34.png)
 
 ## Design
 
