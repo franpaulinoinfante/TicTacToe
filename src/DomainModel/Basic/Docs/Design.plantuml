@@ -18,7 +18,7 @@
 
             Enums ..> ConsoleIOs
 
-        ConsoleIOs ..> System.IO
+            ConsoleIOs ..> System.IO
         }
     }
 @enduml
