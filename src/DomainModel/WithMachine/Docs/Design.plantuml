@@ -33,3 +33,200 @@
     IO ..> System
 @enduml
 
+@startuml Use Case Design ConfigurePlayer
+    !theme blueprint
+    allow_mixing
+    title Use Case Design - ConfigurePlayer
+    
+    actor "Player" as User
+    
+    package Models{
+        object ":TicTacToe" as TicTacToe{
+        }    
+        object ":PlayerConfiguration" as PlayerConfiguration{
+        }        
+        object ":Player" as Player{
+        }    
+    }
+
+    package Enums{
+        object ":Message" as Message{
+        }    
+        object ":Error" as Error{
+        }    
+        object ":Token" as Token{
+        }    
+    }
+
+    package ConsoleIOs{                
+        object ":ConsoleIO" as ConsoleIO{
+        }    
+    }
+
+    User --> TicTacToe : ConfigurePlayer()
+        TicTacToe --> PlayerConfiguration : ConfigurePlayer()
+            PlayerConfiguration --> Message : GetMessage()
+            PlayerConfiguration --> ConsoleIO : ReadInt(Message)
+            PlayerConfiguration --> Error : IsNull() \nWriteLine()
+                Error --> ConsoleIO : WriteLine(ErrorMessage)
+            PlayerConfiguration --> Token : GetTokens()
+            PlayerConfiguration --> Player : Create(Token)
+
+@enduml
+
+@startuml Use Case Design Start
+    !theme blueprint
+    allow_mixing
+    title Use Case Design - Start
+    
+    actor "Player" as User
+    
+    package Models{
+        object ":TicTacToe" as TicTacToe{
+        }
+        object ":Board" as Board{
+        }    
+        object ":Player" as Player{
+        }    
+    }
+
+    package Enums{
+        object ":Message" as Message{
+        }    
+        object ":Token" as Token{
+        }    
+    }
+
+    package Types{                
+        object ":Coordinte" as Coordinte{
+        }    
+    }
+
+    package ConsoleIOs{                
+        object ":ConsoleIO" as ConsoleIO{
+        }    
+    }
+
+    User --> TicTacToe : Start()
+        TicTacToe --> Board : NewGame()
+            Board --> Message
+                note on link
+                    HorizontalLine.WriteLine()
+                    VerticalLine.Write()
+                endnote
+            Board --> Coordinte : GetCoordinate(i,j)
+            Board --> Token : Write()
+            Board --> ConsoleIO : WriteLine()
+        TicTacToe --> Player : NewGame()
+@enduml
+
+@startuml Use Case Design Play
+    !theme blueprint
+    allow_mixing
+    title Use Case Design - Play
+    
+    actor "Player" as User
+    
+    package Models{
+        object ":TicTacToe" as TicTacToe{
+        }
+        object ":Board" as Board{
+        }    
+        object ":Turn" as Turn{
+        }   
+        object ":Player" as Player{
+        }    
+    }
+
+    package Enums{
+        object ":Message" as Message{
+        }    
+        object ":Token" as Token{
+        }    
+        object ":Error" as Error{
+        }    
+    }
+
+    package Types{                
+        object ":Coordinte" as Coordinte{
+        }               
+        object ":ClosedInterval" as ClosedInterval{
+        }    
+    }
+
+    package ConsoleIOs{                
+        object ":ConsoleIO" as ConsoleIO{
+        }    
+    }
+
+    User --> TicTacToe : Play()
+        TicTacToe --> Turn : GetCurrent()\nChange()
+            Turn --> Player : GetPlayer()
+        TicTacToe --> Message : WriteLine(player)
+            Message --> ConsoleIO : WriteLine(player)
+        TicTacToe --> Player 
+            note on link
+                HasToken()
+                PutToken()
+                MoveToken()
+                WriteWinnerMessage()
+            endnote
+            Player --> Message : GetMessage(EnterCoordinate)\nGetMessage(EnterOriginCoordinateToMove)\nGetMessage(EnterTargetCoordinateToPut)
+            Player --> Coordinte : Read(Message)
+                Coordinte --> Message : GetRow()\nGetColunm()
+                Coordinte --> ConsoleIO : ReadInt(row)\nReadInt(colunm)
+                Coordinte --> ClosedInterval : IsValir(row)\nIsValir(colunm)
+                Coordinte --> Error : IsNull(Error)\nWriteLine(ErrorMessage)
+            Player --> Token : GetToken()
+            Player --> Board 
+                note on link
+                    PutToken(target, token)
+                    IsEmpty(target, token)
+                    MoveToken(origin, target)
+                    IsOccupied(Coordinate, Token)
+                endnote
+            Player --> Error : IsNull()\nError.WriteLine()
+                Error --> ConsoleIO : WriteLine(Error)
+        TicTacToe --> Board : IsWinner()
+@enduml
+
+@startuml Use Case Design Resume
+    !theme blueprint
+    allow_mixing
+    title Use Case Design - Resume
+    
+    actor "Player" as User
+    
+    package Models{
+        object ":TicTacToe" as TicTacToe{
+        }
+        object ":Turn" as Turn{
+        }   
+        object ":Player" as Player{
+        }    
+    }
+
+    package Enums{
+        object ":Message" as Message{
+        }    
+    }
+
+    package ConsoleIOs{                
+        object ":ConsoleIO" as ConsoleIO{
+        }             
+        object ":YesNotDialog" as YesNotDialog{
+        }    
+    }
+
+    User --> TicTacToe : IsResume()
+        TicTacToe --> Turn : GetCurrent()
+            Turn --> Player : GetPlayer()
+        TicTacToe --> Player : IsContinue()
+            Player --> Message : GetMessage(Resume)
+            Player --> YesNotDialog : Read(Message)\nIsAffirmative()
+                YesNotDialog --> ConsoleIO : ReadChar(Message)
+
+@enduml
+
+
+
