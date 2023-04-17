@@ -1,0 +1,35 @@
+@startuml Architecture Design
+    !theme blueprint
+    title Architecture Design
+
+    package TicTacToe{
+        package ConsoleApp{
+            namespace Models #Green{}
+            namespace Types #OrangeRed{}
+            namespace Enums #SaddleBrown{}
+            namespace ConsoleIOs #SeaGreen {
+            }
+            ConsoleIOs ..> IO
+
+            Models ..> Enums
+            Models ..> Types
+            Models ..> ConsoleIOs
+
+            Types ..> Enums
+            Types..> ConsoleIOs
+
+            Enums ..> ConsoleIOs
+
+            
+        }
+    }
+    TicTacToe ..> System
+
+    package System{
+    }
+    
+    package IO{
+    }
+    IO ..> System
+@enduml
+
