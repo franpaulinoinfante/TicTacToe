@@ -498,20 +498,23 @@ Thanks, Good Bye!!
 
 ![image](https://user-images.githubusercontent.com/46433173/232538886-97b5f3a8-ab2d-4229-b05c-da70c888f626.png)
 
-
 ### Class Design
 
-#### TicTacToe Class Design
+#### Architecture Design
 
-#### Turn Class Design
+![image](https://user-images.githubusercontent.com/46433173/232639693-7e56e744-646c-4672-93bf-722d90fc2953.png)
 
-#### Player Class Design
+#### Design Class Models
 
-#### Board Class Design
+![image](https://user-images.githubusercontent.com/46433173/232640067-58e6f522-f4c3-4255-8126-415870528a71.png)
 
-#### Enums Design
+#### Design Class Types
 
-#### Types Class Design
+![image](https://user-images.githubusercontent.com/46433173/232640028-517e3a65-659c-4c83-b815-522db4f788a1.png)
+
+#### Design Class Enums
+
+![image](https://user-images.githubusercontent.com/46433173/232639992-617d9018-d894-4ade-93bf-0f3b87213483.png)
 
 ## Implementation View
 
