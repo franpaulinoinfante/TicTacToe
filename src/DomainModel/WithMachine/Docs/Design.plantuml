@@ -228,5 +228,207 @@
 
 @enduml
 
+@startuml Design Class
+    !theme blueprint
+    title Design Class - Models
 
+    package TicTacToe{
+        package ConsoleApp{  
+            namespace Models{
+                class TicTacToe{
+                    ~TicTacToe()
+                    ~Run()
+                    -ConfigurePlayer(Board)
+                    -Start()
+                    -Play()
+                    -IsResume() : boolean
+                }
+                TicTacToe *--> Board
+                TicTacToe *--> Turn
+                TicTacToe *--> "2" Player
+                TicTacToe ..> PlayerConfiguration
 
+                class Board{
+                    ~Board()
+                    ~Reset()
+                    -GetToken(Coordinate)
+                    ~PutToken(Coordinate, Token)
+                    ~MoveToken(Origin, Target)
+                    ~IsTicTacToe(Token) : boolean
+                    ~IsEmpty(Coordinate) : boolean
+                    ~IsOccupied(Coordinate, Token) : boolean
+                }
+
+                class Turn{
+                    -{static}MaxPlayers
+                    -current : int
+                    ~Turn(Players)
+                    +Change()
+                    +GetCurrent() : Player
+                }
+                Turn --> "2" Player 
+
+                class Player{
+                    -tokens : int
+                    ~Player(Board, Token)
+                    ~GetToken() : Token
+                    ~HasToken() : boolean
+                    ~PutToken()
+                    ~GetCoordinate(Message) : Coordinate
+                    ~CheckErrorToPut(Coordinate) : Error
+                    ~MoveToken()
+                    ~CheckOriginErrorToMove(origin) : Error
+                    ~CheckTargetErrorToMove(origin, target) : Error
+                    ~WriteWinner()
+                }
+                Player --> Board
+
+                class PlayerConfiguration{
+                    ~PlayerConfiguration()
+                    ~ConfigurePlayer(Board) : Players
+                }
+                PlayerConfiguration ..> "2" Player
+                PlayerConfiguration ..> Board
+            }
+
+            namespace Types{
+                class Coordinate{
+                }
+                Coordinate <.up. Models.Board
+                Coordinate <.up. Models.Player
+            }
+
+            namespace Enums{
+                enum Message{
+                }
+                Message <.up. Models.Player
+
+                enum Token{
+                }
+                Token <.up. Models.Board
+                Token <.up. Models.Player
+                Token <.up. Models.PlayerConfiguration
+
+                enum Error{
+                }
+                Error <.up. Models.Player
+            }
+
+            namespace ConsoleIOs{
+                class ConsoleIO{
+                }
+                ConsoleIO <.up. Models.Player
+                ConsoleIO <.up. Models.PlayerConfiguration
+
+                class YesNotDialog{
+                }
+                YesNotDialog <.up. Models.Player
+            }
+        }
+    }
+@enduml
+
+@startuml Design Class Models
+    !theme blueprint
+    title Design Class - Models
+
+    package TicTacToe{
+        package ConsoleApp{  
+            namespace Types{
+                class Coordinate{
+                    ~{static}Dimension
+                    -row : int
+                    -colunm : int
+                    ~Coordinate()
+                    ~Coordinate(row, colunm)
+                    ~GetRow() : int
+                    ~GetColunm() : int
+                    ~Read()
+                    ~ReadRamdon()
+                    ~IsValid()
+                }
+                Coordinate ..> ClosedInterval
+                
+                class ClosedInterval{
+                    -min : int
+                    -max : int
+                    ~ClosedInterval(min, max)
+                    ~IsValid(value) : boolean
+                }
+            }
+
+            namespace Enums{
+                enum Message{
+                }
+                Message <.up. Types.Coordinate
+
+                enum Error{
+                }
+                Error <.up. Types.Coordinate
+            }
+
+            namespace ConsoleIOs{
+                class ConsoleIO{
+                }
+                ConsoleIO <.up. Types.Coordinate
+            }
+        }
+    }
+@enduml
+
+@startuml Design Class Enums
+    !theme blueprint
+    title Design Class - Enums
+
+    package TicTacToe{
+        package ConsoleApp{  
+
+            namespace Enums{
+                enum Message{
+                    +TicTacToe
+                    +HorizontalLine
+                    +VerticalLine
+                    +Row
+                    +Colunm
+                    +CurrentTurn
+                    +EnterCoordinateToPut
+                    +EnterOriginCoordinateToMove
+                    +EnterTargetCoordinateToMove
+                    +Error
+                    +WinnerMessage
+                    +Resume
+                    +Goodbye
+                    +GetToString(Message) : string
+                    +Write(Message)
+                    +WriteLine(Message)
+                    +WriteLine(Message, title)
+                }
+
+                enum Error{
+                    ~SquareIsOutOfRange
+                    ~SquareIsOccupied
+                    ~SquareIsEmpty
+                    ~TokenIsNotOfCurrentPlayer
+                    ~SquareCannotBeSameCoordinate
+                    ~Null
+                    ~IsNull(Error) : boolean
+                    ~WriteLine(Error)
+                }
+
+                enum Token{
+                    ~X
+                    ~O
+                    ~Null
+                    ~GetToString() : String
+                }
+            }
+
+            namespace ConsoleIOs{
+                class ConsoleIO{
+                }
+                ConsoleIO <.up. Enums.Message
+                ConsoleIO <.up. Enums.Error
+            }
+        }
+    }
+@enduml
