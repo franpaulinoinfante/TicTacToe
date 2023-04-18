@@ -1,4 +1,4 @@
-# ------------- TicTacToe Domain Model Version With Machine Player -------------
+# ----- TicTacToe Domain Model Version With Machine Player -----
 
 **Index**
 - [Requirements](#Requirements)  
