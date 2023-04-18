@@ -228,7 +228,7 @@
 
 @enduml
 
-@startuml Design Class
+@startuml Design Class Models
     !theme blueprint
     title Design Class - Models
 
@@ -328,9 +328,9 @@
     }
 @enduml
 
-@startuml Design Class Models
+@startuml Design Class Types
     !theme blueprint
-    title Design Class - Models
+    title Design Class - Types
 
     package TicTacToe{
         package ConsoleApp{  
