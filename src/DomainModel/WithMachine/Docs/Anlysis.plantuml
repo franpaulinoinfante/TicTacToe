@@ -181,13 +181,11 @@
 
     package TicTacToe{        
         namespace Models{
-            TicTacToe.TicTacToe *--> Turn
-    
             class Turn{
                 ~{static}MAX_PLAYER
                 ~current : int
                 ~Turn(Players)
-                ~Change()
+                ~Next()
                 ~GetCurrent() : Player
             }
             Turn *--> "2" Player
@@ -201,8 +199,6 @@
 
     package TicTacToe{        
     namespace Models{
-        TicTacToe.TicTacToe *--> "2" Player
-
             class Player{
                 ~tokes : int
                 ~Player(Board, Token)
@@ -215,6 +211,8 @@
                 ~IsResume() : boolean
                 ~WriteWinner()
             }
+            Player <|-- UserPlayer
+            Player <|-- MachinePlayer
             Player --> Board
             Player --> Token
         }
@@ -247,8 +245,6 @@
 
     package TicTacToe{
         namespace Models{
-            TicTacToe.TicTacToe *--> Board
-
             class Board{
                 ~Board()
                 ~Reset()
@@ -282,13 +278,13 @@
     title PlayerConfiguration Class' 
     package TicTacToe{
         namespace Models{
-            TicTacToe.TicTacToe ..> PlayerConfiguration
-
             class PlayerConfiguration{
                 ~PlayerConfiguration()
                 ~ConfigurePlayer() : Players
             }
             PlayerConfiguration ..> "2" Player
+            PlayerConfiguration ..> UserPlayer
+            PlayerConfiguration ..> MachinePlayer
         }
 
         namespace Enums{
@@ -323,16 +319,6 @@
         namespace Models{
             Board ..> Types.Coordinate
             Player ..> Types.Coordinate
-        }
-
-        namespace Enums{
-            enum Message{
-            }
-            Message <.up. Types.Coordinate
-
-            enum Error{
-            }
-            Error <.up. Types.Coordinate
         }
     }   
 
