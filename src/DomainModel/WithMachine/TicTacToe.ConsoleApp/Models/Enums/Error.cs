@@ -5,8 +5,8 @@
     SquareIsEmpty,
     TokenIsNotOfCurrentPlayer,
     SquareCannotBeSameCoordinate,
-    Null,
-    ErrorToEnterPlayersNumber
+    ErrorToEnterPlayersNumber,
+    Null
 }
 
 internal static class ErrorExtension
@@ -15,7 +15,7 @@ internal static class ErrorExtension
     {
         "The square is out of range",
         "The square is occupied",
-        "The square is not empty",
+        "The square is empty",
         "The token is not of current player",
         "The squares of origin and destination cannot be the same."
     };

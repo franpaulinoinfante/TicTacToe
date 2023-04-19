@@ -11,8 +11,8 @@ internal class PlayerConfiguration
 
         int playersNumber = Read();
 
-        Player[] players = new Player[Turn.PlayersNumber];
-        for (int i = 0; i < Turn.PlayersNumber; i++)
+        Player[] players = new Player[Turn.MaxPlayers];
+        for (int i = 0; i < Turn.MaxPlayers; i++)
         {
             if (i < playersNumber)
             {
@@ -33,7 +33,7 @@ internal class PlayerConfiguration
         Error error;
         do
         {
-            players = ConsoleIO.Instance.ReadInt(Message.EnterThePlaresNumber.GetString());
+            players = ConsoleIO.Instance.ReadInt(Message.EnterThePlayersNumber.GetToString());
             error = CheckErrorToEnterPlayersNumber(players);
         } while (!error.IsNull());
 
@@ -42,6 +42,6 @@ internal class PlayerConfiguration
 
     private Error CheckErrorToEnterPlayersNumber(int players)
     {
-        return (players < 0) || (players > Turn.PlayersNumber) ? Error.ErrorToEnterPlayersNumber : Error.Null;
+        return (players < 0) || (players > Turn.MaxPlayers) ? Error.ErrorToEnterPlayersNumber : Error.Null;
     }
 }

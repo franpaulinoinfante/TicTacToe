@@ -11,7 +11,7 @@ internal class MachinePlayer : Player
     protected override Coordinate GetCoordinate(Message message)
     {
         Coordinate coordinate = new Coordinate();
-        coordinate.ReadRandom(message);
+        coordinate.ReadRandom();
         return coordinate;
     }
 }

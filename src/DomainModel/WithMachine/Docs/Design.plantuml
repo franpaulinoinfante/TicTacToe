@@ -240,6 +240,7 @@
                     ~Run()
                     -ConfigurePlayer(Board)
                     -Start()
+                    -GetCurrentPlayer() : Token
                     -Play()
                     -IsResume() : boolean
                 }
@@ -251,43 +252,71 @@
                 class Board{
                     ~Board()
                     ~Reset()
-                    -GetToken(Coordinate)
+                    ~IsEmpty(Coordinate) : boolean
+                    ~IsOccupied(Coordinate, Token) : boolean
+                    -GetToken(Coordinate) : Token
                     ~PutToken(Coordinate, Token)
                     ~MoveToken(Origin, Target)
                     ~IsTicTacToe(Token) : boolean
-                    ~IsEmpty(Coordinate) : boolean
-                    ~IsOccupied(Coordinate, Token) : boolean
+                    -GetDirections(Token) : List<Direction>
+                    -GetCoordinates(Token) : List<Coordinate>
+                    ~Write()
                 }
 
                 class Turn{
-                    -{static}MaxPlayers
+                    -{static}MaxPlayers : int
                     -current : int
-                    ~Turn(Players)
-                    +Change()
-                    +GetCurrent() : Player
+                    ~Turn()
+                    ~Set(Players)
+                    ~Next()
+                    ~GetCurrent() : Player
+                    ~WriteLine()
                 }
                 Turn --> "2" Player 
 
-                class Player{
+                abstract Player{
+                    -{static}MaxTokens : int
+                    -{static}Empty : int
                     -tokens : int
-                    ~Player(Board, Token)
-                    ~GetToken() : Token
-                    ~HasToken() : boolean
-                    ~PutToken()
-                    ~GetCoordinate(Message) : Coordinate
-                    ~CheckErrorToPut(Coordinate) : Error
-                    ~MoveToken()
-                    ~CheckOriginErrorToMove(origin) : Error
-                    ~CheckTargetErrorToMove(origin, target) : Error
-                    ~WriteWinner()
+                    ~Player(Token, Board)
+                    #GetToken() : Token
+                    #Reset()
+                    #HasToken() : boolean
+                    #PutToken()
+                    #{abstract}GetCoordinate(Message) : Coordinate
+                    #CheckErrorToPuToken(Coordinate) : Error
+                    #MoveToken()
+                    #CheckOriginErrorToMoveToken(origin) : Error
+                    #CheckTargetErrorToMoveToken(origin, target) : Error
+                    #IsContinue() : boolean
+                    #WriteWinner()
                 }
+                Player <|-- UserPlayer
+                Player <|-- MachinePlayer
                 Player --> Board
+
+                class UserPlayer{
+                    ~UserPlayer(Token, Board) : base(Token, Board)
+                    #GetCoordinate(Message) : Coordinate
+                    #CheckErrorToPuToken(Coordinate) : Error
+                    #CheckOriginErrorToMoveToken(origin) : Error
+                    #CheckTargetErrorToMoveToken(origin, target) : Error
+                }
+
+                class MachinePlayer{
+                    ~UserPlayer(Token, Board) : base(Token, Board)
+                    #GetCoordinate(Message) : Coordinate
+                }
 
                 class PlayerConfiguration{
                     ~PlayerConfiguration()
-                    ~ConfigurePlayer(Board) : Players
+                    ~Configure(Board) : Players
+                    -Read() : int
+                    - CheckErrorToEnterPlayersNumber(players) : Error
                 }
                 PlayerConfiguration ..> "2" Player
+                PlayerConfiguration ..> "2" UserPlayer
+                PlayerConfiguration ..> "2" MachinePlayer
                 PlayerConfiguration ..> Board
             }
 
@@ -344,8 +373,14 @@
                     ~GetRow() : int
                     ~GetColunm() : int
                     ~Read()
+                    -CheckErrorToReadCoordinate() : Error
                     ~ReadRamdon()
-                    ~IsValid()
+                    ~ Equals(Coordinate) : boolean
+                    ~GetDirection(Coordinate) : Direction
+                    -InHorizontal(Coordinate) : boolean
+                    -InVertical(Coordinate) : boolean
+                    -InMainDiagonal() : boolean
+                    -InInverseDiagonal() : boolean
                 }
                 Coordinate ..> ClosedInterval
                 
@@ -385,23 +420,26 @@
 
             namespace Enums{
                 enum Message{
-                    +TicTacToe
-                    +HorizontalLine
-                    +VerticalLine
-                    +Row
-                    +Colunm
-                    +CurrentTurn
-                    +EnterCoordinateToPut
-                    +EnterOriginCoordinateToMove
-                    +EnterTargetCoordinateToMove
-                    +Error
-                    +WinnerMessage
-                    +Resume
-                    +Goodbye
+                    ~TicTacToe
+                    ~HorizontalLine
+                    ~VerticalLine
+                    ~EnterThePlayersNumber
+                    ~Row
+                    ~Colunm
+                    ~CurrentTurn
+                    ~EnterCoordinateToPut
+                    ~EnterOriginCoordinateToMove
+                    ~EnterTargetCoordinateToMove
+                    ~Error
+                    ~WinnerMessage
+                    ~Resume
+                    ~Goodbye
+                    -messages : string[]
                     +GetToString(Message) : string
                     +Write(Message)
                     +WriteLine(Message)
                     +WriteLine(Message, title)
+                    ~WriteLine(Message , int value1, int value2)
                 }
 
                 enum Error{
@@ -410,16 +448,26 @@
                     ~SquareIsEmpty
                     ~TokenIsNotOfCurrentPlayer
                     ~SquareCannotBeSameCoordinate
+                    ~ErrorToEnterPlayersNumber
                     ~Null
+                    ~erros : string[]
                     ~IsNull(Error) : boolean
-                    ~WriteLine(Error)
+                    ~WriteLine(Errror)
                 }
 
                 enum Token{
                     ~X
                     ~O
                     ~Null
-                    ~GetToString() : String
+                    ~GetToString(Token) : string
+                    ~IsNull(Token) : boolean
+                }
+                enum Direction{                    
+                    ~Vertical
+                    ~Horizontal
+                    ~InverseDiagonal
+                    ~MainDiagonal
+                    ~Null
                 }
             }
 

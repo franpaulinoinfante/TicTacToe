@@ -5,14 +5,14 @@ namespace TicTacToe.ConsoleApp.Models;
 
 internal class Turn
 {
-    internal const int PlayersNumber = 2;
+    internal const int MaxPlayers = 2;
 
     private Player[] _players;
     private int _current;
 
     public Turn()
     {
-        _players = new Player[Turn.PlayersNumber];
+        _players = new Player[Turn.MaxPlayers];
         _current = 0;
     }
 
@@ -36,7 +36,7 @@ internal class Turn
 
     internal void Next()
     {
-        _current = (_current + 1) % PlayersNumber;
+        _current = (_current + 1) % MaxPlayers;
     }
 
     internal void WriteLine()

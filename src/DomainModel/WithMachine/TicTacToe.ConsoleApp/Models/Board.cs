@@ -83,8 +83,6 @@ internal class Board
         return directions[0] != Direction.Null;
     }
 
-
-
     private List<Direction> GetDirections(Token token)
     {
         Debug.Assert(!token.IsNull());

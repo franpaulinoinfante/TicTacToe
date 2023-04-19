@@ -1,4 +1,5 @@
-﻿using TicTacToe.ConsoleApp.Models.Players;
+﻿using TicTacToe.ConsoleApp.Models.Enums;
+using TicTacToe.ConsoleApp.Models.Players;
 
 namespace TicTacToe.ConsoleApp.Models;
 
@@ -12,7 +13,7 @@ internal class TicTacToe
     {
         _board = new Board();
         _turn = new Turn();
-        _players = new Player[Turn.PlayersNumber];
+        _players = new Player[Turn.MaxPlayers];
     }
 
     internal void Run()
@@ -38,10 +39,15 @@ internal class TicTacToe
         _board.Reset();
         _board.Write();
 
-        for (int i = 0; i < Turn.PlayersNumber; i++)
+        for (int i = 0; i < Turn.MaxPlayers; i++)
         {
-            _players[(int)_turn.Current.Token].Reset();
+            _players[(int)GetCurrentPlayer()].Reset();
         }
+    }
+
+    private Token GetCurrentPlayer()
+    {
+        return _turn.Current.Token;
     }
 
     private void Play()
@@ -51,23 +57,25 @@ internal class TicTacToe
             _turn.Next();
             _turn.WriteLine();
 
-            if (_players[(int)_turn.Current.Token].HasToken())
+            if (_players[(int)GetCurrentPlayer()].HasToken())
             {
-                _players[(int)_turn.Current.Token].PutToken();
+                _players[(int)GetCurrentPlayer()].PutToken();
             }
             else
             {
-                _players[(int)_turn.Current.Token].MoveToken();
+                _players[(int)GetCurrentPlayer()].MoveToken();
             }
 
-            _board.Write();
-        } while (!_board.IsTicTacToe(_turn.Current.Token));
+            Array.Find(_players, x => x.Token == _turn.Current.Token);
 
-        _players[(int)_turn.Current.Token].WriteWinner();
+            _board.Write();
+        } while (!_board.IsTicTacToe(GetCurrentPlayer()));
+
+        _players[(int)GetCurrentPlayer()].WriteWinner();
     }
 
     private bool IsResume()
     {
-        return _players[(int)_turn.Current.Token].IsContinue();
+        return _players[(int)GetCurrentPlayer()].IsContinue();
     }
 }

@@ -103,9 +103,9 @@ internal abstract class Player
     {
         Debug.Assert((origin != null) && (target != null));
 
-        if (!_board.IsEmpty(target))
+        if (!_board.IsEmpty(origin))
         {
-            return Error.SquareIsEmpty;
+            return Error.SquareIsOccupied;
         }
         if (origin.Equals(target))
         {
@@ -118,7 +118,7 @@ internal abstract class Player
     protected internal bool IsContinue()
     {
         YesNoDialog yesNoDialog = new YesNoDialog();
-        yesNoDialog.Read(Message.Resume.GetString());
+        yesNoDialog.Read(Message.Resume.GetToString());
         return yesNoDialog.IsAffirmative();
     }
 
