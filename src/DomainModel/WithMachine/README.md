@@ -432,27 +432,27 @@ Thanks, Good Bye!!
 
 #### TicTacToe Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232497248-b90cfdcf-9693-4202-b16b-29ada3a29115.png)
+![image](https://user-images.githubusercontent.com/46433173/233143504-f21f6a52-d72e-49cb-a572-2a458d0ea361.png)
 
 #### Turn Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232497362-992fd85f-0011-4a4c-beb3-48ca4c859aa6.png)
+![image](https://user-images.githubusercontent.com/46433173/233143069-a899b400-8de8-4614-b5d2-7f7a34005803.png)
 
 #### Player Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232497517-d84ba170-76fb-410e-a09b-06c5c300f21d.png)
+![image](https://user-images.githubusercontent.com/46433173/233141158-eff8f669-60d4-412d-99f0-ac66be5fc285.png)
 
 #### Board Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232497801-a0092e57-e354-42ac-b452-4b064e2ae907.png)
+![image](https://user-images.githubusercontent.com/46433173/233140719-871d731d-6a66-4cc5-9bca-5906696326d7.png)
 
 #### PlayerConfiguration Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232498030-d5662946-5fbd-4b5f-bd10-9b7c7d2b0d14.png)
+![image](https://user-images.githubusercontent.com/46433173/233140500-4e211ea1-3c70-46b8-a11c-94a22b7cfcac.png)
 
 #### Types Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232500973-2ea97fb7-361c-49e6-9ee8-c6dc9201b219.png)
+![image](https://user-images.githubusercontent.com/46433173/233139732-73443f64-10cc-4236-a48d-5bc62b1a8168.png)
 
 #### Enums Analysis
 
