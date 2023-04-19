@@ -432,27 +432,27 @@ Thanks, Good Bye!!
 
 #### TicTacToe Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232497248-b90cfdcf-9693-4202-b16b-29ada3a29115.png)
+![image](https://user-images.githubusercontent.com/46433173/233143504-f21f6a52-d72e-49cb-a572-2a458d0ea361.png)
 
 #### Turn Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232497362-992fd85f-0011-4a4c-beb3-48ca4c859aa6.png)
+![image](https://user-images.githubusercontent.com/46433173/233143069-a899b400-8de8-4614-b5d2-7f7a34005803.png)
 
 #### Player Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232497517-d84ba170-76fb-410e-a09b-06c5c300f21d.png)
+![image](https://user-images.githubusercontent.com/46433173/233141158-eff8f669-60d4-412d-99f0-ac66be5fc285.png)
 
 #### Board Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232497801-a0092e57-e354-42ac-b452-4b064e2ae907.png)
+![image](https://user-images.githubusercontent.com/46433173/233140719-871d731d-6a66-4cc5-9bca-5906696326d7.png)
 
 #### PlayerConfiguration Class' Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232498030-d5662946-5fbd-4b5f-bd10-9b7c7d2b0d14.png)
+![image](https://user-images.githubusercontent.com/46433173/233140500-4e211ea1-3c70-46b8-a11c-94a22b7cfcac.png)
 
 #### Types Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/232500973-2ea97fb7-361c-49e6-9ee8-c6dc9201b219.png)
+![image](https://user-images.githubusercontent.com/46433173/233139732-73443f64-10cc-4236-a48d-5bc62b1a8168.png)
 
 #### Enums Analysis
 
@@ -464,11 +464,11 @@ Thanks, Good Bye!!
 
 ## Design
 
-### Design Architecture
+### Architecture Design
+
+![image](https://user-images.githubusercontent.com/46433173/232639693-7e56e744-646c-4672-93bf-722d90fc2953.png)
 
 ### Design Use Cases
-
-![image](https://user-images.githubusercontent.com/46433173/232539276-52622330-b16d-4358-8aab-0e713975a1a7.png)
 
 #### Design Player Configuration
 
@@ -488,21 +488,17 @@ Thanks, Good Bye!!
 
 ### Class Design
 
-#### Architecture Design
-
-![image](https://user-images.githubusercontent.com/46433173/232639693-7e56e744-646c-4672-93bf-722d90fc2953.png)
-
 #### Design Class Models
 
-![image](https://user-images.githubusercontent.com/46433173/232642494-a882c06c-2e62-4e10-84ea-0e6f3b42af2e.png)
+![image](https://user-images.githubusercontent.com/46433173/233138814-cd474710-b9a7-485b-8246-d29c576fe0a5.png)
 
 #### Design Class Types
 
-![image](https://user-images.githubusercontent.com/46433173/232640028-517e3a65-659c-4c83-b815-522db4f788a1.png)
+![image](https://user-images.githubusercontent.com/46433173/233138680-e11d785f-c655-48b7-8720-2705e04532b4.png)
 
 #### Design Class Enums
 
-![image](https://user-images.githubusercontent.com/46433173/232639992-617d9018-d894-4ade-93bf-0f3b87213483.png)
+![image](https://user-images.githubusercontent.com/46433173/233138595-b6684e0b-0d5a-4385-b1c5-ac38d8b61659.png)
 
 ## Implementation View
 
