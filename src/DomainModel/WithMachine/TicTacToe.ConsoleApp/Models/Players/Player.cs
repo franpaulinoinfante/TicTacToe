@@ -108,13 +108,13 @@ internal abstract class Player
     {
         Debug.Assert((origin != null) && (target != null));
 
-        if (!_board.IsEmpty(target))
-        {
-            return Error.SquareIsOccupied;
-        }
         if (origin.Equals(target))
         {
             return Error.SquareCannotBeSameCoordinate;
+        }
+        if (!_board.IsEmpty(target))
+        {
+            return Error.SquareIsOccupied;
         }
 
         return Error.Null;
