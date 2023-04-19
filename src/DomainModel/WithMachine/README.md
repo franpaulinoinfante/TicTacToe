@@ -80,101 +80,108 @@
 ```
 --- TIC TAC TOE ---
 
-Introduce the players [0-2]: 0
-
+Enter the players' number: 0
 -------------
-|   |   |   |
-|   |   |   |
-|   |   |   |
+ |   |   |   |
 -------------
-
-Current turn: O
-Coordinate to put: [1,1]
+ |   |   |   |
 -------------
-| O |   |   |
-|   |   |   |
-|   |   |   |
--------------
-
-Current turn: X
-Coordinate to put: [1,3]
--------------
-| O |   | X |
-|   |   |   |
-|   |   |   |
+ |   |   |   |
 -------------
 
 Current turn: O
-Coordinate to put: [3,2]
+Random Coordinate [0, 2]
 -------------
-| O |   | X |
-|   |   |   |
-|   | O |   |
+ |   |   | O |
+-------------
+ |   |   |   |
+-------------
+ |   |   |   |
 -------------
 
 Current turn: X
-Coordinate to put: [2,2]
+Random Coordinate [2, 0]
 -------------
-| O |   | X |
-|   | X |   |
-|   | O |   |
+ |   |   | O |
+-------------
+ |   |   |   |
+-------------
+ | X |   |   |
 -------------
 
 Current turn: O
-Coordinate to put: [3,3]
+Random Coordinate [1, 0]
 -------------
-| O |   | X |
-|   | X |   |
-|   | O | O |
+ |   |   | O |
+-------------
+ | O |   |   |
+-------------
+ | X |   |   |
 -------------
 
 Current turn: X
-Coordinate to put: [1,2]
+Random Coordinate [0, 1]
 -------------
-| O | X | X |
-|   | X |   |
-|   | O | O |
+ |   | X | O |
+-------------
+ | O |   |   |
+-------------
+ | X |   |   |
 -------------
 
 Current turn: O
-Origin coordinate to move: [3,2]
-Target coordinate to move: [2,3]
+Random Coordinate [1, 2]
 -------------
-| O | X | X |
-|   | X | O |
-|   | O |   |
+ |   | X | O |
+-------------
+ | O |   | O |
+-------------
+ | X |   |   |
 -------------
 
 Current turn: X
-Origin coordinate to move: [2,2]
-Target coordinate to move: [3,1]
+Random Coordinate [0, 2]
+Random Coordinate [2, 2]
 -------------
-| O | X | X |
-|   |   | O |
-| X | O |   |
+ |   | X | O |
+-------------
+ | O |   | O |
+-------------
+ | X |   | X |
 -------------
 
 Current turn: O
-Origin coordinate to move: [1,1]
-Target coordinate to move: [3,3]
+Random Coordinate [2, 2]
+Random Coordinate [1, 1]
+Random Coordinate [2, 0]
+Random Coordinate [0, 2]
+Random Coordinate [0, 0]
 -------------
-|   | X | X |
-|   |   | O |
-| X | O | O |
+ | O | X |   |
+-------------
+ | O |   | O |
+-------------
+ | X |   | X |
 -------------
 
 Current turn: X
-Origin coordinate to move: [1,2]
-Target coordinate to move: [2,2]
+Random Coordinate [1, 1]
+Random Coordinate [1, 2]
+Random Coordinate [1, 1]
+Random Coordinate [1, 1]
+Random Coordinate [0, 1]
+Random Coordinate [2, 1]
 -------------
-|   |   | X |
-|   | X | O |
-| X | O | O |
+ | O |   |   |
+-------------
+ | O |   | O |
+-------------
+ | X | X | X |
 -------------
 
 Congratulations player: X, you WON!!!! :-)
 
-Do you want to continue? (y/n): y
+Do you want to continue? (y/n)
 
 ```
 
