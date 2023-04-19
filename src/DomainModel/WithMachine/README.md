@@ -470,8 +470,6 @@ Thanks, Good Bye!!
 
 ### Design Use Cases
 
-![image](https://user-images.githubusercontent.com/46433173/232539276-52622330-b16d-4358-8aab-0e713975a1a7.png)
-
 #### Design Player Configuration
 
 ![image](https://user-images.githubusercontent.com/46433173/232539167-7f530937-07af-4533-92dc-fa7d4197c715.png)
