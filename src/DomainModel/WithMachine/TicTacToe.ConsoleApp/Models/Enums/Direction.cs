@@ -2,9 +2,9 @@
 
 internal enum Direction
 {
-    InverseDiagonal,
-    MainDiagonal,
     Vertical,
     Horizontal,
+    InverseDiagonal,
+    MainDiagonal,
     Null
 }

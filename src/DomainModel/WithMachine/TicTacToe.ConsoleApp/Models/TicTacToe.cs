@@ -66,8 +66,6 @@ internal class TicTacToe
                 _players[(int)GetCurrentPlayer()].MoveToken();
             }
 
-            Array.Find(_players, x => x.Token == _turn.Current.Token);
-
             _board.Write();
         } while (!_board.IsTicTacToe(GetCurrentPlayer()));
 

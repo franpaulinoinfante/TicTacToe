@@ -15,7 +15,7 @@ internal abstract class Player
 
     public Player(Token token, Board board)
     {
-        Debug.Assert(board != null);
+        Debug.Assert((board != null) && (!token.IsNull()));
 
         _token = token;
         _board = board;
@@ -60,7 +60,12 @@ internal abstract class Player
     {
         Debug.Assert(coordinate != null);
 
-        return !_board.IsEmpty(coordinate) ? Error.SquareIsOccupied : Error.Null;
+        if (!_board.IsEmpty(coordinate))
+        {
+            return Error.SquareIsOccupied;
+        }
+
+        return Error.Null;
     }
 
     protected internal void MoveToken()
@@ -103,7 +108,7 @@ internal abstract class Player
     {
         Debug.Assert((origin != null) && (target != null));
 
-        if (!_board.IsEmpty(origin))
+        if (!_board.IsEmpty(target))
         {
             return Error.SquareIsOccupied;
         }

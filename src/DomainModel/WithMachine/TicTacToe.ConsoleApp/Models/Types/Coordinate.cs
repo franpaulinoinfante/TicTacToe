@@ -48,10 +48,11 @@ internal class Coordinate
 
     internal void ReadRandom()
     {
-
         Random random = new Random();
         _row = random.Next(minValue: 0, maxValue: 3);
         _column = random.Next(minValue: 0, maxValue: 3);
+
+        Task.Delay(450).Wait();
     }
 
     internal bool Equals(Coordinate other)
