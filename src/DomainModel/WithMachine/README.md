@@ -140,8 +140,6 @@ Random Coordinate [1, 2]
 -------------
 
 Current turn: X
-Random Coordinate [0, 2]
-Random Coordinate [2, 2]
 -------------
  |   | X | O |
 -------------
@@ -151,11 +149,6 @@ Random Coordinate [2, 2]
 -------------
 
 Current turn: O
-Random Coordinate [2, 2]
-Random Coordinate [1, 1]
-Random Coordinate [2, 0]
-Random Coordinate [0, 2]
-Random Coordinate [0, 0]
 -------------
  | O | X |   |
 -------------
@@ -165,12 +158,6 @@ Random Coordinate [0, 0]
 -------------
 
 Current turn: X
-Random Coordinate [1, 1]
-Random Coordinate [1, 2]
-Random Coordinate [1, 1]
-Random Coordinate [1, 1]
-Random Coordinate [0, 1]
-Random Coordinate [2, 1]
 -------------
  | O |   |   |
 -------------
@@ -182,7 +169,6 @@ Random Coordinate [2, 1]
 Congratulations player: X, you WON!!!! :-)
 
 Do you want to continue? (y/n)
-
 ```
 
 ### Player vs Machine
@@ -217,7 +203,6 @@ Column: 2
 -------------
 
 Current turn: O
-Coordinate to put: [3,2]
 -------------
 | O |   |   |
 |   | X |   |
@@ -235,7 +220,6 @@ Column: 1
 -------------
 
 Current turn: O
-Coordinate to put: [1,3]
 -------------
 | O |   | O |
 |   | X |   |
@@ -253,8 +237,6 @@ Column: 2
 -------------
 
 Current turn: O
-Origin coordinate to move: [1,1]
-Target coordinate to move: [2,3]
 -------------
 |   |   | O |
 |   | X | O |
@@ -264,7 +246,6 @@ Target coordinate to move: [2,3]
 Congratulations player: O, you WON!!!! :-)
 
 Do you want to continue? (y/n): y
-
 ```
 
 ### Player vs Player
