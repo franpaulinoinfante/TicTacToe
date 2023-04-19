@@ -464,7 +464,9 @@ Thanks, Good Bye!!
 
 ## Design
 
-### Design Architecture
+### Architecture Design
+
+![image](https://user-images.githubusercontent.com/46433173/232639693-7e56e744-646c-4672-93bf-722d90fc2953.png)
 
 ### Design Use Cases
 
@@ -488,21 +490,17 @@ Thanks, Good Bye!!
 
 ### Class Design
 
-#### Architecture Design
-
-![image](https://user-images.githubusercontent.com/46433173/232639693-7e56e744-646c-4672-93bf-722d90fc2953.png)
-
 #### Design Class Models
 
-![image](https://user-images.githubusercontent.com/46433173/232642494-a882c06c-2e62-4e10-84ea-0e6f3b42af2e.png)
+![image](https://user-images.githubusercontent.com/46433173/233138814-cd474710-b9a7-485b-8246-d29c576fe0a5.png)
 
 #### Design Class Types
 
-![image](https://user-images.githubusercontent.com/46433173/232640028-517e3a65-659c-4c83-b815-522db4f788a1.png)
+![image](https://user-images.githubusercontent.com/46433173/233138680-e11d785f-c655-48b7-8720-2705e04532b4.png)
 
 #### Design Class Enums
 
-![image](https://user-images.githubusercontent.com/46433173/232639992-617d9018-d894-4ade-93bf-0f3b87213483.png)
+![image](https://user-images.githubusercontent.com/46433173/233138595-b6684e0b-0d5a-4385-b1c5-ac38d8b61659.png)
 
 ## Implementation View
 
