@@ -7,7 +7,7 @@ internal class Coordinate
     private int _row;
     private int _colunm;
 
-    public Coordinate(){}
+    public Coordinate() { }
 
     public Coordinate(int row, int colunm)
     {

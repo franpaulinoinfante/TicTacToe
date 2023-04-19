@@ -1,4 +1,7 @@
 ﻿using System.Diagnostics;
+using TicTacToe.ConsoleApp.Models.Enums;
+
+namespace TicTacToe.ConsoleApp.Models;
 
 internal class Board
 {
@@ -20,43 +23,43 @@ internal class Board
         }
     }
 
+    internal bool IsEmpty(Coordinate coordinate)
+    {
+        Debug.Assert(coordinate != null);
+
+        return IsOccupied(Token.Null, coordinate);
+    }
+
+    internal bool IsOccupied(Token token, Coordinate coordinate)
+    {
+        Debug.Assert(coordinate != null);
+
+        return GetToken(coordinate) == token;
+    }
+
     private Token GetToken(Coordinate coordinate)
     {
         Debug.Assert(coordinate != null);
 
-        return _tokens[coordinate.Row, coordinate.Colunm];
+        return _tokens[coordinate.Row, coordinate.Column];
     }
 
-    internal void PutToken(Coordinate coordinate, Token token)
+    internal void Put(Token token, Coordinate coordinate)
     {
         Debug.Assert(coordinate != null);
 
-        _tokens[coordinate.Row, coordinate.Colunm] = token;
+        _tokens[coordinate.Row, coordinate.Column] = token;
     }
 
-    internal void Move(Coordinate origin, Coordinate target)
+    internal void MoveToken(Coordinate origin, Coordinate target)
     {
         Debug.Assert(origin != null && !IsEmpty(origin));
         Debug.Assert(target != null && IsEmpty(target));
         Debug.Assert(!origin.Equals(target));
 
         Token token = GetToken(origin);
-        PutToken(origin, Token.Null);
-        PutToken(target, token);
-    }
-
-    internal bool IsEmpty(Coordinate coordinate)
-    {
-        Debug.Assert(coordinate != null);
-
-        return IsOccupied(coordinate, Token.Null);
-    }
-
-    internal bool IsOccupied(Coordinate coordinate, Token token)
-    {
-        Debug.Assert(coordinate != null);
-
-        return GetToken(coordinate) == token;
+        Put(Token.Null, origin);
+        Put(token, target);
     }
 
     internal bool IsTicTacToe(Token token)
@@ -68,19 +71,19 @@ internal class Board
         {
             return false;
         }
-        else
+
+        for (int i = 0; i < directions.Count - 1; i++)
         {
-            for (int i = 0; i < directions.Count - 1; i++)
+            if (directions[i] != directions[i + 1])
             {
-                if (directions[i] != directions[i + 1])
-                {
-                    return false;
-                }
+                return false;
             }
         }
 
         return directions[0] != Direction.Null;
     }
+
+
 
     private List<Direction> GetDirections(Token token)
     {
@@ -92,7 +95,7 @@ internal class Board
         {
             for (int i = 0; i < coordinates.Count - 1; i++)
             {
-                    directions.Add(coordinates[i].GetDirection(coordinates[i + 1]));
+                directions.Add(coordinates[i].GetDirection(coordinates[i + 1]));
             }
         }
 
@@ -126,13 +129,12 @@ internal class Board
             Message.VerticalLine.Write();
             for (int j = 0; j < Coordinate.Dimension; j++)
             {
-                ConsoleIO.Instance.Write(TokenExtension.ToString(_tokens[i, j]));
+                ConsoleIO.Instance.Write(GetToken(new Coordinate(i, j)).GetString());
                 Message.VerticalLine.Write();
             }
             ConsoleIO.Instance.WriteLine();
             Message.HorizontalLine.WriteLine();
         }
-        //Message.HorizontalLine.WriteLine();
         ConsoleIO.Instance.WriteLine();
     }
 }

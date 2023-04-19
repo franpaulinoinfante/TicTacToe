@@ -5,7 +5,8 @@
     SquareIsEmpty,
     TokenIsNotOfCurrentPlayer,
     SquareCannotBeSameCoordinate,
-    Null
+    Null,
+    ErrorToEnterPlayersNumber
 }
 
 internal static class ErrorExtension

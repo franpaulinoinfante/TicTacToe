@@ -4,8 +4,8 @@ internal class Player
 {
     private const int MaxToken = 3;
 
-    private Token _token; 
-    private Board _board;
+    private readonly Token _token;
+    private readonly Board _board;
 
     private int _tokenCount;
 
