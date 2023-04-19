@@ -506,7 +506,7 @@ Thanks, Good Bye!!
 
 #### Design Class Models
 
-![image](https://user-images.githubusercontent.com/46433173/232640067-58e6f522-f4c3-4255-8126-415870528a71.png)
+![image](https://user-images.githubusercontent.com/46433173/232642494-a882c06c-2e62-4e10-84ea-0e6f3b42af2e.png)
 
 #### Design Class Types
 
