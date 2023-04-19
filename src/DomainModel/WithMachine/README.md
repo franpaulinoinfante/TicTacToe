@@ -5,23 +5,30 @@
     -   [Use Cases](#Use-Cases)
     -   [Initial Description of Use Cases](#Initial-Description-of-Use-Cases)  
     -   [Use Case Specifications](#Use-Case-Specifications)   
-        -   [Configure Players](#Configure-Players)   
+        -   [Specifications Configure Players](#Specifications-Configure-Players)   
         -   [Specifications Start](#Specifications-Start)  
         -   [Specifications Play](#Specifications-Play)  
         -   [Specifications-Resume](#Specifications-Resume)  
     -   [Use Interface Prototype](#Use-Interface-Prototype)  
-        -   [Player vs Machine](#Player-vs-Machine)  
+        -   [Machine vs Machine](#Machine-vs-Machine)  
         -   [Player vs Machine](#Player-vs-Machine)  
         -   [Player vs Player](#Player-vs-Player)  
     -   [Analysis](#Analysis)  
         -   [Analysis Architecture](#Analysis-Architecture)  
         -   [Use Case Analysis](#Use-Case-Analysis)  
+            -   [Analysis Configure Player](#Analysis-Configure-Player)  
             -   [Analysis Start](#Analysis-Start)  
             -   [Analysis Play](#Analysis-Play)  
             -   [Analysis Resume](#Analysis-Resume)  
-        -   [Package Analysis](#Package-Analysis)  
-        -   [Class Analysis](#Class-Analysis)
-        -   [Package](#Package)  
+        -   [Class Analysis](#Class-Analysis) 
+            -   [Class Analysis TicTacToe][#Class-Analysis-TicTacToe]  
+            -   [Class Analysis Turn](#Class-Analysis-Turn) 
+            -   [Class Analysis Player](#Class-Analysis-Player)  
+            -   [Class Analysis Board](#Class-Analysis-Board)   
+            -   [Class Analysis PlayerConfiguration](#Class-Analysis-PlayerConfiguration)  
+            -   [Analysis Types](#Analysis-Types)  
+            -   [Analysis Enums](#Analysis-Enums)  
+        -   [Analysis Package](#Analysis-Package)  
     - [Design](#Design)  
         -   [Design Architecture](#Design-Architecture)  
         -   [Design Use Cases](#Design-Use-Cases)  
@@ -57,7 +64,7 @@
 
 ## Use Case Specifications
 
-## Configure Players
+## Specifications Configure Players
 
 ![image](https://user-images.githubusercontent.com/46433173/232328353-78da963c-953c-449e-bc6c-db4965e671c1.png)
 
@@ -75,7 +82,7 @@
 
 ## Use Interface Prototype
 
-### Player vs Machine
+### Machine vs Machine
 
 ```
 --- TIC TAC TOE ---
@@ -412,7 +419,7 @@ Thanks, Good Bye!!
 
 ### Use Cases Analysis
 
-#### Configure Player Analysis
+#### Analysis Configure Player
 
 ![image](https://user-images.githubusercontent.com/46433173/232495472-94ff5927-befd-4b12-812c-5ef82292ecb2.png)
 
@@ -430,31 +437,31 @@ Thanks, Good Bye!!
 
 ### Class Analysis
 
-#### TicTacToe Class' Analysis
+#### Class Analysis TicTacToe
 
 ![image](https://user-images.githubusercontent.com/46433173/233143504-f21f6a52-d72e-49cb-a572-2a458d0ea361.png)
 
-#### Turn Class' Analysis
+#### Class Analysis Turn
 
 ![image](https://user-images.githubusercontent.com/46433173/233143069-a899b400-8de8-4614-b5d2-7f7a34005803.png)
 
-#### Player Class' Analysis
+#### Class Analysis Player
 
 ![image](https://user-images.githubusercontent.com/46433173/233141158-eff8f669-60d4-412d-99f0-ac66be5fc285.png)
 
-#### Board Class' Analysis
+#### Class Analysis Board
 
 ![image](https://user-images.githubusercontent.com/46433173/233140719-871d731d-6a66-4cc5-9bca-5906696326d7.png)
 
-#### PlayerConfiguration Class' Analysis
+#### Class Analysis PlayerConfiguration
 
 ![image](https://user-images.githubusercontent.com/46433173/233140500-4e211ea1-3c70-46b8-a11c-94a22b7cfcac.png)
 
-#### Types Analysis
+#### Analysis Types
 
 ![image](https://user-images.githubusercontent.com/46433173/233139732-73443f64-10cc-4236-a48d-5bc62b1a8168.png)
 
-#### Enums Analysis
+#### Analysis Enums
 
 ![image](https://user-images.githubusercontent.com/46433173/232498201-cf102c6f-68ca-4c2b-9a55-0ca0895167ee.png)
 
