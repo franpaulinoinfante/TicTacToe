@@ -31,7 +31,9 @@
             Write(title);
             try
             {
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 input = Console.ReadLine();
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
                 ok = true;
             }
             catch (Exception)
@@ -40,7 +42,9 @@
             }
         } while (!ok);
 
+#pragma warning disable CS8603 // Possible null reference return.
         return input;
+#pragma warning restore CS8603 // Possible null reference return.
     }
 
     public char ReadChar(string title)

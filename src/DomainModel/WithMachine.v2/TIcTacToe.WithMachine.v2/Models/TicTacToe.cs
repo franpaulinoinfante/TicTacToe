@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-internal class TicTacToe
+﻿internal class TicTacToe
 {
     private readonly Board _board;
     private readonly Turn _turn;
@@ -11,6 +9,14 @@ internal class TicTacToe
         _board = new Board();
         _players = new Player[Turn.MaxPlayer];
         _turn = new Turn(_players);
+    }
+
+    private Player Player
+    {
+        get
+        {
+            return _players[_turn.Current];
+        }
     }
 
     internal void Run()
@@ -27,7 +33,7 @@ internal class TicTacToe
 
     private void ConfigurePlayer()
     {
-        new PlayerCreator().Configure(_players, _board);
+        new PlayerConfiguration().Configure(_players, _board);
     }
 
     private void Start()
@@ -43,31 +49,28 @@ internal class TicTacToe
 
     private void Play()
     {
-        _turn.Next();
-        _turn.Write();
-
         do
         {
-            if (_players[GetCurrent()].HasToken())
+            _turn.Next();
+            _turn.Write();
+
+            if (Player.HasToken())
             {
-                _players[GetCurrent()].PutToken();
+                Player.PutToken();
             }
             else
             {
-                _players[GetCurrent()].MoveToken();
+                Player.MoveToken();
             }
 
             _board.Write();
-        } while (_board.IsTicTacToe(_players[GetCurrent()].Token));
-    }
+        } while (!_board.IsTicTacToe(Player.Token));
 
-    private int GetCurrent()
-    {
-        return _turn.Current;
+        Player.WriteWinnerMess();
     }
 
     private bool IsResume()
     {
-        throw new NotImplementedException();
+        return Player.IsContinue();
     }
 }

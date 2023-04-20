@@ -18,7 +18,7 @@
 
 internal static class MessageExtension
 {
-    static string[] _messages = new string[]
+    private static readonly string[] _messages = new string[]
     {
         "---- TIC TAC TOE ----\n",
         "Enter the number of players: ",

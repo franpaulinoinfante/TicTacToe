@@ -4,14 +4,14 @@
     CoordinateIsOutOfRange,
     SquareIsOccupied,
     SquareIsEmpty,
-    TokenIsNotOfCurrentPLayer,
+    NotOwnerToken,
     OriginAndTargetSquareCannotBeSame,
     Null
 }
 
 internal static class ErrorExtension
 {
-    private static string[] _errors = new string[]
+    private static readonly string[] _errors = new string[]
     {
         "Number of players is out of range",
         "The square is out of range",

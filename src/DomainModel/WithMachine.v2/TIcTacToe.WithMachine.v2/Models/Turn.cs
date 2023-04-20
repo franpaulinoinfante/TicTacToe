@@ -2,7 +2,7 @@
 {
     internal const int MaxPlayer = 2;
     private const int Zero = 0;
-  
+
 
     private readonly Player[] _players;
 

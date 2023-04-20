@@ -6,6 +6,8 @@
 
     protected override Coordinate GetCoordinate(Message message)
     {
-        throw new NotImplementedException();
+        Coordinate coordinate = new Coordinate();
+        coordinate.ReadRandom();
+        return coordinate;
     }
 }

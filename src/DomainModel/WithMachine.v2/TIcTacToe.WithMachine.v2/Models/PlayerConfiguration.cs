@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-internal class PlayerCreator
+internal class PlayerConfiguration
 {
     private const int Zero = 0;
 

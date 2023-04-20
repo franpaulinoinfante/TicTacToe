@@ -32,7 +32,7 @@ internal abstract class Player
 
     internal bool HasToken()
     {
-        return _token == Player.Empty;
+        return _tokens > Player.Empty;
     }
 
     internal void PutToken()
@@ -55,7 +55,7 @@ internal abstract class Player
     protected abstract Coordinate GetCoordinate(Message message);
 
 
-    private Error FindErrorToPutToken(Coordinate coordinate)
+    private protected virtual Error FindErrorToPutToken(Coordinate coordinate)
     {
         Debug.Assert(coordinate != null);
 
@@ -69,6 +69,63 @@ internal abstract class Player
 
     internal void MoveToken()
     {
-        throw new NotImplementedException();
+        Coordinate origin;
+        Error error;
+        do
+        {
+            origin = GetCoordinate(Message.EnterOriginCoordinateToMove);
+            error = FindOriginErrorToMoveToken(origin);
+        } while (!error.IsNull());
+
+        Coordinate target;
+        do
+        {
+            target = GetCoordinate(Message.EnterTargetCoordinateToMove);
+            error = FindTargetErrorToMoveToken(origin, target);
+        } while (!error.IsNull());
+
+        _board.MoveToken(origin, target);
+    }
+
+    private protected virtual Error FindOriginErrorToMoveToken(Coordinate origin)
+    {
+        if (_board.IsEmpty(origin))
+        {
+            return Error.SquareIsEmpty;
+        }
+
+        if (!_board.IsOccupied(origin, _token))
+        {
+            return Error.NotOwnerToken;
+        }
+
+        return Error.Null;
+    }
+
+    private protected virtual Error FindTargetErrorToMoveToken(Coordinate origin, Coordinate target)
+    {
+        if (origin.Equals(target))
+        {
+            return Error.OriginAndTargetSquareCannotBeSame;
+        }
+
+        if (!_board.IsEmpty(target))
+        {
+            return Error.SquareIsOccupied;
+        }
+
+        return Error.Null;
+    }
+
+    internal void WriteWinnerMess()
+    {
+        Message.WinnerMessage.WriteLine(_token.GetToString());
+    }
+
+    internal bool IsContinue()
+    {
+        YesNoDialog yesNoDialog = new YesNoDialog();
+        yesNoDialog.Read(Message.Resume.GetToString());
+        return yesNoDialog.IsAffirmative();
     }
 }

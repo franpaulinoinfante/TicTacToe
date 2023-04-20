@@ -32,7 +32,9 @@ public class YesNoDialog
 
     private char GetAnswer()
     {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         return char.ToLower(_answer.ToCharArray()[0]);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 
     public bool IsNegative() => GetAnswer() == NEGATIVE;
