@@ -57,11 +57,23 @@
 
 ### Initial State
 
+![image](https://user-images.githubusercontent.com/46433173/235684501-d3f87e36-aec2-4300-b3be-e0bca53df4f8.png)
+
 ### Final State
+
+![image](https://user-images.githubusercontent.com/46433173/235684550-503ef0c4-61e4-45c7-8608-62bb1b35a7ff.png)
 
 ### Functionalities
 
+![image](https://user-images.githubusercontent.com/46433173/235684721-55e09a9a-31f0-4bb6-8b01-c4dc1f2d63b2.png)
+
 ### Activities
+
+**Put**
+![image](https://user-images.githubusercontent.com/46433173/235684887-d55b8ee9-7d11-4e69-94f7-53ceddaf1d21.png)
+
+**Move**
+![image](https://user-images.githubusercontent.com/46433173/235685208-ec155007-32c0-4a13-8b27-8158770925f7.png)
 
 ## Requirements
 
