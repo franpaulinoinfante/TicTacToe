@@ -385,6 +385,8 @@ Do you want to continue? (y/n)
 
 ### Architecture Analysis
 
+![image](https://user-images.githubusercontent.com/46433173/235761006-31721633-32cf-422a-8b54-423937f8ac86.png)
+
 ### Use cases Analysis
 
 #### **Analysis Start**
