@@ -65,7 +65,7 @@
 
 ### Functionalities
 
-![image](https://user-images.githubusercontent.com/46433173/235684721-55e09a9a-31f0-4bb6-8b01-c4dc1f2d63b2.png)
+![image](https://user-images.githubusercontent.com/46433173/235687701-f3673132-8d5b-432a-80ad-b905f363804e.png)
 
 ### Activities
 
