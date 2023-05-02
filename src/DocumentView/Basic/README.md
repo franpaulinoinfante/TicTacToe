@@ -387,19 +387,19 @@ Do you want to continue? (y/n)
 
 ### Use cases Analysis
 
-**Analysis Start**
+#### **Analysis Start**
 
-**Analysis Play**
+#### **Analysis Play**
 
-**Analysis Resume**
+#### **Analysis Resume**
 
 ### Class Analysis 
 
-**Analysis Views**
+#### **Analysis Views**
 
-**Analysis Models**
+#### **Analysis Models**
 
-**Analysis Types**
+#### **Analysis Types**
 
 ### Package Analysis 
 
