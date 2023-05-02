@@ -47,11 +47,15 @@
 
 ## Domain Model
 
+![image](https://user-images.githubusercontent.com/46433173/235681415-7c931bef-eb21-49ff-9c26-33a36bbb54a0.png)
+
 | Description | Scenario |
 | :---------: | :---------: |
-|  |  |
+|  | ![image](https://user-images.githubusercontent.com/46433173/235680817-dfe67030-33e5-4e24-bdfd-b042ccb41167.png) |
 
 ### Vocabulary
+
+![image](https://user-images.githubusercontent.com/46433173/235680968-21d6b2ee-a5c5-4855-bfae-804b6d352884.png)
 
 ### Initial State
 
