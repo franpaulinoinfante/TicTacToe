@@ -47,11 +47,9 @@
 
 ## Domain Model
 
-![image](https://user-images.githubusercontent.com/46433173/235681415-7c931bef-eb21-49ff-9c26-33a36bbb54a0.png)
-
-| Description | Scenario |
-| :---------: | :---------: |
-|  | ![image](https://user-images.githubusercontent.com/46433173/235680817-dfe67030-33e5-4e24-bdfd-b042ccb41167.png) |
+|  Description | Scenario |
+| :------- | :------: | 
+|  Tic-Tac-Toe is a game for two players who take turns marking the spaces in a three-by-three grid with X or O. <br/>The player who succeeds in placing three of their marks ina horizontal, vertical, or diagonal row is the winner. <br\>It is a solved game, with a forced draw assuming best play from both players. <br/> **Reglas** <br/> Tic-Tac-Toe's goal is. | ![image](https://user-images.githubusercontent.com/46433173/231174452-cc2cb2fb-b5a6-4772-b91d-fcaf55961145.png) |
 
 ### Vocabulary
 
