@@ -389,6 +389,8 @@ Do you want to continue? (y/n)
 
 ### Use cases Analysis
 
+![image](https://user-images.githubusercontent.com/46433173/235768973-c5ecb463-2474-41bc-8dde-c2576abfc51c.png)
+
 #### **Analysis Start**
 
 #### **Analysis Play**
