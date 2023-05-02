@@ -1,0 +1,90 @@
+@startuml Vocabulary
+    title Vocabulary
+    
+    class TicTacToe
+    class Player
+    class Turn
+    class Grid
+    class Square
+    class Token
+    enum Color{
+        X
+        O
+    }
+
+    TicTacToe *--> "2" Player
+    TicTacToe *--> Turn
+    TicTacToe *--> Grid
+
+    Turn --> "2" Player : exchanger
+
+    Player *--> "3" Token
+    Player --> Color
+    Player -right-> Grid
+    Player ..> Goal : has
+
+    Token *--> Color
+
+    Goal <|-- Horizontal
+    Goal <|-- Vertical
+    Goal <|-- MainDiagonal
+    Goal <|-- InversalDiagonal
+    Goal ..> "3" Token : need
+    Goal ..> Action : makes
+
+    Action "only" <|-- "3" Put
+    Action <|-- Move
+    Action ..> Square : target
+    Action ..> "1" Token : uses
+
+    Move "need" ..> "origin" Square 
+
+    Grid *--> "3x3" Square
+
+    Square *--> Coordinate
+    Square o--> "1" Token
+@enduml
+
+@startuml InitialState
+    title  Initial State
+@enduml
+
+@startuml FinalState
+    title Final State
+@enduml
+
+@startuml Functionalities
+    title Functionalities
+
+    state A as " "
+    state B as " "
+    state C as " "
+    state D as " "
+    state E as " "
+    state F as " "
+    state G as " "
+    state if1 <<choice>>
+    state if2 <<choice>>
+    state if3 <<choice>>
+
+    [*] --> A
+    A --> B : put 
+    B -->if1
+        if1 --> A : next turn
+    if1 --> C : [token on grib == 3]
+    C --> if2
+        if2 --> [*] : [is tic-tac-toe]
+    if2 --> D : next turn
+    D --> E : put
+    E --> if3
+        if3 --> [*] : [is tic-tac-toe]
+    if3 --> F : next turn
+    F --> G : Move
+    G --> if3
+
+
+@enduml
+
+@startuml Activities
+    title Actjvjtjes
+@enduml
