@@ -85,6 +85,38 @@
 
 @enduml
 
-@startuml Activities
-    title Actjvjtjes
+@startuml Activity Put
+    title Activity Put
+
+    start
+        repeat
+            :Token to Put;
+            repeat
+                :Enter a row;
+                :Enter a columna;
+            repeat while(Coordinate it's no valid or the square is not empty)
+                :Put Token in square
+                :Token = Token - 1;
+                :Turn Change;
+        repeat while(As long Token is greater than 0 or is not TicTacToe)
+    stop
+@enduml
+
+@startuml Activity Move
+    title Activity Move
+    
+    start
+        repeat
+            :Coordinate to move;
+            :Enter a row;
+            :Enter a colunm;
+        repeat while(Coordinate is not valid or the token does not belong to you)
+        repeat
+            :Coordinate to put;
+            :Enter a row;
+            :Enter a columna;
+        repeat while(Coordinate it's no valid or the square is not empty or the coordinate is the same to move)
+            :Put Token in square;
+            :Turn Change;
+    stop
 @enduml
