@@ -1,0 +1,158 @@
+@startuml Use Cases View
+    title Use Cases View
+    
+    actor Player
+    actor UsePlayer
+    actor MachinePlayer
+
+    rectangle Features{
+        usecase Start
+            usecase "Set Up Player" as SetUpPlayer
+            usecase "Show Board" as ShowBard
+        usecase Play
+        usecase Resume
+    }
+
+    Player <|-- UsePlayer
+    Player <|-- MachinePlayer
+
+    Player --> Start
+        Start ..> SetUpPlayer : <<incluide>>
+        Start ..> ShowBard : <<incluide>>
+
+    Player --> Play
+        Play ..> ShowBard : <<incluide>>
+
+    Player --> Resume
+@enduml
+
+@startuml Use Case Context
+    title Use Case Context
+
+    state INITIAL
+    state IN_GAME
+    state OUT_GAME
+    state if1 <<choice>>
+    state if2 <<choice>>
+
+    [*] --> INITIAL
+        INITIAL --> IN_GAME : start
+        IN_GAME --> if1 : play
+            if1 --> IN_GAME
+        if1 --> OUT_GAME : [IsTicTacToe]
+        OUT_GAME --> if2 : Resume
+            if2 --> [*] 
+        if2 --> INITIAL : [IsContinue]
+@enduml
+
+@startuml Use Case Start
+    title Use Case Start
+
+    state A as " "
+    state B as " "
+    state C as " "
+    state D as " "
+    state E as " "
+    state F as " "
+    state G as " "
+    state if1 <<choice>>
+
+    [*] --> INITIAL
+        INITIAL --> A
+        A --> B : Player requests to start a new game
+        B --> C : System displays the title and allows to select the number of players
+        C --> D : Player introduces the number of player 
+        D --> if1
+            if1 --> E : System displays the grid
+            E --> IN_GAME : System allows to play
+            IN_GAME --> [*]
+        if1 -right-> F : [error]
+            note on link
+                number of player out of range
+            endnote
+            F -up-> G : System displays error message
+            G -left-> C        
+@enduml
+
+@startuml Use Case Play
+    title Use Case Play
+
+    state IN_GAME
+    state OUT_GAME
+    state A as " "
+    state B as " "
+    state C as " "
+    state D as " "
+    state E as " "
+    state F as " "
+    state G as " "
+    state H as " "
+    state I as " "
+    state J as " "
+    state K as " "
+    state L as " "
+    state M as " "
+    state N as " "
+    state if1 <<choice>>
+    state if2 <<choice>>
+    state if3 <<choice>>
+    state if4 <<choice>>
+
+    [*] --> IN_GAME
+        IN_GAME --> A : Player requests to play
+        A --> if1
+            if1 --> B : [Token of current player on board < 3]
+            B --> C : System allows introduce the target coordinate to put
+            C --> D : Player introduces the coordinate
+            D --> if2
+                if2 --> E
+                E --> if3  : System displays the updated grid
+                    if3 --> F : [Is winner]
+                    F --> OUT_GAME : System displays winner message
+                if3 --> H
+            if2 --> G : [Error]
+                note on link
+                    coordinate is not valid
+                    square is occupied
+                endnote
+            G --> H : System displays error message
+            H --> [*] : System allows to continue playing
+        if1 --> I 
+            I --> J : System allows introduce the origin coordinate to move
+            J --> K : Player introduces origin coordinate
+            K --> if4
+                if4 --> L 
+                L --> M : System allows to introduce the target coordinate to move
+                M --> N : Player introduces the coordinate
+                N --> E
+            if4 --> G : [Error]
+                note on link
+                    coordinate is not valid
+                    square is empty
+                    coordinate it not of current turn
+                endnote
+        OUT_GAME --> [*] : System allows requests to resume
+@enduml 
+
+@startuml Use Case Resume
+    title Use Case Resume
+    
+    state OUT_GAME
+    state INITIAL
+    state EXIT
+    state A as " "
+    state B as " "
+    state C as " "
+    state if1 <<choice>>
+
+    [*] --> OUT_GAME
+    OUT_GAME --> A : Player requests to resume
+    A --> B : System allows to introduce if continue
+    B --> C : Player introduces the answer
+    C --> if1 
+        if1 --> INITIAL : [yes]
+        INITIAL --> [*]
+    if1 --> EXIT : [not]
+    EXIT --> [*]
+@enduml
+
