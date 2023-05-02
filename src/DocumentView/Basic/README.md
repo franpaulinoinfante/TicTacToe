@@ -114,18 +114,269 @@
 
 ### User Interface Prototype
 
-#### Winning Game
+#### Machine vs Machine
 
 ```
 --- TicTacToe ---
 
-Do you want to continue? (y/n)
+0. Machine vs Machine
+1. Player vs Machine
+2. Player vs Player
+Select the number of players: 0
+
+---------
+[ ][ ][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+---------
+
+Current turn: O
+---------
+[ ][ ][O]
+[ ][ ][ ]
+[ ][ ][ ]
+---------
+
+Current turn: X
+---------
+[ ][ ][O]
+[ ][X][ ]
+[ ][ ][ ]
+---------
+
+Current turn: O
+---------
+[ ][ ][O]
+[ ][X][ ]
+[ ][ ][O]
+---------
+
+Current turn: X
+---------
+[ ][ ][O]
+[X][X][ ]
+[ ][ ][O]
+---------
+
+Current turn: O
+---------
+[ ][ ][O]
+[X][X][O]
+[ ][ ][O]
+---------
+
+Congratulations player: O, you WON!!!! :-)
+
+Do you want to continue? (y/n)y
 ```
 
-#### Lost Game
+#### Player vs Machine
 
 ```
 --- TicTacToe ---
+
+0. Machine vs Machine
+1. Player vs Machine
+2. Player vs Player
+Select the number of players: 1
+
+---------
+[ ][ ][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+---------
+
+Current turn: O
+---------
+[ ][O][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+---------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 2
+Column: 2
+---------
+[ ][O][ ]
+[ ][X][ ]
+[ ][ ][ ]
+---------
+
+Current turn: O
+---------
+[ ][O][ ]
+[ ][X][ ]
+[ ][O][ ]
+---------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 1
+Column: 1
+---------
+[X][O][ ]
+[ ][X][ ]
+[ ][O][ ]
+---------
+
+Current turn: O
+---------
+[X][O][ ]
+[ ][X][ ]
+[ ][O][O]
+---------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 2
+Column: 1
+---------
+[X][O][ ]
+[X][X][ ]
+[ ][O][O]
+---------
+
+Current turn: O
+---------
+[X][O][O]
+[X][X][O]
+[ ][ ][O]
+---------
+
+Current turn: XX
+Enter the origin coordinate to move
+Row: 2
+Column: 2
+Enter the target coordinate to move
+Row: 3
+Column: 1
+---------
+[X][O][O]
+[X][ ][O]
+[O][ ][O]
+---------
+
+Congratulations player: X, you WON!!!! :-)
+
+Do you want to continue? (y/n)y
+```
+
+#### Player vs Player
+
+```
+--- TicTacToe ---
+
+0. Machine vs Machine
+1. Player vs Machine
+2. Player vs Player
+Select the number of players: 2
+
+---------
+[ ][ ][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+---------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 4
+Column: 4
+-------------
+Error! 
+The coordinate is out range
+-------------
+
+Enter a coordinate to put a token:
+Row: 1
+Column: 1
+---------
+[X][ ][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+---------
+
+Current turn: O
+Enter a coordinate to put a token:
+Row: 1
+Column: 1
+-------------
+Error!
+The square is occupied
+-------------
+
+Current turn: O
+Enter a coordinate to put a token:
+Row: 2
+Column: 2
+---------
+[X][ ][ ]
+[ ][O][ ]
+[ ][ ][ ]
+---------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 3
+Column: 3
+---------
+[X][ ][ ]
+[ ][O][ ]
+[ ][ ][X]
+---------
+
+Current turn: O
+Enter a coordinate to put a token:
+Row: 1
+Column: 3
+---------
+[X][ ][O]
+[ ][O][ ]
+[ ][ ][X]
+---------
+
+Current turn: X
+Enter a coordinate to put a token:
+Row: 3
+Column: 1
+---------
+[X][ ][O]
+[ ][O][ ]
+[X][ ][X]
+---------
+
+Current turn: O
+Enter a coordinate to put a token:
+Row: 3
+Column: 2
+---------
+[X][ ][O]
+[ ][O][ ]
+[X][0][X]
+---------
+
+Current turn: X
+Enter the origin coordinate to move:
+Row: 3
+Column: 2
+-------------
+Error!
+The squares of origin and destination cannot be the same.
+-------------
+
+Enter the origin coordinate to move:
+Row: 3
+Column: 3
+Enter the target coordinate to move
+Row: 2
+Column: 1
+---------
+[X][ ][O]
+[X][O][ ]
+[X][0][ ]
+---------
+
+Congratulations player: X, you WON!!!! :-)
 
 Do you want to continue? (y/n)
 ```
