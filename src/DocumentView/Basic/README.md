@@ -102,7 +102,15 @@
 
 #### Use Case Start
 
+![image](https://user-images.githubusercontent.com/46433173/235729807-ae876598-70f8-4a27-8c75-4ca7071795d7.png)
+
+#### Use Case Play
+
+![image](https://user-images.githubusercontent.com/46433173/235729757-9c9e0ba8-e1b2-45d8-9637-66b5bc047839.png)
+
 #### Use Case Resume
+
+![image](https://user-images.githubusercontent.com/46433173/235729669-05df92ac-4dba-4aff-8725-36c4fecaf074.png)
 
 ### User Interface Prototype
 
