@@ -36,7 +36,6 @@
 
 @startuml Inital State
     title Initial State
-
     
     together {
         object ":Square" as Square11
@@ -50,7 +49,6 @@
         object ":Square" as Square31
         object ":Square" as Square32
         object ":Square" as Square33    
-
     }   
 
     object ":Coordinate" as Coordinate11 {
@@ -307,17 +305,19 @@
     title Activity Move
     
     start
-        repeat
-            :Coordinate to move;
-            :Enter a row;
-            :Enter a colunm;
-        repeat while(Coordinate is not valid or the token does not belong to you)
-        repeat
-            :Coordinate to put;
-            :Enter a row;
-            :Enter a columna;
-        repeat while(Coordinate it's no valid or the square is not empty or the coordinate is the same to move)
-            :Put Token in square;
-            :Turn Change;
+        repeat        
+            repeat
+                :Coordinate to move;
+                :Enter a row;
+                :Enter a colunm;
+            repeat while(Coordinate is not valid or the token does not belong to you)
+            repeat
+                :Coordinate to put;
+                :Enter a row;
+                :Enter a columna;
+            repeat while(Coordinate it's no valid or the square is not empty or the coordinate is the same to move)
+                :Put Token in square;
+                :Turn Change;
+        repeat while(is not tic-tac-toe)
     stop
 @enduml
