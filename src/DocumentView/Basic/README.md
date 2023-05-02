@@ -385,19 +385,21 @@ Do you want to continue? (y/n)
 
 ### Architecture Analysis
 
-#### Analysis Start
+### Use cases Analysis
 
-#### Analysis Play
+**Analysis Start**
 
-#### Analysis Resume
+**Analysis Play**
+
+**Analysis Resume**
 
 ### Class Analysis 
 
-#### Analysis Views
+**Analysis Views**
 
-#### Analysis Models
+**Analysis Models**
 
-#### Analysis Types
+**Analysis Types**
 
 ### Package Analysis 
 
