@@ -1,0 +1,272 @@
+@startuml Analysis Architecture
+    title Analysis Architecture
+
+    package TicTacToeApp{
+        package Views{
+            boundary GameView
+            boundary StartView
+            boundary PlayView
+            boundary UserPlayView
+            boundary MachinePlayView
+            boundary ResumeView
+            boundary MessageView
+            boundary PlayerView
+            boundary ErrorView
+            boundary GridView
+            boundary YesNotDialog
+
+            GameView *--> StartView
+            GameView *--> PlayView
+            GameView *--> ResumeView
+
+            StartView ..> MessageView
+            StartView ..> PlayerView
+                PlayerView ..> ErrorView
+                PlayView ..> MessageView
+            StartView ..> GridView
+                GridView ..> MessageView
+
+            
+        }
+        Views ..> Models
+        Views ..> Types
+
+        package Models{
+            entity Game
+            entity Player
+            entity MachinePlayer
+            entity UserPlayer
+            entity Grid
+            entity Turn
+            entity PlayerCreator
+
+            package Types{
+                entity Coordinate
+                entity Token
+                entity Error
+                entity PlayerType
+            }
+        }
+    }
+@enduml
+
+@startuml Analysis Start
+    left to right direction
+    title Analysis Start
+
+    actor "Player" as Actorr
+    package TicTacToeApp{        
+        boundary GameView
+        boundary StartView
+        boundary MessageView
+        boundary PlayerView
+        boundary ErrorView
+        boundary GridView
+
+        entity Game
+        entity Grid
+        entity Turn
+        entity PlayerCreator
+
+        Actorr --> GameView
+        GameView --> StartView
+            StartView --> MessageView
+            StartView --> PlayerView
+                PlayerView --> ErrorView
+            StartView --> Game
+                Game --> PlayerCreator
+                Game --> Grid
+                Game --> Turn
+            StartView --> GridView
+                GridView --> Game
+                Grid --> MessageView            
+    }
+@enduml
+
+@startuml Analysis Start Collaboration Diagram
+    allowmixing
+    title Analysis Start Collaboration Diagram
+
+    actor "Player" as Actorr
+    package TicTacToeApp{
+        object ":GameView" as GameView{
+        }
+        object ":StartView" as StartView{
+        }
+        object ":MessageView" as MessageView{
+        }
+        object ":PlayerView" as PlayerView{
+        }       
+        object ":GridView" as GridView{
+        }      
+        object ":TokenView" as TokenView{
+        }       
+        
+        object ":Game" as Game{
+        }
+        object ":PlayerCreator" as PlayerCreator{
+        }
+        object ":Grid" as Grid{
+        }   
+        object ":Turn" as Turn{
+        }      
+
+
+        Actorr ..> GameView : Start()
+            GameView --> StartView : 1. Interact()
+                StartView --> MessageView
+                    note on link
+                        2. WriteLine(Title)
+                        3. WriteLine(SelectPlayers)
+                    endnote
+                StartView --> PlayerView
+                    note on link
+                        4. ReadPlayer()
+                    endnote
+                    PlayerView --> MessageView
+                        note on link
+                            5. GetMessage(SelectNumberPlayer)
+                        endnote
+                StartView --> Game 
+                    note on link
+                        6. SetUpPlayers(players)
+                        8. NewGame
+                    endnote
+                    Game --> PlayerCreator
+                        note on link
+                            7. SetUpPlayers(players)
+                        endnote
+                    StartView --> GridView
+                        note on link
+                            11. Show(game)
+                        endnote
+                        GridView --> MessageView
+                            note on link
+                                12. WriteLine(HorizontalLine)
+                                13. Write(Square)
+                                17. WriteLine(HorizontalLine)
+                            endnote
+                        GridView --> Game
+                            note on link
+                                14. GetToken(Coordinate)
+                            endnote
+                            Game --> Grid
+                                note on link
+                                    9. NewGame()
+                                    15. GetToken(Coordinate)
+                                endnote
+                            Game --> Turn
+                                note on link
+                                    10. NewGame()
+                                endnote
+                        GridView --> TokenView
+                            note on link
+                                16. Write(Token)
+                            endnote
+                    
+    }
+@enduml
+
+@startuml Analysis Play
+    left to right direction
+    allowmixing
+    title Analysis Play
+
+    actor "Player" as Actorr
+    package TicTacToeApp{
+        
+    }
+@enduml
+
+@startuml Analysis Resume
+    title Analysis Resume
+
+    package TicTacToeApp{
+        namespace Views{
+            class GameViews{
+                ~GameViews(Game)
+                ~Start()
+            }
+
+            class StartView{
+                ~StartView(Game)
+                ~Interact()
+            }
+
+            class PlayerView{
+                ~ReadPlayers()
+            }
+
+            class GridView{
+                ~GridView()
+                ~Show(Game)
+            }
+
+            class TokenView{
+                ~TokenView()
+                ~Write(Token)
+            }
+
+            class ErrorView{
+                ~ErrorView()
+                ~WriteLine(Error)
+            }
+
+            enum MessageView{
+
+                ~MessageView()
+                ~Write(Message)
+                ~WriteLine(Message)
+                ~GetMessage(Message) : string
+            }
+        }    
+
+        namespace Models{
+            class Game{}
+            enum Error{}
+            enum Token{}
+        }
+    }
+
+    Views.GameViews *--> Views.StartView    
+    Views.GameViews --> Models.Game
+
+    Views.StartView --> Models.Game
+    Views.StartView ..> Views.MessageView
+    Views.StartView ..> Views.PlayerView
+    Views.StartView ..> Views.GridView
+
+    Views.PlayerView ..> Views.MessageView
+    Views.PlayerView ..> Models.Error
+    Views.PlayerView ..> Views.ErrorView
+
+    Views.GridView ..> Models.Game
+    Views.GridView ..> Views.MessageView
+    Views.GridView ..> Views.TokenView
+
+    Views.ErrorView ..> Models.Error
+
+    Views.TokenView ..> Models.Token
+
+@enduml
+
+@startuml Analysis Views
+    title Analysis 
+
+@enduml
+
+@startuml Analysis Models
+    title Analysis 
+
+@enduml
+
+@startuml Analysis Types
+    title Analysis 
+
+@enduml
+
+@startuml Analysis Package
+    title Analysis Package
+
+@enduml
+
