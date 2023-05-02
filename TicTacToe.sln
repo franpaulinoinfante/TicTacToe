@@ -5,17 +5,7 @@ VisualStudioVersion = 17.6.33513.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModel", "DomainModel", "{EECA0A9C-F396-4E20-A07C-411CD4F88DD9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WithMachine", "WithMachine", "{B9913F79-0155-44DD-8B9F-E9ACF511856C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{E0E76D86-A11D-468E-9789-5F49A4D7BA67}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe.ConsoleApp", "src\DomainModel\Basic\TicTacToe.ConsoleApp\TicTacToe.ConsoleApp.csproj", "{CA1BFE67-5D63-42B4-B9D5-799CB618D1A4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe.ConsoleApp", "src\DomainModel\WithMachine\TicTacToe.ConsoleApp\TicTacToe.ConsoleApp.csproj", "{CD4531BD-F05F-4ADD-B502-D9A133BE48A4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TIcTacToe.WithMachine.v2", "src\DomainModel\WithMachine.v2\TIcTacToe.WithMachine.v2\TIcTacToe.WithMachine.v2.csproj", "{48B6AFC7-0061-42DC-8096-D162511A64F2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WithMachine.v2", "WithMachine.v2", "{04FFD42E-BFCB-4BE1-BF91-4512F1BE8753}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "src\DocumentView\Basic\TicTacToe\TicTacToe.csproj", "{9A46021F-1548-430A-917C-682F0CB4F8F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,29 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CA1BFE67-5D63-42B4-B9D5-799CB618D1A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA1BFE67-5D63-42B4-B9D5-799CB618D1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA1BFE67-5D63-42B4-B9D5-799CB618D1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA1BFE67-5D63-42B4-B9D5-799CB618D1A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD4531BD-F05F-4ADD-B502-D9A133BE48A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD4531BD-F05F-4ADD-B502-D9A133BE48A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD4531BD-F05F-4ADD-B502-D9A133BE48A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD4531BD-F05F-4ADD-B502-D9A133BE48A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48B6AFC7-0061-42DC-8096-D162511A64F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48B6AFC7-0061-42DC-8096-D162511A64F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48B6AFC7-0061-42DC-8096-D162511A64F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48B6AFC7-0061-42DC-8096-D162511A64F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A46021F-1548-430A-917C-682F0CB4F8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A46021F-1548-430A-917C-682F0CB4F8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A46021F-1548-430A-917C-682F0CB4F8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A46021F-1548-430A-917C-682F0CB4F8F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B9913F79-0155-44DD-8B9F-E9ACF511856C} = {EECA0A9C-F396-4E20-A07C-411CD4F88DD9}
-		{E0E76D86-A11D-468E-9789-5F49A4D7BA67} = {EECA0A9C-F396-4E20-A07C-411CD4F88DD9}
-		{CA1BFE67-5D63-42B4-B9D5-799CB618D1A4} = {E0E76D86-A11D-468E-9789-5F49A4D7BA67}
-		{CD4531BD-F05F-4ADD-B502-D9A133BE48A4} = {B9913F79-0155-44DD-8B9F-E9ACF511856C}
-		{48B6AFC7-0061-42DC-8096-D162511A64F2} = {04FFD42E-BFCB-4BE1-BF91-4512F1BE8753}
-		{04FFD42E-BFCB-4BE1-BF91-4512F1BE8753} = {EECA0A9C-F396-4E20-A07C-411CD4F88DD9}
+		{9A46021F-1548-430A-917C-682F0CB4F8F1} = {EECA0A9C-F396-4E20-A07C-411CD4F88DD9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2663C275-E7A7-4337-BF55-963A8C6715AE}

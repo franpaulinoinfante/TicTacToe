@@ -284,27 +284,6 @@
     state C as " "
     state D as " "
     state E as " "
-
-    [*] --> A
-    A --> B: put X
-    B --> A : put O
-    B --> C : [IsCompletedX]
-        C --> [*] : [IsTicTacToeX]
-    C --> D : put O
-        D --> [*] : [IsTicTacToeO]
-    D --> E : move x
-        E --> [*] : [IsTicTacToeX]
-    E --> D : move O
-@enduml
-
-@startuml Functionalities
-    title Functionalities
-
-    state A as " "
-    state B as " "
-    state C as " "
-    state D as " "
-    state E as " "
     state F as " "
     state G as " "
     state if1 <<choice>>

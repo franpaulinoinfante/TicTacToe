@@ -1,4 +1,6 @@
-# ----- Mastermind Documents/Views Architecture With Prototype-----
+# ----- Tic-Tac-Toe -----
+
+**With Documents/Views Architecture**
 
 ## Index
 
