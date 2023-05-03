@@ -1,9 +1,10 @@
-﻿using TicTacToe.GameViews;
+﻿using TicTacToe.ConsoleApp.Views.Models;
+using TicTacToe.GameViews;
 using TicTacToe.Models;
 
 namespace TicTacToe.ConsoleApp.Views;
 
-internal class StartView 
+internal class StartView
 {
     private readonly Game _game;
 
@@ -16,7 +17,6 @@ internal class StartView
     {
         new MessageView(Message.Title).WriteLine();
         new MessageView(Message.NumberPlayerMenu).WriteLine();
-
 
         _game.CreatePlayer(ConsoleIO.Instance.ReadInt(Message.SelectNumberPlayer.GetMessage()));
         _game.NewGame();
