@@ -385,15 +385,15 @@ Do you want to continue? (y/n)
 
 ### Architecture Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/235761231-81a8668d-da01-4371-912a-0a33ba8878bf.png)
+![image](https://user-images.githubusercontent.com/46433173/235921520-89a2fc9b-2b3c-4317-9c95-b4535e5b55ff.png)
 
 ### Use cases Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/235786687-87cab695-d0de-4275-bd90-52dc2035d224.png)
-
-![image](https://user-images.githubusercontent.com/46433173/235786506-ab49158c-e75b-432a-b30b-9747237a15b0.png)
-
 #### **Analysis Start**
+
+![image](https://user-images.githubusercontent.com/46433173/235921712-f0c13008-2592-4de2-b89c-d44204a4c945.png)
+
+![image](https://user-images.githubusercontent.com/46433173/235921633-bc284b74-89d0-4b4f-8752-00be467666ec.png)
 
 #### **Analysis Play**
 
@@ -403,9 +403,15 @@ Do you want to continue? (y/n)
 
 #### **Analysis Views**
 
+![image](https://user-images.githubusercontent.com/46433173/235921845-2b07183c-5bba-4248-a1b4-4ac9f868d29d.png)
+
 #### **Analysis Models**
 
+![image](https://user-images.githubusercontent.com/46433173/235921930-58eee118-628a-44c1-8fb7-faedaf7a5a37.png)
+
 #### **Analysis Types**
+
+![image](https://user-images.githubusercontent.com/46433173/235922804-e293552e-8389-449c-bd84-a2e4608585ed.png)
 
 ### Package Analysis 
 
