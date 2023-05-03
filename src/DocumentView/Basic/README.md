@@ -39,10 +39,9 @@
         -   [Design Resume](#Design-Resume)  
     -   [Class Design](#Class-Design)  
         -   [Design Views](#Design-Views)  
-        -   [Design Mastermind](#Design-Mastermind)  
+        -   [Design TicTacToe](#Design-TicTacToe)  
         -   [Design GameViews](#Design-GameViews)  
         -   [Design Models](#Design-Models)  
-        -   [Design Types](#Design-Types)  
 - [Implementation View](#Implementation-View)  
 - [Deployment View](#Deployment-View)  
 - [Process View](#Process-View)  
@@ -473,13 +472,17 @@ Se divide en:
 
 #### Design Views
 
-#### Mastermind
+#### TicTacToe
+
+![image](https://user-images.githubusercontent.com/46433173/236036889-769325e6-9e46-4c4d-a6c7-64dd3ef4be8f.png)
 
 #### GameViews
 
+![image](https://user-images.githubusercontent.com/46433173/236036774-7613534c-365e-4819-9eb4-774329f0eca8.png)
+
 #### Design Models
 
-#### Design Types
+![image](https://user-images.githubusercontent.com/46433173/236036685-8f7ef216-5aa1-4235-bace-4bc47f3744aa.png)
 
 ## Implementation View
 
