@@ -40,12 +40,32 @@
             entity Turn
             entity PlayerCreator
 
-            package Types{
-                entity Coordinate
-                entity Token
-                entity Error
-                entity PlayerType
-            }
+            Game *--> "2" Player
+            Game *--> Grid
+            Game *--> Turn
+            Game ..> PlayerCreator
+
+            Turn --> "2" Player
+            
+            Player --> Grid
+            Player <|-- UserPlayer
+            Player <|-- MachinePlayer
+
+            PlayerCreator ..> Player
+            PlayerCreator ..> UserPlayer
+            PlayerCreator ..> MachinePlayer
+
+            UserPlayer --> Grid            
+            MachinePlayer --> Grid
+            
+        }
+        Models ..> Types
+        
+        package Types{
+            entity Coordinate
+            entity Token
+            entity Error
+            entity PlayerType
         }
     }
 @enduml
@@ -101,6 +121,8 @@
         }      
         object ":TokenView" as TokenView{
         }       
+        object ":ErrorView" as ErrorView{
+        }       
         
         object ":Game" as Game{
         }
@@ -127,14 +149,22 @@
                         note on link
                             5. GetMessage(SelectNumberPlayer)
                         endnote
+                    PlayerView --> ErrorView
+                        note on link
+                            5.1 WriteLine(Error)
+                        endnote
+                        ErrorView --> MessageView
+                            note on link
+                                5.2 WriteLine(VerticalLine)
+                            endnote
                 StartView --> Game 
                     note on link
-                        6. SetUpPlayers(players)
+                        6. CreatePlayer(players)
                         8. NewGame
                     endnote
                     Game --> PlayerCreator
                         note on link
-                            7. SetUpPlayers(players)
+                            7. CreatePlayer(players)
                         endnote
                     StartView --> GridView
                         note on link
@@ -181,6 +211,11 @@
 @startuml Analysis Resume
     title Analysis Resume
 
+@enduml
+
+@startuml Analysis Views
+    title Analysis 
+
     package TicTacToeApp{
         namespace Views{
             class GameViews{
@@ -213,7 +248,16 @@
             }
 
             enum MessageView{
-
+                ~Title
+                ~SelectNumberPlayers
+                ~VerticalLine
+                ~Square
+                ~CurrentTurn
+                ~EnterCoodinateToPut
+                ~EnterOriginCoodinateToMove
+                ~EnterTargetCoodinateToMove
+                ~Winner
+                ~Resume
                 ~MessageView()
                 ~Write(Message)
                 ~WriteLine(Message)
@@ -248,20 +292,92 @@
 
     Views.TokenView ..> Models.Token
 
-@enduml
-
-@startuml Analysis Views
-    title Analysis 
 
 @enduml
 
 @startuml Analysis Models
     title Analysis 
 
+    package TicTacToeApp{
+        namespace Models{
+            class Game{
+                +Game()
+                +NewGame()
+                +CreatePlayers(players : int)
+                +GetToken(Coordinate)
+            }
+            Game *--> Grid
+            Game *--> Turn
+            Game *--> "2" Player
+            Game ..> PlayerCreator
+
+            class PlayerCreator{
+                ~instance : PlayerCreator { get: }
+                -PlayerCreator()
+                ~CreatePlayers(Board, players) : Player
+            }
+            PlayerCreator ..> Player
+            PlayerCreator ..> UserPlayer
+            PlayerCreator ..> MachinePlayer
+
+            class Player{
+                ~Player(Board, PlayerType)
+            }
+            Player <|-- UserPlayer
+            Player <|-- MachinePlayer
+            Player --> Grid
+
+            class Turn{
+                ~{static}MaxPlayers : int
+                ~Turn(Player)
+                ~NewGame()
+            }
+            Turn --> "2" Player
+
+            class Grid{
+                ~Grid()
+                ~NewGame()
+                ~GetToken(Coordinate)
+            }
+
+            namespace Types{
+                enum PlayerType
+                enum Coordinate
+            }
+        }
+    }
+    
+    Models.Player --> Models.Types.PlayerType
+    Models.PlayerCreator ..> Models.Types.PlayerType    
+    Models.Grid ..> Models.Types.Coordinate
+
 @enduml
 
 @startuml Analysis Types
     title Analysis 
+
+    package TicTacToeApp{
+        package Models{
+            package Types{
+                enum Error{
+                    +InvalidPlayerSelect
+                    +Null
+                    +{static}IsNull() : bool
+                }
+
+                enum PlayerType{
+                    +UserPlayer
+                    +MachinePlayer
+                }
+
+                class Coordinate{
+                    +Row : Row { get; }
+                    +Colunm : Colunm { get; }
+                    +Coordinate(row, colunm)
+                }
+            }
+        }
+    }
 
 @enduml
 
