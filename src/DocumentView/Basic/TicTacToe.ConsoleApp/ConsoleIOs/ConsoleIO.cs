@@ -1,0 +1,130 @@
+﻿public class ConsoleIO
+{
+    private static ConsoleIO? _instance;
+
+    private ConsoleIO() { }
+
+    public static ConsoleIO Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new ConsoleIO();
+            }
+
+            return _instance;
+        }
+    }
+
+    public string ReadString()
+    {
+        return ReadString(string.Empty);
+    }
+
+    public string ReadString(string? title)
+    {
+        string input = string.Empty;
+        bool ok = false;
+        do
+        {
+            Write(title);
+            try
+            {
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+                input = Console.ReadLine();
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                ok = true;
+            }
+            catch (Exception)
+            {
+                WriteError("de cadena de caracteres");
+            }
+        } while (!ok);
+
+#pragma warning disable CS8603 // Possible null reference return.
+        return input;
+#pragma warning restore CS8603 // Possible null reference return.
+    }
+
+    public char ReadChar(string title)
+    {
+        char charValue = ' ';
+        bool ok = false;
+        do
+        {
+            string input = ReadString(title);
+            if (input.Length == 1)
+            {
+                charValue = input.ToCharArray()[0];
+                ok = true;
+            }
+            else
+            {
+                WriteError("de un caracter");
+            }
+        } while (!ok);
+
+        return charValue;
+    }
+
+    public int ReadInt(string? title)
+    {
+        int number = 0;
+        bool ok = false;
+        do
+        {
+            try
+            {
+                number = int.Parse(ReadString(title));
+                ok = true;
+            }
+            catch
+            {
+                WriteError("entero");
+            }
+        } while (!ok);
+
+        return number;
+    }
+
+    public void Write(string? outString)
+    {
+        Console.Write(outString);
+    }
+
+    public void Write(char outChar)
+    {
+        Write(outChar.ToString());
+    }
+
+    public void Write(int outInt)
+    {
+        Write(outInt.ToString());
+    }
+
+    public void NewLine()
+    {
+        Console.WriteLine();
+    }
+
+    public void WriteLine(string? outString)
+    {
+        Console.WriteLine(outString);
+    }
+
+    public void WriteLine(int outInt)
+    {
+        Console.WriteLine(outInt);
+    }
+
+    private void WriteError(string format)
+    {
+        WriteLine($"ERROR DE FORMATO.\tIntroduzca un valor con formato: {format}");
+    }
+
+    internal void Clear()
+    {
+        Console.Clear();
+    }
+}

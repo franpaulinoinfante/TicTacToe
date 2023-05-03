@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33513.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModel", "DomainModel", "{EECA0A9C-F396-4E20-A07C-411CD4F88DD9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DocumentView", "DocumentView", "{EECA0A9C-F396-4E20-A07C-411CD4F88DD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "src\DocumentView\Basic\TicTacToe\TicTacToe.csproj", "{9A46021F-1548-430A-917C-682F0CB4F8F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe", "src\DocumentView\Basic\TicTacToe\TicTacToe.csproj", "{9A46021F-1548-430A-917C-682F0CB4F8F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.Models", "src\DocumentView\Basic\TicTacToe.Models\TicTacToe.Models.csproj", "{B8A937A0-A4E5-4D4C-9ED6-E5E098D2B9E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.GameViews", "src\DocumentView\Basic\TicTacToe.GameViews\TicTacToe.GameViews.csproj", "{86DF55AD-A3AE-48FB-96EF-3A65F0FEC65C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.WinFormsApp", "src\DocumentView\Basic\TicTacToe.WinFormsApp\TicTacToe.WinFormsApp.csproj", "{ABF807BD-332C-456E-8E57-355921FAC622}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.ConsoleApp", "src\DocumentView\Basic\TicTacToe.ConsoleApp\TicTacToe.ConsoleApp.csproj", "{87A1708A-DFFF-475A-B4AB-1E601249C4E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +25,31 @@ Global
 		{9A46021F-1548-430A-917C-682F0CB4F8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A46021F-1548-430A-917C-682F0CB4F8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A46021F-1548-430A-917C-682F0CB4F8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8A937A0-A4E5-4D4C-9ED6-E5E098D2B9E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A937A0-A4E5-4D4C-9ED6-E5E098D2B9E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A937A0-A4E5-4D4C-9ED6-E5E098D2B9E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A937A0-A4E5-4D4C-9ED6-E5E098D2B9E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86DF55AD-A3AE-48FB-96EF-3A65F0FEC65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86DF55AD-A3AE-48FB-96EF-3A65F0FEC65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86DF55AD-A3AE-48FB-96EF-3A65F0FEC65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86DF55AD-A3AE-48FB-96EF-3A65F0FEC65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABF807BD-332C-456E-8E57-355921FAC622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF807BD-332C-456E-8E57-355921FAC622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF807BD-332C-456E-8E57-355921FAC622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF807BD-332C-456E-8E57-355921FAC622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A1708A-DFFF-475A-B4AB-1E601249C4E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A1708A-DFFF-475A-B4AB-1E601249C4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A1708A-DFFF-475A-B4AB-1E601249C4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A1708A-DFFF-475A-B4AB-1E601249C4E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9A46021F-1548-430A-917C-682F0CB4F8F1} = {EECA0A9C-F396-4E20-A07C-411CD4F88DD9}
+		{B8A937A0-A4E5-4D4C-9ED6-E5E098D2B9E3} = {EECA0A9C-F396-4E20-A07C-411CD4F88DD9}
+		{86DF55AD-A3AE-48FB-96EF-3A65F0FEC65C} = {EECA0A9C-F396-4E20-A07C-411CD4F88DD9}
+		{ABF807BD-332C-456E-8E57-355921FAC622} = {EECA0A9C-F396-4E20-A07C-411CD4F88DD9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2663C275-E7A7-4337-BF55-963A8C6715AE}
