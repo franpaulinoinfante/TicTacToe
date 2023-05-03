@@ -18,7 +18,7 @@ internal class StartView
         new MessageView(Message.Title).WriteLine();
         new MessageView(Message.NumberPlayerMenu).WriteLine();
 
-        _game.CreatePlayer(ConsoleIO.Instance.ReadInt(Message.SelectNumberPlayer.GetMessage()));
+        _game.CreatePlayer(new PlayerCreateView().Read(_game));
         _game.NewGame();
 
         new GridView().Show(_game);

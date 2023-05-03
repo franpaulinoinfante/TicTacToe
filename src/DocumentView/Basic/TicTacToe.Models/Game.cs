@@ -15,6 +15,11 @@ public class Game
         _turn = new Turn(_players);
     }
 
+    public Error CheckErrorToReadPlayers(int players)
+    {
+        return PlayerFactory.Instance.CheckErrorToReadPlayers(players);
+    }
+
     public void CreatePlayer(int numberPlayers)
     {
         for (int i = 0; i < Turn.MaxPlayer; i++)

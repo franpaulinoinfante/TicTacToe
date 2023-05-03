@@ -1,9 +1,11 @@
-﻿using TicTacToe.Models.Types;
+﻿using System.Numerics;
+using TicTacToe.Models.Types;
 
 namespace TicTacToe.Models;
 
 internal class PlayerFactory
 {
+    private const int MinPlayers = 0;
     private static PlayerFactory? _instance;
 
     private PlayerFactory() { }
@@ -14,6 +16,16 @@ internal class PlayerFactory
         {
             return _instance ?? (_instance = new PlayerFactory());
         }
+    }
+
+    internal Error CheckErrorToReadPlayers(int players)
+    {
+        if ((PlayerFactory.MinPlayers > players) || (players > Turn.MaxPlayer))
+        {
+            return Error.InvalidPlayerSelect;
+        }
+
+        return Error.Null;
     }
 
     internal Player Create(int position, int numberPlayers, Grid grid)

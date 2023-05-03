@@ -22,7 +22,7 @@ public partial class DashBoard : Form, IGameView
     }
     public void Start()
     {
-        label1.Text = GameViews.Message.Title.GetMessage();
+        new GameView(_game).Show();
     }
 
     private void button1_Click(object sender, EventArgs e)

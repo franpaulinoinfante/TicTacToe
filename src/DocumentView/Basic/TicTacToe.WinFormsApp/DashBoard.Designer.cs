@@ -28,44 +28,42 @@ partial class DashBoard
     /// </summary>
     private void InitializeComponent()
     {
-        button1 = new Button();
-        label1 = new Label();
+        btnOpenGame = new Button();
+        panel1 = new Panel();
         SuspendLayout();
         // 
-        // button1
+        // btnOpenGame
         // 
-        button1.Location = new Point(418, 197);
-        button1.Name = "button1";
-        button1.Size = new Size(75, 23);
-        button1.TabIndex = 0;
-        button1.Text = "button1";
-        button1.UseVisualStyleBackColor = true;
-        button1.Click += button1_Click;
+        btnOpenGame.Location = new Point(12, 12);
+        btnOpenGame.Name = "btnOpenGame";
+        btnOpenGame.Size = new Size(127, 23);
+        btnOpenGame.TabIndex = 0;
+        btnOpenGame.Text = "Open Game";
+        btnOpenGame.UseVisualStyleBackColor = true;
+        btnOpenGame.Click += button1_Click;
         // 
-        // label1
+        // panel1
         // 
-        label1.AutoSize = true;
-        label1.Location = new Point(189, 38);
-        label1.Name = "label1";
-        label1.Size = new Size(38, 15);
-        label1.TabIndex = 1;
-        label1.Text = "label1";
+        panel1.Location = new Point(12, 41);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(300, 214);
+        panel1.TabIndex = 3;
         // 
         // DashBoard
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
-        Controls.Add(label1);
-        Controls.Add(button1);
+        ClientSize = new Size(324, 267);
+        Controls.Add(panel1);
+        Controls.Add(btnOpenGame);
+        IsMdiContainer = true;
         Name = "DashBoard";
         Text = "DashBoard";
         ResumeLayout(false);
-        PerformLayout();
     }
 
     #endregion
 
-    private Button button1;
-    private Label label1;
+    private Button btnOpenGame;
+    private Panel panel1;
 }

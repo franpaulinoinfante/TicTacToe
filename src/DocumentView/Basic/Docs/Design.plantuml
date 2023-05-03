@@ -1,0 +1,332 @@
+@startuml Design Architecture
+    title Architecture Document/View
+
+    package TicTacToeApp{
+        package TicTacToe{}
+        package ConsoleApp{}
+        package WinFormApp{}
+        package GameViews{}
+        package Models{}
+
+        ConsoleApp ..> TicTacToe
+        ConsoleApp ..> GameViews
+        ConsoleApp ..> Models
+
+        WinFormApp ..> TicTacToe
+        WinFormApp ..> GameViews
+        WinFormApp ..> Models
+
+        TicTacToe ..> GameViews
+        TicTacToe ..> Models
+
+        GameViews ..> Models
+    }
+    TicTacToeApp ..> System
+
+    package System{}
+@enduml
+
+@startuml Design Start
+    title Design 
+
+@enduml
+
+@startuml Design Play
+    title Design Play
+
+@enduml
+
+@startuml Design Resume
+    title Design Resume
+
+@enduml
+
+@startuml Design Views
+    title Design Views
+
+    package TicTacToeApp{
+        namespace ConsoleApp{
+            class Program{
+                ~Main(string[])
+            }
+            
+
+            namespace Views{
+                class ConsoleView{
+                    ~ConsoleView(Game)
+                    ~Start()
+                }
+
+                class StartView{
+                    ~StartView(Game)
+                    ~Interact()
+                }
+
+                namespace Models{
+                    class MessageView{
+                        -{static}messages : string[]
+                        ~MessageView(Message)
+                        ~Write(string)
+                        ~WriteLine()
+                    }
+
+                    class CreatePlayerView{
+                        ~CreatePlayerView()
+                        ~Read() : int
+                    }
+
+                    class GridView{
+                        ~GridView()
+                        ~Show(Game)
+                    }
+
+                    class TokenView{
+                        ~Write(Game)
+                    }
+
+                    class ErrorView{
+                        -{static}errors : string[]
+                        ~ErrorView(Error) : base(Error)
+                        ~WriteLine()
+                    }
+                }
+            }
+
+            namespace ConsoleIOs{
+                class ConsoleIO{
+                    ~Write(outString)
+                    ~WriteLine(outString)
+                    ~ReadInt(outString)
+                    ~NewLine()
+                }
+            }
+        }
+
+        namespace TicTacToe{
+            class TicTacToe{}
+        }
+
+        namespace GameViews{
+            interface IGameView{}
+            enum Message{}
+            abstract ErrorView{}
+        }
+
+        namespace Models{
+            class Game{}
+            enum Token{}
+            enum Error{}
+        }
+    }
+
+    ConsoleApp.Program *--> TicTacToe.TicTacToe
+    ConsoleApp.Program *--> ConsoleApp.Views.ConsoleView
+    ConsoleApp.Program ..> Models.Game
+
+    ConsoleApp.Views.ConsoleView *--> ConsoleApp.Views.StartView
+    ConsoleApp.Views.ConsoleView .up.|> GameViews.IGameView
+
+    ConsoleApp.Views.StartView --> Models.Game
+    ConsoleApp.Views.StartView ..> GameViews.Message
+    ConsoleApp.Views.StartView ..> ConsoleApp.Views.Models.MessageView
+    ConsoleApp.Views.StartView ..> ConsoleApp.Views.Models.GridView
+
+    ConsoleApp.Views.Models.MessageView ..> ConsoleApp.ConsoleIOs.ConsoleIO
+    ConsoleApp.Views.Models.MessageView ..> GameViews.Message
+
+    ConsoleApp.Views.Models.GridView ..> Models.Game
+    ConsoleApp.Views.Models.GridView ..> Models.Token
+    ConsoleApp.Views.Models.GridView ..> ConsoleApp.Views.Models.MessageView 
+    ConsoleApp.Views.Models.GridView ..> GameViews.Message
+    ConsoleApp.Views.Models.GridView ..> ConsoleApp.ConsoleIOs.ConsoleIO
+    ConsoleApp.Views.Models.GridView ..> ConsoleApp.Views.Models.TokenView
+
+    ConsoleApp.Views.Models.TokenView ..> Models.Token
+    ConsoleApp.Views.Models.TokenView ..> ConsoleApp.Views.Models.MessageView
+
+    ConsoleApp.Views.Models.CreatePlayerView ..> ConsoleApp.ConsoleIOs.ConsoleIO
+    ConsoleApp.Views.Models.CreatePlayerView ..> GameViews.Message
+    ConsoleApp.Views.Models.CreatePlayerView ..> Models.Error
+    ConsoleApp.Views.Models.CreatePlayerView ..> ConsoleApp.Views.Models.ErrorView
+
+    
+    ConsoleApp.Views.Models.ErrorView -up-|> GameViews.ErrorView
+    ConsoleApp.Views.Models.ErrorView ..> Models.Error
+    ConsoleApp.Views.Models.ErrorView ..> ConsoleApp.ConsoleIOs.ConsoleIO
+@enduml
+
+@startuml Design TicTacToe
+    title Design TicTacToe
+
+    package TicTacToeApp{
+        namespace TicTacToe{
+            class TicTacToe{
+                +game : Game {get;}
+                +gameView : GameView {get; set;}
+                +Run()
+            }
+        }
+
+        namespace GameViews{
+            interface IGameView{}
+        }
+
+        namespace Models{
+            class Game{}
+        }
+    }    
+
+    TicTacToe.TicTacToe *--> Models.Game
+    TicTacToe.TicTacToe --> GameViews.IGameView
+@enduml
+
+@startuml Design GameViews
+    title Design GameViews
+
+package TicTacToeApp{
+    namespace GameViews{
+        interface IGameView{
+            +Start()
+        }
+
+        enum Message{
+            Title
+            NumberPlayerMenu
+            SelectNumberPlayer
+            ErrorTitle
+            VerticalLine
+            Square
+            CurrentTurn
+            EnterCoordinateToPut
+            EnterOriginCoordinateToMove
+            EnterTargetCoordinateToMove
+            Winner
+            Resume
+            +{static}messages : string[]
+            +GetMessage(Message) : string
+        }   
+
+        abstract ErrorView{
+            #{static}errorsMessage : string[]
+            +ErrorView(Error)
+        }     
+    }
+
+    namespace Models{
+        enum Error{}
+    }        
+}
+
+GameViews.ErrorView --> Models.Error
+@enduml
+
+@startuml Design Models
+    title Design 
+
+package TicTacToeApp{
+    namespace Models{
+        class Game{
+            +Game()
+            +NewGame()
+            +CreatePlayers(players : int)
+            +GetToken(Coordinate)
+            +CheckErrorToReadPlayers(players : int) : Error
+        }
+        Game *--> Grid
+        Game *--> "2" Player
+        Game *--> Turn
+        Game ..> PlayerFactory
+
+        class PlayerFactory{
+            -{static}MinPlayers : int
+            -instance : PlayerFactory 
+            -PlayerFactory()
+            ~Instance : PlayerFactory { get; }
+            ~Create(position, players, Grid) : Player
+        }
+        PlayerFactory ..> Player
+        PlayerFactory ..> UserPlayer
+        PlayerFactory ..> MachinePlayer
+        PlayerFactory ..> Grid
+        PlayerFactory ..> Turn
+
+        abstract Player{
+            +Player(Token, Grid, PlayerType)
+        }
+        Player <|-- UserPlayer
+        Player <|-- MachinePlayer
+        Player --> Grid
+
+        class UserPlayer{
+            +UserPlayer(Token, Grid, PlayerType)
+        }
+
+        class MachinePlayer{
+            +UserPlayer(Token, Grid, PlayerType)
+        }
+
+        class Turn{
+            ~{static}MaxPlayer : int
+        }
+        Turn --> Player
+
+        class Grid{
+            ~Grid()
+            ~NewGame()
+            ~GetToken(Coordinate) : Token
+        }
+
+        namespace Types{
+            enum Error{
+                Null
+            }
+
+            enum PlayerType{
+                +UserPlayer
+                +MachinePlayer
+            }
+
+            enum Token{
+                +X
+                +O
+                +Null
+            }
+
+            class Coordinate{
+                ~{static}Dimension : int
+                -row : int
+                -colunm : int
+                +Coordinate(row, colunm)
+                +Row : int { get; }
+                +Colunm : int { get; }
+            }
+        }
+    }
+}    
+
+Models.Game ..> Models.Types.Error   
+Models.Game ..> Models.Types.Coordinate
+Models.Game ..> Models.Types.Token
+
+Models.PlayerFactory ..> Models.Types.Error
+Models.PlayerFactory ..> Models.Types.PlayerType
+Models.PlayerFactory ..> Models.Types.Token
+
+Models.Player --> Models.Types.PlayerType
+Models.Player --> Models.Types.Token
+
+Models.UserPlayer --> Models.Types.PlayerType
+Models.UserPlayer --> Models.Types.Token
+
+Models.MachinePlayer --> Models.Types.PlayerType
+Models.MachinePlayer --> Models.Types.Token
+
+Models.Grid o--> "3x3" Models.Types.Token
+Models.Grid ..> Models.Types.Coordinate
+@enduml
+
+@startuml Design Types
+    title Design 
+
+@enduml
+
