@@ -384,7 +384,7 @@ Do you want to continue? (y/n)
 
 ### Architecture Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/235921520-89a2fc9b-2b3c-4317-9c95-b4535e5b55ff.png)
+![image](https://user-images.githubusercontent.com/46433173/236214754-b89ff6d8-b357-4b58-87d5-ca0dcf0a530e.png)
 
 ### Use cases Analysis
 
@@ -395,6 +395,8 @@ Do you want to continue? (y/n)
 ![image](https://user-images.githubusercontent.com/46433173/235921633-bc284b74-89d0-4b4f-8752-00be467666ec.png)
 
 #### **Analysis Play**
+
+![image](https://user-images.githubusercontent.com/46433173/236214829-5e76a60f-67c1-4e69-92a5-30e03c4067d8.png)
 
 #### **Analysis Resume**
 
