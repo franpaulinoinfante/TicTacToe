@@ -35,8 +35,6 @@
     -   [Architecture Design](#Architecture-Design)  
     -   [Use Case Design](#Use-Cases-Design)  
         -   [Design Start](#Design-Start)  
-        -   [Design Play](#Design-Play)  
-        -   [Design Resume](#Design-Resume)  
     -   [Class Design](#Class-Design)  
         -   [Design Views](#Design-Views)  
         -   [Design TicTacToe](#Design-TicTacToe)  
@@ -467,10 +465,6 @@ Se divide en:
 ### Use Cases Design 
 
 #### Design Start
-
-#### Design Play
-
-#### Design Resume
 
 ### Class Design
 
