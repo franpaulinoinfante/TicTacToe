@@ -382,7 +382,7 @@ Do you want to continue? (y/n)
 
 ### Architecture Analysis
 
-![image](https://user-images.githubusercontent.com/46433173/236214754-b89ff6d8-b357-4b58-87d5-ca0dcf0a530e.png)
+![image](https://user-images.githubusercontent.com/46433173/236328025-e342a63c-0a8b-47ca-98ba-e48788f066c2.png)
 
 ### Use cases Analysis
 
@@ -396,15 +396,19 @@ Do you want to continue? (y/n)
 
 ![image](https://user-images.githubusercontent.com/46433173/236214829-5e76a60f-67c1-4e69-92a5-30e03c4067d8.png)
 
-![image](https://user-images.githubusercontent.com/46433173/236226700-37730edb-9b43-41bc-804d-7e15ec843c76.png)
+![image](https://user-images.githubusercontent.com/46433173/236329751-4af7c03c-7bfd-4364-bb75-2e2e1f40bdfd.png)
 
 #### **Analysis Resume**
+
+![image](https://user-images.githubusercontent.com/46433173/236332978-ea767332-83fb-47fb-a0e7-a530a98bed9c.png)
+
+![image](https://user-images.githubusercontent.com/46433173/236333050-c4f6ea0c-95cd-418a-8545-34aaa960f7cf.png)
 
 ### Class Analysis 
 
 #### **Analysis Views**
 
-![image](https://user-images.githubusercontent.com/46433173/236310504-1ce8df80-1aaa-4b7a-bc7b-a16ab16429ee.png)
+![image](https://user-images.githubusercontent.com/46433173/236333118-65103e34-722c-4577-8e05-e0dca22a6dd5.png)
 
 #### **Analysis Models**
 
