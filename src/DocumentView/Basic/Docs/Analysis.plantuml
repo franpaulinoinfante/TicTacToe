@@ -498,8 +498,6 @@ Actorr --> GameView : Play()
     Views.ErrorView ..> Models.Error
 
     Views.TokenView ..> Models.Token
-
-
 @enduml
 
 @startuml Analysis Models
@@ -509,18 +507,20 @@ Actorr --> GameView : Play()
         namespace Models{
             class Game{
                 +Game()
-                +NewGame()
                 +CreatePlayers(players : int)
-                +GetToken(Coordinate)
+                +CheckErrorToReadPlayers(players) : Error
+                +NewGame()
                 +Next()
                 +GetCurrentTurn() : Token
+                +GetToken(Coordinate) : Token
+                +GetPlayerType() : PlayerType
                 +HasToken() : boolean
-                +CheckErrorToPutToken(Coordinate) : Error
+                +IsTicTacToe(Token) : boolean
                 +PutToken(Coordinate)
+                +CheckErrorToPutToken(Coordinate) : Error
+                +MoveToken(origin, target)
                 +CheckOriginErrorToMoveToken(Coordinate) : Error
                 +CheckTargetErrorToMoveToken(origin, target) : Error
-                +MoveToken(origin, target)
-                +IsTicTacToe(Token) : boolean
                 +CheckErrorToReadValid(Coordinate) : Error
             }
             Game *--> Grid
@@ -532,6 +532,7 @@ Actorr --> GameView : Play()
                 ~instance : PlayerCreator { get: }
                 -PlayerCreator()
                 ~CreatePlayers(Grid, players) : Player
+                ~CheckErrorToReadPlayers(players) : Error
             }
             PlayerCreator ..> Player
             PlayerCreator ..> UserPlayer
@@ -539,13 +540,16 @@ Actorr --> GameView : Play()
             PlayerCreator ..> Grid
 
             class Player{
+                -tokens : int
                 ~Player(Grid, Token, PlayerType)
+                ~GetToken() : Token
+                ~GetPlayerType() : PlayerType
                 ~HasToken() : boolean
-                ~CheckErrorToPutToken(Coordinate) : Error
                 ~PutToken(Coordinate)
+                ~CheckErrorToPutToken(Coordinate) : Error
+                ~MoveToken(origin, target)
                 ~CheckOriginErrorToMoveToken(Coordinate) : Error
                 ~CheckTargetErrorToMoveToken(origin, target) : Error
-                ~MoveToken(origin, target)
             }
             Player <|-- UserPlayer
             Player <|-- MachinePlayer
@@ -553,7 +557,7 @@ Actorr --> GameView : Play()
 
             class Turn{
                 ~{static}MaxPlayers : int
-                ~Turn(Player)
+                ~Turn(Player[])
                 ~Next()
                 ~GetCurrentTurn() : Token
             }
@@ -563,11 +567,13 @@ Actorr --> GameView : Play()
                 ~Grid()
                 ~NewGame()
                 ~GetToken(Coordinate)
-                ~IsTicTacToe(Token) : boolean
                 ~PutToken(Coordinate)
                 ~MoveToken(origin, target)
                 ~IsEmpty(Coordinate) : boolean
                 ~IsOccupued(Coordinate, Token) : boolean
+                ~IsTicTacToe(Token) : boolean
+                -GetDirections(Token) : List<Direction>
+                -GetCoordinates(Token) : List<Coordinate>
             }
 
             namespace Types{
@@ -582,8 +588,13 @@ Actorr --> GameView : Play()
                     +Coordinate()
                     +Coordinate(row, colunm)
                     ~CheckErrorToReadValid(Coordinate) : Error
-                    -IsValid(value) : boolean
-                    ~AreEquals(origin, target) : boolean
+                    ~Equals(Coordinate) : boolean
+                    ~Equals(origin, target) : boolean
+                    ~GetDirection(Coordinate) : Direction
+                    -InHorizontal(Coordinate) : boolean
+                    -InVertical(Coordinate) : boolean
+                    -InMainDiagonl() : boolean
+                    -InInverseDiagonal() : boolean
                 }
 
                 class ClosedInterval{
@@ -601,9 +612,13 @@ Actorr --> GameView : Play()
                     +Null
                 }
 
-                enum Error{
+                enum Error{    
+                    +InvalidPlayerSelect
+                    +SquareIsOccupied
+                    +NotOwned
+                    +OriginAndTargetCoordinateCantNotBeSame
+                    +InvalidCoordinate
                     +Null
-                    +{static}GetError() : Error
                     +{static}IsNull(Error) : boolean
                 }
 
@@ -611,7 +626,6 @@ Actorr --> GameView : Play()
                     +X,
                     +O,
                     +Null
-                    +{static}GetToken(Token) : Token
                     +{static}IsNull(Token) : boolean
                 }
             }

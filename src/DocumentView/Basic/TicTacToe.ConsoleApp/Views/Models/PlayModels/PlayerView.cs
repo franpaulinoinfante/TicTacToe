@@ -37,7 +37,7 @@ internal abstract class PlayerView
 
     protected virtual Error CheckErrorToPut(Coordinate coordinate)
     {
-        return _game.CheckErrorToPut(coordinate);
+        return _game.CheckErrorToPutToken(coordinate);
     }
 
     protected abstract Coordinate Read(Message message, Game game);

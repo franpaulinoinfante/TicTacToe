@@ -28,7 +28,7 @@ public class Coordinate
             !new ClosedInterval(min: 0, max: Coordinate.Dimension - 1).IsValid(value: coordinate.Column) ? Error.InvalidCoordinate : Error.Null;
     }
 
-    public bool Equals(Coordinate coordinate)
+    internal bool Equals(Coordinate coordinate)
     {
         return _row.Equals(coordinate.Row) && _column.Equals(coordinate.Column);
     }

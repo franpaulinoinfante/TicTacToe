@@ -17,31 +17,6 @@ public class Game
 
     private Player CurrentPlayer { get { return _players[_turn.Current]; } }
 
-    public Error CheckErrorToPut(Coordinate coordinate)
-    {
-        return CurrentPlayer.CheckErrorToPut(coordinate);
-    }
-
-    public Error CheckErrorToReadPlayers(int players)
-    {
-        return PlayerFactory.Instance.CheckErrorToReadPlayers(players);
-    }
-
-    public Error CheckErrorToValidCoordinate(Coordinate coordinate)
-    {
-        return  new Coordinate().CheckErrorToValidCoordinate(coordinate);
-    }
-
-    public Error CheckOriginErrorToMove(Coordinate coordinate)
-    {
-        return CurrentPlayer.CheckOriginErrorToMove(coordinate);
-    }
-
-    public Error CheckTargetErrorToMove(Coordinate origin, Coordinate target)
-    {
-        return CurrentPlayer.CheckTargetErrorToMove(origin, target);
-    }
-
     public void CreatePlayer(int numberPlayers)
     {
         for (int i = 0; i < Turn.MaxPlayer; i++)
@@ -50,7 +25,22 @@ public class Game
         }
     }
 
-    public Token GetCurrent()
+    public Error CheckErrorToReadPlayers(int players)
+    {
+        return PlayerFactory.Instance.CheckErrorToReadPlayers(players);
+    }
+
+    public void NewGame()
+    {
+        _grid.NewGame();
+    }
+
+    public void Next()
+    {
+        _turn.Next();
+    }
+
+    public Token GetCurrentTurn()
     {
         return CurrentPlayer.Token;
     }
@@ -80,18 +70,28 @@ public class Game
         CurrentPlayer.MoveToken(origin, target);
     }
 
-    public void NewGame()
+    public Error CheckOriginErrorToMove(Coordinate coordinate)
     {
-        _grid.NewGame();
+        return CurrentPlayer.CheckOriginErrorToMove(coordinate);
     }
 
-    public void Next()
+    public Error CheckTargetErrorToMove(Coordinate origin, Coordinate target)
     {
-        _turn.Next();
+        return CurrentPlayer.CheckTargetErrorToMove(origin, target);
     }
 
     public void PutToken(Coordinate coordinate)
     {
         CurrentPlayer.PutToken(coordinate);
+    }
+
+    public Error CheckErrorToPutToken(Coordinate coordinate)
+    {
+        return CurrentPlayer.CheckErrorToPutToken(coordinate);
+    }
+
+    public Error CheckErrorToValidCoordinate(Coordinate coordinate)
+    {
+        return  new Coordinate().CheckErrorToValidCoordinate(coordinate);
     }
 }

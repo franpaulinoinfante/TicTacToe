@@ -24,7 +24,19 @@ internal abstract class Player
 
     public PlayerType PlayerType { get {  return _playerType; } }
 
-    internal Error CheckErrorToPut(Coordinate coordinate)
+    internal bool HasToken()
+    {
+        return _tokens > Player.Empty;
+    }
+
+    internal void PutToken(Coordinate coordinate)
+    {
+        _grid.PutToken(coordinate, _token);
+        _tokens--;
+
+    }
+
+    internal Error CheckErrorToPutToken(Coordinate coordinate)
     {
         if (!_grid.IsEmpty(coordinate))
         {
@@ -32,6 +44,11 @@ internal abstract class Player
         }
 
         return Error.Null;
+    }
+
+    internal void MoveToken(Coordinate origin, Coordinate target)
+    {
+        _grid.MoveToken(origin, target);
     }
 
     internal Error CheckOriginErrorToMove(Coordinate coordinate)
@@ -62,20 +79,4 @@ internal abstract class Player
         return Error.Null;
     }
 
-    internal bool HasToken()
-    {
-        return _tokens > Player.Empty;
-    }
-
-    internal void MoveToken(Coordinate origin, Coordinate target)
-    {
-        _grid.MoveToken(origin, target);
-    }
-
-    internal void PutToken(Coordinate coordinate)
-    {
-        _grid.PutToken(coordinate, _token);
-        _tokens--;
-
-    }
 }
