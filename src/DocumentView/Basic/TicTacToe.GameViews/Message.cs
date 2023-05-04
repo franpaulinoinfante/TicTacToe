@@ -30,7 +30,7 @@ public static class MessageExtension
         "Enter a coordinate to put a token:",
         "Enter the origin coordinate to move:",
         "Enter the target coordinate to move",
-        "Congratulations player: X, you WON!!!! :-)",
+        "Congratulations player: #player, you WON!!!! :-)",
         "Do you want to continue?"
     };
 

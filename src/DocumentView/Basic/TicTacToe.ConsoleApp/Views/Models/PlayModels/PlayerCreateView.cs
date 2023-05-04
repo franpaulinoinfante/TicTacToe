@@ -7,7 +7,7 @@ using TicTacToe.GameViews;
 using TicTacToe.Models;
 using TicTacToe.Models.Types;
 
-namespace TicTacToe.ConsoleApp.Views.Models;
+namespace TicTacToe.ConsoleApp.Views.Models.PlayModels;
 
 internal class PlayerCreateView
 {

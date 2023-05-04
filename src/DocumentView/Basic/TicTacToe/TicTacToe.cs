@@ -19,9 +19,10 @@ public class TicTacToe
 
     public void Run()
     {
-        //do
-        //{
-        _gameView.Start();
-        //} while (_gameView.IsResume());
+        do
+        {
+            _gameView.Start();
+            _gameView.Play();
+        } while (_gameView.IsResume());
     }
 }

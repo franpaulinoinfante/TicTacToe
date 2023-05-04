@@ -1,4 +1,5 @@
 ﻿using TicTacToe.ConsoleApp.Views.Models;
+using TicTacToe.ConsoleApp.Views.Models.PlayModels;
 using TicTacToe.GameViews;
 using TicTacToe.Models;
 

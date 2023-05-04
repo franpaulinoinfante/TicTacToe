@@ -24,4 +24,9 @@ internal class MessageView
     {
         ConsoleIO.Instance.WriteLine(message.GetMessage());
     }
+
+    internal void WriteLine(string player)
+    {
+        ConsoleIO.Instance.WriteLine(_message.GetMessage().Replace("#player", player));
+    }
 }

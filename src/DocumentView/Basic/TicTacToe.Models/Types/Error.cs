@@ -3,6 +3,10 @@
 public enum Error
 {
     InvalidPlayerSelect,
+    SquareIsOccupied,
+    NotOwned,
+    OriginAndTargetCoordinateCantNotBeSame,
+    InvalidCoordinate,
     Null
 }
 

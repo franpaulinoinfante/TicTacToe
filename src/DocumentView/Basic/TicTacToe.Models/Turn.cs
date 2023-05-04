@@ -6,10 +6,18 @@ internal class Turn
 
     private readonly Player[] _players;
 
-    private readonly int _current;
+    private int _current;
 
     public Turn(Player[] players)
     {
         _players = players;
+        _current = new Random().Next(minValue: 0, maxValue: Turn.MaxPlayer);
+    }
+
+    public int Current { get { return _current; } }
+
+    internal void Next()
+    {
+        _current = (_current + 1) % Turn.MaxPlayer;
     }
 }
