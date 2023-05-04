@@ -400,11 +400,15 @@ Do you want to continue? (y/n)
 
 #### **Analysis Resume**
 
+![image](https://user-images.githubusercontent.com/46433173/236332978-ea767332-83fb-47fb-a0e7-a530a98bed9c.png)
+
+![image](https://user-images.githubusercontent.com/46433173/236333050-c4f6ea0c-95cd-418a-8545-34aaa960f7cf.png)
+
 ### Class Analysis 
 
 #### **Analysis Views**
 
-![image](https://user-images.githubusercontent.com/46433173/236310504-1ce8df80-1aaa-4b7a-bc7b-a16ab16429ee.png)
+![image](https://user-images.githubusercontent.com/46433173/236333118-65103e34-722c-4577-8e05-e0dca22a6dd5.png)
 
 #### **Analysis Models**
 
