@@ -6,18 +6,18 @@
             boundary GameView
             boundary StartView
             boundary PlayView
-            boundary UserPlayView
-            boundary MachinePlayView
-            boundary ResumeView
+            boundary UserPlayerView
+            boundary MachinePlayerView
             boundary MessageView
             boundary PlayerView
             boundary ErrorView
             boundary GridView
-            boundary YesNotDialog
 
             GameView *--> StartView
             GameView *--> PlayView
-            GameView *--> ResumeView
+
+            PlayerView <|-- UserPlayerView
+            PlayerView <|-- MachinePlayerView
 
             StartView ..> MessageView
             StartView ..> PlayerView
@@ -26,7 +26,10 @@
             StartView ..> GridView
                 GridView ..> MessageView
 
-            
+            PlayView ..> PlayerView
+            PlayView ..> GridView
+
+            PlayerView ..> MessageView            
         }
         Views ..> Models
         Views ..> Types
@@ -54,6 +57,7 @@
             PlayerCreator ..> Player
             PlayerCreator ..> UserPlayer
             PlayerCreator ..> MachinePlayer
+            PlayerCreator ..> Grid
 
             UserPlayer --> Grid            
             MachinePlayer --> Grid
@@ -201,7 +205,42 @@
     left to right direction
     title Analsysis Play
 
-    
+actor "Player" as Actorr
+package TicTacToeApp{        
+    boundary GameView
+    boundary PlayView
+    boundary MessageView
+    boundary PlayerView
+    boundary ErrorView
+    boundary GridView
+    boundary CoordinateView
+
+    entity Game
+    entity Grid
+    entity Turn
+    entity Player
+    entity Error
+    entity Coordinate
+
+    Actorr --> GameView         
+        GameView --> PlayView
+        PlayView --> Game
+            Game --> Turn
+        PlayView --> MessageView
+        PlayView --> PlayerView
+            PlayerView --> Game
+                Game --> Player
+                    Player --> Coordinate
+                    Player --> Error
+                    Player --> Grid
+            PlayerView --> MessageView
+            PlayerView --> CoordinateView
+            PlayerView --> ErrorView
+        PlayView --> GridView
+            GridView --> Game
+                Game --> Grid
+        
+}
 @enduml
 
 @startuml Analysis Play Collaboration Diagram
