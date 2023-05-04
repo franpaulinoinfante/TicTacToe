@@ -422,8 +422,14 @@ Actorr --> GameView : Play()
                 ~Interact()
             }
 
+            class PlayView{
+                ~PlayView(Game)
+                ~Interact()
+            }
+
             class PlayerView{
                 ~ReadPlayers()
+                ~Interact(Game)
             }
 
             class GridView{
@@ -466,17 +472,24 @@ Actorr --> GameView : Play()
         }
     }
 
-    Views.GameViews *--> Views.StartView    
     Views.GameViews --> Models.Game
+    Views.GameViews *--> Views.StartView    
+    Views.GameViews *--> Views.PlayView    
 
     Views.StartView --> Models.Game
     Views.StartView ..> Views.MessageView
     Views.StartView ..> Views.PlayerView
     Views.StartView ..> Views.GridView
+    
+    Views.PlayView --> Models.Game
+    Views.PlayView ..> Views.MessageView
+    Views.PlayView ..> Views.PlayerView
+    Views.PlayView ..> Views.GridView
 
     Views.PlayerView ..> Views.MessageView
     Views.PlayerView ..> Models.Error
     Views.PlayerView ..> Views.ErrorView
+    Views.PlayerView ..> Models.Game
 
     Views.GridView ..> Models.Game
     Views.GridView ..> Views.MessageView
@@ -499,6 +512,16 @@ Actorr --> GameView : Play()
                 +NewGame()
                 +CreatePlayers(players : int)
                 +GetToken(Coordinate)
+                +Next()
+                +GetCurrentTurn() : Token
+                +HasToken() : boolean
+                +CheckErrorToPutToken(Coordinate) : Error
+                +PutToken(Coordinate)
+                +CheckOriginErrorToMoveToken(Coordinate) : Error
+                +CheckTargetErrorToMoveToken(origin, target) : Error
+                +MoveToken(origin, target)
+                +IsTicTacToe(Token) : boolean
+                +CheckErrorToReadValid(Coordinate) : Error
             }
             Game *--> Grid
             Game *--> Turn
@@ -508,14 +531,21 @@ Actorr --> GameView : Play()
             class PlayerCreator{
                 ~instance : PlayerCreator { get: }
                 -PlayerCreator()
-                ~CreatePlayers(Board, players) : Player
+                ~CreatePlayers(Grid, players) : Player
             }
             PlayerCreator ..> Player
             PlayerCreator ..> UserPlayer
             PlayerCreator ..> MachinePlayer
+            PlayerCreator ..> Grid
 
             class Player{
-                ~Player(Board, PlayerType)
+                ~Player(Grid, Token, PlayerType)
+                ~HasToken() : boolean
+                ~CheckErrorToPutToken(Coordinate) : Error
+                ~PutToken(Coordinate)
+                ~CheckOriginErrorToMoveToken(Coordinate) : Error
+                ~CheckTargetErrorToMoveToken(origin, target) : Error
+                ~MoveToken(origin, target)
             }
             Player <|-- UserPlayer
             Player <|-- MachinePlayer
@@ -524,7 +554,8 @@ Actorr --> GameView : Play()
             class Turn{
                 ~{static}MaxPlayers : int
                 ~Turn(Player)
-                ~NewGame()
+                ~Next()
+                ~GetCurrentTurn() : Token
             }
             Turn --> "2" Player
 
@@ -532,18 +563,77 @@ Actorr --> GameView : Play()
                 ~Grid()
                 ~NewGame()
                 ~GetToken(Coordinate)
+                ~IsTicTacToe(Token) : boolean
+                ~PutToken(Coordinate)
+                ~MoveToken(origin, target)
+                ~IsEmpty(Coordinate) : boolean
+                ~IsOccupued(Coordinate, Token) : boolean
             }
 
             namespace Types{
-                enum PlayerType
-                enum Coordinate
+                enum PlayerType{
+                    +UserPlayer
+                    +MachinePlayer
+                }
+
+                class Coordinate{
+                    -row : int
+                    -colunm : int
+                    +Coordinate()
+                    +Coordinate(row, colunm)
+                    ~CheckErrorToReadValid(Coordinate) : Error
+                    -IsValid(value) : boolean
+                    ~AreEquals(origin, target) : boolean
+                }
+
+                class ClosedInterval{
+                    -min : int
+                    -max : int
+                    ~ClosedInterval(min, max)
+                    ~IsValid(value) : boolean
+                }
+
+                enum Direction{
+                    +Horizontal
+                    +Vertical
+                    +MainDiagonal
+                    +InverseDiagonal
+                    +Null
+                }
+
+                enum Error{
+                    +Null
+                    +{static}GetError() : Error
+                    +{static}IsNull(Error) : boolean
+                }
+
+                enum Token{
+                    +X,
+                    +O,
+                    +Null
+                    +{static}GetToken(Token) : Token
+                    +{static}IsNull(Token) : boolean
+                }
             }
         }
     }
+
+    Models.Game .. Models.Types.Coordinate
+    Models.Game .. Models.Types.Error
     
-    Models.Player --> Models.Types.PlayerType
-    Models.PlayerCreator ..> Models.Types.PlayerType    
+    Models.Player --> Models.Types.PlayerType 
+    Models.Player --> Models.Types.Token 
+    Models.Player ..> Models.Types.Coordinate   
+    Models.Player ..> Models.Types.Error   
+
+    Models.PlayerCreator ..> Models.Types.PlayerType   
+    Models.PlayerCreator ..> Models.Types.Token    
+
     Models.Grid ..> Models.Types.Coordinate
+
+    Models.Types.Coordinate ..> Models.Types.Error
+    Models.Types.Coordinate ..> Models.Types.Direction
+    Models.Types.Coordinate ..> Models.Types.ClosedInterval
 
 @enduml
 
