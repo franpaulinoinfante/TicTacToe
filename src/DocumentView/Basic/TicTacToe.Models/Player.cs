@@ -22,7 +22,7 @@ internal abstract class Player
 
     public Token Token { get { return _token; } }
 
-    public PlayerType PlayerType { get {  return _playerType; } }
+    public PlayerType PlayerType { get { return _playerType; } }
 
     internal bool HasToken()
     {
@@ -78,5 +78,4 @@ internal abstract class Player
 
         return Error.Null;
     }
-
 }

@@ -4,9 +4,9 @@ namespace TicTacToe.ConsoleApp.Views.Models.PlayModels;
 
 internal class PlayerViewPrototype
 {
-    private static PlayerViewPrototype _instance;
+    private static PlayerViewPrototype? _instance;
 
-    private Dictionary<PlayerType, PlayerView> _playersViewAssoc;
+    private readonly Dictionary<PlayerType, PlayerView> _playersViewAssoc;
 
     private PlayerViewPrototype()
     {

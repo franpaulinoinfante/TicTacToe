@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TicTacToe.GameViews;
+﻿using TicTacToe.GameViews;
 using TicTacToe.Models;
 using TicTacToe.Models.Types;
 

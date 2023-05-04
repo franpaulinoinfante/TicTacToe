@@ -6,6 +6,11 @@ namespace TicTacToe.ConsoleApp.Views.Models;
 
 internal class GridView
 {
+    internal void Clear()
+    {
+        ConsoleIO.Instance.Clear();
+    }
+
     internal void Show(Game game)
     {
         MessageView messageView = new MessageView(Message.VerticalLine);

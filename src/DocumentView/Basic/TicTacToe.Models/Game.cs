@@ -92,6 +92,6 @@ public class Game
 
     public Error CheckErrorToValidCoordinate(Coordinate coordinate)
     {
-        return  new Coordinate().CheckErrorToValidCoordinate(coordinate);
+        return new Coordinate().CheckErrorToValidCoordinate(coordinate);
     }
 }

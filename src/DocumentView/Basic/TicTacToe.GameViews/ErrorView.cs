@@ -6,7 +6,7 @@ public abstract class ErrorView
 {
     protected Error _error;
 
-    protected static string[] _errorMessages = new string[] 
+    protected static string[] _errorMessages = new string[]
     {
         "Invalid number of players",
         "The square is occupied",

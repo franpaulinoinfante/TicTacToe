@@ -7,11 +7,13 @@ internal class ConsoleView : IGameView
 {
     private readonly StartView _startView;
     private readonly PlayView _playView;
+    private readonly ResumeView _resumeView;
 
     public ConsoleView(Game game)
     {
         _startView = new StartView(game);
         _playView = new PlayView(game);
+        _resumeView = new ResumeView(game);
     }
 
     public void Start()
@@ -26,6 +28,6 @@ internal class ConsoleView : IGameView
 
     public bool IsResume()
     {
-        throw new NotImplementedException();
+        return _resumeView.Interact();
     }
 }

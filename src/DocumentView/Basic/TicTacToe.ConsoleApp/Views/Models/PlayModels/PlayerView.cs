@@ -6,7 +6,7 @@ namespace TicTacToe.ConsoleApp.Views.Models.PlayModels;
 
 internal abstract class PlayerView
 {
-    private Game _game;
+    private Game? _game;
 
     internal void Interact(Game game)
     {
@@ -48,7 +48,7 @@ internal abstract class PlayerView
         Error error;
         do
         {
-            origin = Read(Message.EnterOriginCoordinateToMove, _game    );
+            origin = Read(Message.EnterOriginCoordinateToMove, _game);
             error = CheckOriginErrorToMove(origin);
         } while (!error.IsNull());
 

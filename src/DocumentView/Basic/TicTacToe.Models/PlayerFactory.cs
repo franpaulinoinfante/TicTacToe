@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using TicTacToe.Models.Types;
+﻿using TicTacToe.Models.Types;
 
 namespace TicTacToe.Models;
 

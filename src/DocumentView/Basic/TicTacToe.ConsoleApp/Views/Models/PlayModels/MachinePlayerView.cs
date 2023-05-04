@@ -8,7 +8,6 @@ internal class MachinePlayerView : PlayerView
 {
     protected override Coordinate Read(Message message, Game game)
     {
-        ConsoleIO.Instance.WriteLine(message.GetMessage());
         return new CoordinateView().ReadRandom();
     }
 }

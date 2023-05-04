@@ -25,7 +25,7 @@ internal class CoordinateView
             new ErrorView(error).WriteLine();
         } while (!error.IsNull());
 
-        return coordinate;        
+        return coordinate;
     }
 
     internal Coordinate ReadRandom()

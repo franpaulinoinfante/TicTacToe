@@ -41,7 +41,7 @@ internal class Grid
     {
         Token token = GetToken(origin);
         PutToken(origin, Token.Null);
-        PutToken(target,token);
+        PutToken(target, token);
     }
 
     internal void PutToken(Coordinate coordinate, Token token)
@@ -59,7 +59,7 @@ internal class Grid
 
         for (int i = 0; i < directions.Count - 1; i++)
         {
-            if (directions[i] != directions[i+1])
+            if (directions[i] != directions[i + 1])
             {
                 return false;
             }
@@ -98,7 +98,6 @@ internal class Grid
             }
         }
 
-        
         return coordinates;
     }
 }

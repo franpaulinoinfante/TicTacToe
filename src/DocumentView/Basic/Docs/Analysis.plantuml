@@ -12,24 +12,32 @@
             boundary PlayerView
             boundary ErrorView
             boundary GridView
+            boundary ResumeView
+            boundary PlayerCreateView
 
             GameView *--> StartView
             GameView *--> PlayView
+            GameView *--> ResumeView
 
             PlayerView <|-- UserPlayerView
             PlayerView <|-- MachinePlayerView
 
             StartView ..> MessageView
-            StartView ..> PlayerView
                 PlayerView ..> ErrorView
                 PlayView ..> MessageView
             StartView ..> GridView
                 GridView ..> MessageView
+            StartView ..> PlayerCreateView
+                PlayerCreateView ..> ErrorView
+                PlayerCreateView ..> MessageView
 
             PlayView ..> PlayerView
             PlayView ..> GridView
 
             PlayerView ..> MessageView            
+
+            ResumeView ..> GridView
+            ResumeView ..> MessageView
         }
         Views ..> Models
         Views ..> Types
@@ -70,6 +78,12 @@
             entity Token
             entity Error
             entity PlayerType
+            entity ClosedInterval
+            entity Direction
+
+            Coordinate ..> ClosedInterval
+            Coordinate ..> Direction
+            Coordinate ..> Error
         }
     }
 @enduml
@@ -264,6 +278,8 @@ package TicTacToeApp{
     }
     object ":ErrorView" as ErrorView{
     }
+    object ":TokenView" as TokenView{
+    }
 
 
     object ":Game" as Game{
@@ -299,6 +315,7 @@ Actorr --> GameView : Play()
             Game --> Grid
                 note on link
                     IsTicTacToe(Token)
+                    GetToken(Coordinate)
                 endnote
                 Grid --> Coordinate
                     note on link
@@ -359,52 +376,69 @@ Actorr --> GameView : Play()
                         Coordinate --> Error : GetError()
                 CoordinateView --> ErrorView : WriteLine(Error)
             PlayerView --> ErrorView : WriteLine(Error)
-@enduml
-
-
-                Next()
-                IsWinner()
-
-        PlayView --> PlayerView : Interact(game)
-            PlayerView --> Game
-                note on link
-                    IsComplete()
-                    PutToken(Coordinate)
-                    MoveToken(Coordinate)
-                    CheckErrorToPutToken(Coordinate)
-                    CheckOriginErrorToMoveToken(Coordinate)
-                    CheckTargetErrorToMoveToken(origin, target)
-                endnote
-                Game --> Player
-                    note on link
-                        IsComplete()
-                        PutToken(Coordinate)
-                        MoveToken(Coordinate)
-                        CheckErrorToPutToken(Coordinate)
-                        CheckOriginErrorToMoveToken(Coordinate)
-                        CheckTargetErrorToMoveToken(origin, target)
-                    endnote
-            PlayerView --> MessageView
-                note on link
-                    GetMessage(EnterCoodinateToPut)
-                    GetMessage(EnterOriginCordinateToMove)
-                    GetMessage(EnterTargetCoordinateToMove)
-                    CheckErrorToPutToken(Coordinate)
-                    CheckOriginErrorToMoveToken(Coordinate)
-                    CheckTargetErrorToMoveToken(origin, target)
-                endnote
-        PlayView --> GridView
+        PlayView --> GridView 
             note on link
                 Show()
             endnote
+            GridView --> MessageView
+                note on link
+                    WriteLine(VerticalLine)
+                endnote
             GridView --> Game
                 note on link
                     GetToken(Coordinate)
                 endnote
+            GridView --> TokenView
+                note on link
+                    Write(Token)
+                endnote     
+@enduml
 
 @startuml Analysis Resume
+    left to right direction
     title Analysis Resume
 
+    actor "Player" as Actorr
+    package TicTacToeApp{        
+        boundary GameView
+        boundary ResumeView
+        boundary YesNotDialog
+        boundary GridView
+
+        entity Message
+
+        Actorr --> GameView
+        GameView --> ResumeView        
+            ResumeView --> Message
+            ResumeView --> YesNotDialog
+            ResumeView --> GridView
+    }
+@enduml
+
+@startuml Analysis Resume Collaboration Diagram
+    allow_mixing
+    title Analysis Resume Collaboration Diagram
+
+actor "Player" as Actorr
+package TicTacToeApp{        
+    object ":GameView" as GameView{
+    }    
+    object ":ResumeView" as ResumeView{
+    }    
+    object ":YesNotDialog" as YesNotDialog{
+    }
+    object ":GridView" as GridView{
+    }
+
+    object ":Message" as Message{
+    }    
+
+    Actorr --> GameView : Resume()
+        GameView --> ResumeView : Interact()
+            ResumeView --> Message : GetMessage(Resume)
+            ResumeView --> YesNotDialog : Read(outMessage)\nIsAffirmative()
+            ResumeView --> GridView : Clear()
+}
 @enduml
 
 @startuml Analysis Views
@@ -427,6 +461,11 @@ Actorr --> GameView : Play()
                 ~Interact()
             }
 
+            class ResumeView{
+                ~ResumeView(Game)
+                ~Interact()
+            }
+
             class PlayerView{
                 ~ReadPlayers()
                 ~Interact(Game)
@@ -435,6 +474,7 @@ Actorr --> GameView : Play()
             class GridView{
                 ~GridView()
                 ~Show(Game)
+                ~Clear()
             }
 
             class TokenView{
@@ -445,6 +485,12 @@ Actorr --> GameView : Play()
             class ErrorView{
                 ~ErrorView()
                 ~WriteLine(Error)
+            }
+
+            class YesNotDialog{
+                ~YesNotDialog()
+                ~Read(outString)
+                ~IsAffirmative() : boolean
             }
 
             enum MessageView{
@@ -485,6 +531,11 @@ Actorr --> GameView : Play()
     Views.PlayView ..> Views.MessageView
     Views.PlayView ..> Views.PlayerView
     Views.PlayView ..> Views.GridView
+    
+    Views.ResumeView --> Models.Game
+    Views.ResumeView --> Models.Message
+    Views.ResumeView --> Views.YesNotDialog
+    Views.ResumeView ..> Views.GridView
 
     Views.PlayerView ..> Views.MessageView
     Views.PlayerView ..> Models.Error
@@ -648,34 +699,6 @@ Actorr --> GameView : Play()
     Models.Types.Coordinate ..> Models.Types.Error
     Models.Types.Coordinate ..> Models.Types.Direction
     Models.Types.Coordinate ..> Models.Types.ClosedInterval
-
-@enduml
-
-@startuml Analysis Types
-    title Analysis 
-
-    package TicTacToeApp{
-        package Models{
-            package Types{
-                enum Error{
-                    +InvalidPlayerSelect
-                    +Null
-                    +{static}IsNull() : bool
-                }
-
-                enum PlayerType{
-                    +UserPlayer
-                    +MachinePlayer
-                }
-
-                class Coordinate{
-                    +Row : Row { get; }
-                    +Colunm : Colunm { get; }
-                    +Coordinate(row, colunm)
-                }
-            }
-        }
-    }
 
 @enduml
 

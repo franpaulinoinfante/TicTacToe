@@ -1,13 +1,12 @@
 ﻿using TicTacToe.ConsoleApp.Views.Models;
 using TicTacToe.ConsoleApp.Views.Models.PlayModels;
 using TicTacToe.Models;
-using TicTacToe.Models.Types;
 
 namespace TicTacToe.ConsoleApp.Views;
 
 internal class PlayView
 {
-    private Game _game;
+    private readonly Game _game;
 
     public PlayView(Game game)
     {
