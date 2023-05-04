@@ -244,7 +244,6 @@ package TicTacToeApp{
 @enduml
 
 @startuml Analysis Play Collaboration Diagram
-    left to right direction
     allowmixing
     title Analysis Play Collaboration Diagram
 
@@ -261,19 +260,111 @@ package TicTacToeApp{
     }
     object ":GridView" as GridView{
     }
+    object ":CoordinateView" as CoordinateView{
+    }
+    object ":ErrorView" as ErrorView{
+    }
 
 
     object ":Game" as Game{
     }
+    object ":Turn" as Turn{
+    }
     object ":Player" as Player{
     }
     object ":Grid" as Grid{
+    }
+    object ":Coordinate" as Coordinate{
+    }
+    object ":Error" as Error{
+    }
+    object ":Direction" as Direction{
     }
     
 }
 
 Actorr --> GameView : Play()
     GameView --> PlayView : Interact()
+        PlayView --> Game  
+            note on link
+                Next()
+                GetCurrentTurn()
+                IsTicTacToe(Token)
+            endnote
+            Game --> Turn
+                note on link
+                    Next()
+                    GetCurrentTurn()
+                endnote
+            Game --> Grid
+                note on link
+                    IsTicTacToe(Token)
+                endnote
+                Grid --> Coordinate
+                    note on link
+                        GetDirections(Coordinate)
+                    endNote
+                    Coordinate --> Direction : GetDirection()
+        PlayView --> MessageView
+            note on link
+                WriteLine(Turn)
+                WriteLine(WinnerMessage)
+            endnote
+        PlayView --> PlayerView : Interact()
+            PlayerView --> Game
+                note on link
+                    HasToken()
+                    CheckErrorToPutToken(Coordinate)
+                    PutToken(Coordinate)
+                    MoveToken(origin, target)
+                    CheckOriginErrorToMoveToken(Coordinate)
+                    CheckTargetnErrorToMoveToken(origin, target)
+                endnote
+                Game --> Player
+                    note on link
+                        HasToken()
+                        CheckErrorToPutToken(Coordinate)
+                        PutToken(Coordinate)
+                        MoveToken(origin, target)
+                        CheckOriginErrorToMoveToken(Coordinate)
+                        CheckTargetnErrorToMoveToken(origin, target)
+                    endnote
+                    Player --> Grid
+                        note on link
+                            IsEmpty(Coordinate)
+                            PutToken(Coordinate)
+                            IsOccupied(Coordinate)
+                            MoveToken(origin, target)
+                        endnote
+                    Player --> Coordinate : AreEquals(origin, target)
+                    Player --> Error : GetError()
+            PlayerView --> MessageView
+                note on link
+                    WriteLine(EnterCoordinateToPut)
+                    WriteLine(EnterOriginCoordinateToMove)
+                    WriteLine(EnterTargetnCoordinateToMove)
+                endnote
+            PlayerView --> CoordinateView
+                note on link
+                    Read(Game)
+                endnote
+                CoordinateView --> Game
+                    note on link
+                        CheckErrorToReadValid(Coordinate)
+                    endnote
+                    Game --> Coordinate
+                        note on link
+                            CheckErrorToReadValid(Coordinate)
+                        endnote
+                        Coordinate --> Error : GetError()
+                CoordinateView --> ErrorView : WriteLine(Error)
+            PlayerView --> ErrorView : WriteLine(Error)
+@enduml
+
+
+                Next()
+                IsWinner()
+
         PlayView --> PlayerView : Interact(game)
             PlayerView --> Game
                 note on link
@@ -302,12 +393,6 @@ Actorr --> GameView : Play()
                     CheckOriginErrorToMoveToken(Coordinate)
                     CheckTargetErrorToMoveToken(origin, target)
                 endnote
-        PlayView --> Game  
-            note on link
-                GetCurrentTurn()
-                Next()
-                IsWinner()
-            endnote
         PlayView --> GridView
             note on link
                 Show()
@@ -316,7 +401,6 @@ Actorr --> GameView : Play()
                 note on link
                     GetToken(Coordinate)
                 endnote
-@enduml
 
 @startuml Analysis Resume
     title Analysis Resume
