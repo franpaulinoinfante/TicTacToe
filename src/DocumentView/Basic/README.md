@@ -406,11 +406,11 @@ Do you want to continue? (y/n)
 
 #### **Analysis Views**
 
-![image](https://user-images.githubusercontent.com/46433173/236244093-cc9faadb-7ef8-4f0d-8788-68bd32997d73.png)
+![image](https://user-images.githubusercontent.com/46433173/236310504-1ce8df80-1aaa-4b7a-bc7b-a16ab16429ee.png)
 
 #### **Analysis Models**
 
-![image](https://user-images.githubusercontent.com/46433173/236244007-43bf7e23-bd0b-4448-883a-140a0a32b8fd.png)
+![image](https://user-images.githubusercontent.com/46433173/236310439-da2d8125-ae75-48ed-9abe-964592bdce7a.png)
 
 #### **Analysis Types**
 
