@@ -1,4 +1,5 @@
-﻿using TicTacToe.ConsoleApp.Views;
+﻿#define TRACE
+using TicTacToe.ConsoleApp.Views;
 
 TicTacToe.TicTacToe ticTacToe = new TicTacToe.TicTacToe();
 ConsoleView consoleView = new ConsoleView(ticTacToe.Game);

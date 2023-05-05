@@ -1,4 +1,7 @@
-﻿using TicTacToe.GameViews;
+﻿
+
+using System.Diagnostics;
+using TicTacToe.GameViews;
 using TicTacToe.Models;
 
 namespace TicTacToe.ConsoleApp.Views;
@@ -11,6 +14,8 @@ internal class ConsoleView : IGameView
 
     public ConsoleView(Game game)
     {
+        Debug.Assert(game != null); 
+
         _startView = new StartView(game);
         _playView = new PlayView(game);
         _resumeView = new ResumeView(game);

@@ -10,7 +10,7 @@ public class TicTacToe
 
     public TicTacToe()
     {
-        _game = new Game();
+        //_game = new Game();
     }
 
     public Game Game { get => _game; }
