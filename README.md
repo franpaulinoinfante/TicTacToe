@@ -81,7 +81,7 @@
 
 | Use Case View | Use Case Context |  
 | :------- | :------: | 
-|          |          |  
+| ![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/e39e78a5-69b1-4628-9cf5-3c34c08c32b5) | ![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/e1d640ac-85b7-4b7b-a66d-579213ad964c) |  
 
 ### Use Cases Initial Description
 
