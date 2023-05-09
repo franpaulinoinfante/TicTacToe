@@ -1,0 +1,58 @@
+@startuml Use Cases View
+    title Use Cases View
+
+    actor Player
+    actor UserPlayer
+    actor MachinePlayer
+
+    usecase Start
+    usecase Play
+    usecase Resume
+    usecase ShowBoard
+
+    Player <|-down- UserPlayer
+    Player <|-down- MachinePlayer
+
+    Player -right-> Start
+    Player -right-> Play
+    Player --> Resume
+
+    Start .right.> ShowBoard : <<incluide>>
+    Play .right.> ShowBoard : <<incluide>>
+@enduml
+
+@startuml Use Cases Context
+    title Use Cases Context
+
+    state INITIAL
+    state IN_GAME
+    state OUT_GAME
+    state EXIT
+    state if1 <<choice>>
+    state if2 <<choice>>
+
+    [*] --> INITIAL
+    INITIAL --> IN_GAME : Start
+    IN_GAME --> if1 : Play
+        if1 --> IN_GAME
+    if1 --> OUT_GAME : [IsGameOver]
+    OUT_GAME --> if2 : Resume
+        if2 --> EXIT
+    if2 --> INITIAL : [IsContinue]
+    EXIT --> [*]
+@enduml
+
+@startuml Specifications Start
+    title Specifications Start
+
+@enduml
+
+@startuml Specifications Play
+    title Specifications Play
+
+@enduml
+
+@startuml Specifications Resume
+    title Specifications Resume
+
+@enduml

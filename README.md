@@ -93,11 +93,11 @@
 
 ### Use Case Specifications
 
-#### Use Case Start
+#### Specification Start
 
-#### Use Case Play
+#### Specification Play
 
-#### Use Case Resume
+#### Specification Resume
 
 ### User Interface Prototype
 
