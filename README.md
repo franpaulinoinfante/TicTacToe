@@ -1,13 +1,47 @@
-# ------------------ Tic-Tac-Toe ------------------ 
+# ----- Tic-Tac-Toe - MVP - Presentation Model -----
 
 **Index**
-1. [Domain Model](#Domain-Model)  
-    1.1 [Vocabulary](#Vocabulary)  
-    1.2 [Initial State](#Initial-State)  
-    1.3 [Final State](#Final-State)  
-    1.4 [Functionalities](#Functionalities)  
-    1.5 [Activities](#Activities)  
-
+- [Domain Model](#domain-model)  
+    - [Vocabulary](#vocabulary)  
+    - [Initial State](#initial-state)  
+    - [Final State](#final-state)  
+    - [Functionalities](#functionalities)  
+    - [Activities](#activities)  
+- [Requirements](#Requirements)  
+    -   [Use Cases](#Use-Cases)
+    -   [Use Cases Initial Description](#Use-Cases-Initial-Description)  
+    -   [Use Case Specifications](#Use-Case-Specifications)   
+        -   [Specification Start](#Specification-Start)  
+        -   [Specification Play](#Specification-Play)  
+        -   [Specification Resume](#Specification-Resume)  
+    -   [User Interface Prototype](#User-Interface-Prototype)  
+        -   [Winning Game](#Winning-Game)  
+        -   [Lost Game](#Lost-Game)  
+- [Analysis](#Analysis)  
+    -   [Architecture Analysis](#Architecture-Analysis)  
+    -   [Use Cases Analysis](#Uses-Case-Analysis)  
+        -   [Analysis Start](#Analysis-Start)  
+    -   [Class Analysis](#Class-Analysis) 
+        -   [Analysis Views](#Analysis-Views)  
+        -   [Analysis Controllers](#Analysis-Controllers)  
+        -   [Analysis Models](#Analysis-Models)  
+        -   [Analysis Enums](#Analysis-Enums)  
+    -   [Package Analysis](#Package-Analysis)  
+- [Design](#Design)  
+    -   [Architecture Design](#Architecture-Design)  
+    -   [Use Case Design](#Use-Cases-Design)  
+        -   [Design Start](#Design-Start)  
+    -   [Class Design](#Class-Design)  
+        -   [Design ConsoleApp](#Design-ConsoleApp) 
+        -   [Design WinFormApp](#Design-WinFormApp)  
+        -   [Design Mastermind](#Design-Mastermind)  
+        -   [Design GameViews](#Design-GameViews)  
+        -   [Design Controllers](#Design-Controllers)  
+        -   [Design Models](#Design-Models)  
+        -   [Design Types](#Design-Types)  
+- [Implementation View](#Implementation-View)  
+- [Deployment View](#Deployment-View)  
+- [Process View](#Process-View)  
 ## Domain Model
 
 |  Description | Scenario |
@@ -36,3 +70,113 @@
 
 ![image](https://user-images.githubusercontent.com/46433173/231224196-2cc1d258-736a-447c-881c-fc14e68a28cf.png)
 
+## Requirements
+
+- **Functionality:** Simple  
+- **Interface:** Text  
+- **Distribution:** Standalone and Graphics 
+- **Persistence:** No  
+
+### Use Cases
+
+| Use Case View | Use Case Context |  
+| :------- | :------: | 
+|          |          |  
+
+### Use Cases Initial Description
+
+| Use Case | Description |  
+| :------- | :------: | 
+| Start    | The system allows start the game. |
+| Play     | The system allows play the game. |
+| Resume   | The system asks if the user wants a new game or exit. |
+
+### Use Case Specifications
+
+#### Use Case Start
+
+#### Use Case Play
+
+#### Use Case Resume
+
+### User Interface Prototype
+
+#### Machine vs Machine
+
+```
+--- Tic-Tac-Toe ---
+
+```
+
+#### Player vs Machine
+
+```
+--- Tic-Tac-Toe ---
+
+
+Do you want to continue? (y/n)
+```
+
+
+#### Player vs Player
+
+```
+--- Tic-Tac-Toe ---
+
+
+Do you want to continue? (y/n)
+```
+
+## Analysis
+
+### Architecture Analysis
+
+#### Analysis Start
+
+#### Analysis Play
+
+#### Analysis Resume
+
+### Class Analysis 
+
+#### Analysis Views
+
+#### Analysis Controllers
+
+#### Analysis Models
+
+#### Analysis Types
+
+### Package Analysis 
+
+## Design
+
+### Architecture Design
+
+### Use Cases Design 
+
+#### Design Start
+
+### Class Design
+
+#### Design ConsoleApp
+
+#### Design WinFormApp
+
+#### Design Mastermind
+
+#### Design GameViews
+
+#### Design Controllers
+
+#### Design Models
+
+#### Design Types
+
+## Implementation View
+
+## Deploymnet View
+
+## Process View
+
+-   There isn't concurrency 
