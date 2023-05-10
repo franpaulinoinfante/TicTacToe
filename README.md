@@ -386,13 +386,13 @@ Do you want to continue? (y/n)
 
 #### Analysis Play
 
-
-
 #### Analysis Resume
 
 ### Class Analysis 
 
 #### Analysis Views
+
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/48340cba-b7c9-4d48-bcfa-f2f3f4e9e06a)
 
 #### Analysis Controllers
 
