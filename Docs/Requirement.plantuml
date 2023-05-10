@@ -42,15 +42,161 @@
     EXIT --> [*]
 @enduml
 
-@startuml Specifications Start
-    title Specifications Start
+@startuml Start Specifications
+    title Start Specifications
 
+state INITIAL
+state IN_GAME
+state A as " "
+state B as " "
+state C as " "
+state D as " "
+state E as " "
+state G as " "
+state F as " "
+state K as ":ShowBoardSpecification"
+
+state if1 <<choice>>
+state if2 <<choice>>
+state if3 <<choice>>
+state if4 <<choice>>
+
+[*] --> INITIAL
+INITIAL --> A : Player requests to start a new game
+A --> B : System allows to select a game mode
+    note on link 
+        1. Machine vs Machine
+        2. Machine vs Player
+        3. Player vs Player
+    endnote
+B --> C : Player selects a game mode
+C --> if1
+    if1 --> D 
+    D --> K
+        note on link
+            1. Title
+            2. Attempts
+            3. Empty results
+        endnote
+    K --> IN_GAME : System allows to start playing
+    IN_GAME --> [*]
+
+if1 -left-> F : [Error]
+    note on link
+        Game mode is not valid
+    endnote
+F -up-> G : System displays error message
+G -up-> if2
+if2 -right-> if3
+if3 -right-> if4
+if4 -right-> B
 @enduml
 
-@startuml Specifications Play
-    title Specifications Play
+@startuml Play Specifications
+    title Play Specifications
 
+state IN_GAME 
+IN_GAME --> Play : Player requests to Play
+state Play #DarkRed{
+    state A as " "
+    state B as " "
+    state C as " "
+    state D as " "
+    state E as " "
+    state F as " "
+    state G as " "
+    state Z as ":ShowBoardSpecification"
+
+    state if1 <<choice>>
+    state if2 <<choice>>
+    state if3 <<choice>>
+    state if4 <<choice>>
+    state if5 <<choice>>
+
+    state aux1 <<choice>>
+    state aux2 <<choice>>
+    state aux3 <<choice>>
+    
+    [*] --> A : Current turn's player requests to play
+    A --> if1 
+        if1 --> B : [Token of current turn's player on board < 3]
+        B --> C : System allows to enter coordinate to put
+        C --> D : Player enters coordinate to put
+        D --> if2
+            if2 --> Z
+            Z --> if3
+                if3 --> E : [IsTicTacToe]
+                    note on link
+                        there are 3 token in:
+                        horizontal, vertical, main diagonal or inverse diagonal
+                    endnote
+                E --> [*] : System shows winner message
+
+            if3 --> F 
+            F --> [*] : System allows to play the next turn
+
+        if2 -left-> G : [Error]
+            note on link
+                - Coordinate is not valid
+                - Square is occupied
+            endnote
+        G -up-> H : System shows error message
+        H -up-> aux1
+        aux1 -right-> C
+    
+    if1 --> I
+    I --> J : System to enter origin coordinate to move
+    J --> K : Player enters origin coordinate to put
+    K --> if4
+        if4 --> L 
+        L --> M : System allows to enter target coordinate to move
+        M --> if5 : Player enters target coordinate to move
+            if5 --> Z
+        
+        if5 --> N : [Error]
+            note on link
+                System shows error message:
+                - target coordinate is not valid
+                - target coordinate is occupied
+                - origin and target coordinate can't be the same
+            endnote
+            N -right-> aux3
+            aux3 -right-> aux4
+            aux4 -up-> aux5
+            aux5 -left-> M
+
+        
+}
+
+Play --> OUT_GAME : System allows to request resume
 @enduml
+
+E: [IsTicTacToe]
+                note on link
+                    there are 3 token in:
+                    horizontal, vertical, main diagonal or inverse diagonal
+                endnote
+
+                if3 --> Z 
+
+
+            if2 --> Z : [IsTicTacToe]
+
+        if2 --> F : [Error]
+            note on link
+                - Coordinate is not valid
+                - Square is occupied
+            endnote
+        F --> [*] : System 
+            note on link
+                - shows error message
+                - allows to continue playing
+            endnote
+
+
+IN_GAME --> A : Current turn's player requests to play
+        OUT_GAME --> [*]
+
 
 @startuml Specifications Resume
     title Specifications Resume
