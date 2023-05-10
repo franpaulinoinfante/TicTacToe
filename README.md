@@ -382,7 +382,11 @@ Do you want to continue? (y/n)
 
 #### Analysis Start
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/a2aec70f-5ac5-405d-8799-3690f8a52161)
+
 #### Analysis Play
+
+
 
 #### Analysis Resume
 
