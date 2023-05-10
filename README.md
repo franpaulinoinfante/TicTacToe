@@ -95,9 +95,15 @@
 
 #### Specification Start
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/06b8a6c6-c573-433f-9fc6-bbb5e005bfc0)
+
 #### Specification Play
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/b20ad07c-05d0-49e3-9ba7-d36ee912a4b2)
+
 #### Specification Resume
+
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/99051810-4eea-41ad-abbd-a319adfeec0b)
 
 ### User Interface Prototype
 
