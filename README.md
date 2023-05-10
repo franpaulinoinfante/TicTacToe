@@ -378,6 +378,8 @@ Do you want to continue? (y/n)
 
 ### Architecture Analysis
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/5d63d872-cd00-42bc-abae-d52422b2f404)
+
 #### Analysis Start
 
 #### Analysis Play
