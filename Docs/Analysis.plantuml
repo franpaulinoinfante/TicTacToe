@@ -1,0 +1,621 @@
+@startuml Architecture Analysis
+    title Architecture Analysis
+
+package TicTacToeApp{
+    package Views{
+        boundary GameView
+        boundary StartView
+        boundary PlayView
+        boundary ResumeView
+        boundary PlayerView
+        boundary UserPlayerView
+        boundary MachinePlayerView
+        boundary BoardView
+        boundary MessageView
+        boundary TokenView
+        boundary CoordinateView
+        boundary ErrorView
+        boundary YesNotDialog
+        boundary ReadIntDialog
+
+        GameView *--> StartView
+        GameView *--> PlayView
+        GameView *--> ResumeView        
+
+        StartView ..> MessageView
+        StartView ..> BoardView
+        StartView ..> ReadIntDialog
+        StartView ..> ErrorView
+
+        PlayView ..> PlayerView
+        PlayView ..> MessageView
+        PlayView ..> BoardView
+
+        ResumeView ..> MessageView
+        ResumeView ..> YesNotDialog
+        ResumeView ..> BoardView
+
+        BoardView ..> MessageView
+        BoardView ..> TokenView
+
+        PlayerView <|-- UserPlayerView
+        PlayerView <|-- MachinePlayerView
+        PlayerView ..> MessageView
+        PlayerView ..> CoordinateView
+        PlayerView ..> ErrorView      
+
+        CoordinateView ..> ErrorView
+
+        ErrorView ..> MessageView  
+    }
+
+    package Controllers{
+        control Controller
+        control StartController
+        control PlayController
+        control ResumeController
+
+        Controller <|-- StartController
+        Controller <|-- PlayController
+        Controller <|-- ResumeController
+    }
+
+    package Models{
+        entity Game
+        entity Turn
+        entity Player
+        entity Board
+
+        Game *--> Board
+        Game *--> "2" Player
+        Game *--> Turn
+
+        Turn --> Player
+        Player --> Board
+    }
+
+    package Types{
+        entity Token
+        entity Error
+        entity Message
+        entity Coordinate
+        entity ClosedInterval
+        entity PlayerType
+    }
+
+    Views ..> Types
+    Views ..> Controllers
+    
+    Controllers ..> Types
+    Controllers ..> Models
+
+    Models ..> Types
+}    
+@enduml
+
+@startuml Start Analysis
+    allow_mixing
+    title Start Analysis
+
+actor "Player" as Actorr
+package TicTacToeApp{
+    namespace Views{
+        object ":GameView" as GameView{
+        }
+        
+        object ":StartView" as StartView{
+        }
+        
+        object ":MessageView" as MessageView{
+        }
+        
+        object ":ReadIntDialog" as ReadIntDialog{
+        }
+        
+        object ":CollaborationOpenBoard" as CollaborationOpenBoard{
+        }
+        
+        object ":ErrorView" as ErrorView{
+        }        
+    }
+    namespace Controller{
+        object ":StartController" as StartController{
+        }
+    }
+    
+    namespace Models{
+        object ":Game" as Game{
+        }
+        object ":Turn" as Turn{
+        }
+    }
+    
+    namespace Types{
+        object ":Message" as Message{
+        }
+        object ":Error" as Error{
+        }
+    }
+}
+
+Actorr --> GameView : start()
+    GameView --> StartView : interact(startController)
+        StartView --> Message
+            note on link
+                1. GetMessage(Message.SelectGameMode)
+            endnote
+        StartView --> ReadIntDialog
+            note on link
+                2. Read(outString)
+            endnote
+        StartView --> ErrorView
+            note on link   
+                3. Show(Error.InvalidGameMode)
+            endnote
+            ErrorView --> Error
+                note on link
+                    4. IsNull(Error)
+                endnote
+        StartView --> StartController 
+            note on link
+                5. SetGameModePlayer(gameModePlayers)
+            endnote
+
+            StartController --> Game 
+                note on link
+                    6. SetGameModePlayer(gameModePlayers)
+                endnote
+                Game --> Turn
+                    note on link
+                        6.1. SetGameModePlayer(gameModePlayers)
+                    endnote
+        StartView --> MessageView
+            note on link
+                7. WriteLine(Message.Title)
+            endnote
+        StartView --> CollaborationOpenBoard
+            note on link
+                8. Show(startController)
+            endnote
+@enduml
+
+@startuml Play Analysis 
+    allow_mixing
+    title Play Analysis 
+
+actor "Player" as Actorr
+package TicTacToeApp{
+    namespace Views{
+        object ":GameView" as GameView{
+        }
+        
+        object ":PlayView" as PlayView{
+        }
+        
+        object ":PlayerView" as PlayerView{
+        }
+        
+        object ":MessageView" as MessageView{
+        }
+        
+        object ":CoordinateView" as CoordinateView{
+        }
+        
+        object ":CollaborationShowBoard" as CollaborationShowBoard{
+        }
+        
+        object ":ErrorView" as ErrorView{
+        }        
+    }
+    namespace Controller{
+        object ":PlayController" as PlayController{
+        }
+    }
+    
+    namespace Models{
+        object ":Game" as Game{
+        }
+        
+        object ":Player" as Player{
+        }
+        
+        object ":Board" as Board{
+        }
+        
+        object ":Turn" as Turn{
+        }        
+    }
+    
+    namespace Types{
+        object ":Message" as Message{
+        }
+        
+        object ":Error" as Error{
+        }
+        
+        object ":Coordinate" as Coordinate{
+        }
+        
+        object ":ClosedInterval" as ClosedInterval{
+        }
+    }
+
+Actorr --> GameView : Play()
+    GameView --> PlayView : Interact(playController)
+        PlayView --> PlayerView : Interact(playController)
+            PlayerView --> PlayController
+                note on link
+                    HasToken()
+                    PutToken(Coordinate)
+                    FindPutTokenError(Coordinate)
+                    MoveToken(origin, target)
+                    FindOriginMoveTokenError(origin)
+                    FindTargetMoveTokenError(origin, target)
+                endnote
+
+                PlayController --> Game 
+                    note on link
+                        HasToken()
+                        PutToken(Coordinate)
+                        FindPutTokenError(Coordinate)
+                        Next()
+                        MoveToken(origin, target)
+                        FindOriginMoveTokenError(origin)
+                        FindTargetMoveTokenError(origin, target)
+                        IsTicTacToe()
+                        GetCurrent()
+                        GetPlayerType()
+                    endnote
+
+                    Game --> Turn
+                        note on link
+                            GetCurrentTurn()
+                            Next()
+                        endnote
+                    Game --> Player
+                        note on link
+                            HasToken()
+                            PutToken(Coordinate)
+                            FindPutTokenError(Coordinate)
+                            MoveToken(origin, target)
+                            FindOriginMoveTokenError(origin)
+                            FindTargetMoveTokenError(origin, target)
+                            GetPlayerType()
+                        endnote
+                        Player --> Board
+                            note on link
+                                PutToken(token, coordinate)
+                                IsEmpty()
+                                MoveToken(origin, target)
+                                IsOccypiedBy(token, coordinate)                                
+                            endnote
+                        Player --> Coordinate
+                            note on link
+                                Equals(coordinate)
+                            endnote
+                    Game --> Board
+                        note on link
+                            IsTicTacToe(token)
+                        endnote
+            PlayerView --> ErrorView
+                note on link
+                    WriteLine(Error.SquareIsOccupied)
+                    WriteLine(Error.NotOwnerToken)
+                    WriteLine(Error.OriginAndTargetCoordinateCannotBeSame)
+                endnote
+            PlayerView --> Message
+                note on link
+                    GetMessage(Message.EnterCoordinateToPut)
+                endnote
+            PlayerView --> CoordinateView
+                note on link
+                    Read(outString)
+                endnote
+                CoordinateView --> Coordinate
+                    note on link
+                        FindValidCoordinateError()
+                    endnote
+                    Coordinate --> ClosedInterval
+                        note on link
+                            IsValid(value)
+                        endnote
+
+                CoordinateView --> ErrorView
+                    note on link
+                        WriteLine(Error.InvalidCoordinate)
+                    endnote
+                    ErrorView --> Error
+                        note on link
+                            IsNull()
+                        endnote
+        
+        PlayView --> PlayController
+            note on link
+                Next()
+                IsTicTacToe()
+                GetCurrent()
+                GetPlayerType()
+            endnote
+        PlayView --> MessageView
+            note on link
+                WriteLine(Message.Winner)
+            endnote
+        PlayView --> CollaborationShowBoard
+            note on link
+                Show(playController)
+            endnote
+}
+@enduml
+
+@startuml Resume Analysis 
+    allow_mixing
+    title Resume Analysis 
+
+actor "Player" as Actorr
+package TicTacToeApp{
+    namespace Views{
+        object ":GameView" as GameView{
+        }
+        
+        object ":ResumeView" as ResumeView{
+        }
+        
+        object ":BoardView" as BoardView{
+        }       
+        
+        object ":YesNotDialog" as YesNotDialog{
+        }       
+    }
+    namespace Controller{
+        object ":ResumeController" as ResumeController{
+        }
+    }
+    
+    namespace Models{
+        object ":Game" as Game{
+        }
+        
+        object ":Player" as Player{
+        }
+        
+        object ":Board" as Board{
+        }
+        
+        object ":Turn" as Turn{
+        }        
+    }
+
+    namespace Types{
+        object ":Message" as Message{
+        }        
+    }
+
+Actorr --> GameView : Resume()
+    GameView --> ResumeView : Interact(resumeController)
+
+        ResumeView --> Message
+            note on link
+                GetMessage(Message.Resume)
+            endnote
+        ResumeView --> YesNotDialog
+            note on link
+                Read(outString)
+                IsAffirmative()
+            endnote
+
+        ResumeView --> ResumeController
+            note on link
+                Reset()
+            endnote
+            ResumeController --> Game
+                note on link
+                    Reset()
+                endnote
+                Game --> Player
+                    note on link
+                        Reset()
+                    endnote
+                Game --> Board
+                    note on link
+                        Reset()
+                    endnote
+                Game --> Turn
+                    note on link
+                        Reset()
+                    endnote
+        
+        ResumeView --> BoardView 
+            note on link
+                Clear()
+            endnote
+
+@enduml
+
+@startuml Views Analysis 
+    title Views Analysis 
+
+
+@enduml
+
+@startuml Controllers Analysis
+    title Controllers Analysis
+
+package TicTacToeApp{
+    namespace Controllers{
+        class Controller{
+            +Controller()
+            +GetToken(coordinate) : Token
+        }
+        Controller <|-- StartController
+        Controller <|-- PlayController
+        Controller <|-- ResumeController
+
+        class StartController{
+            +StartController()
+            +SetGameModePlayers(gameModePlayers)
+        }
+
+        class PlayController{
+            +PlayController()
+            +HasToken()
+            +PutToken(coordinate)
+            +FindPutTokenError(coordinate) : Error
+            +MoveToken(origin, target)
+            +FindOriginToMoveToken(coordinate) : Error
+            +FindTargetToMoveToken(origin, target) : Error
+            +Next()
+            +IsTicTacToe() : boolean
+            +GetCurrent() : Token
+            +GetPlayerType() : PlayerTyoe
+        }
+
+        class ResumeController{
+            +ResumeController()
+            +Reset()
+        }
+    }
+
+    namespace Models{
+    }
+    namespace Types{
+        enum Token
+        enum Error
+    }
+
+    Controllers.Controller --> Models.Game
+    Controllers.Controller ..> Types.Token
+    Controllers.Controller ..> Types.coordinate
+    
+    Controllers.PlayController ..> Types.Error
+}
+@enduml
+
+@startuml Models Analysis 
+    title Models Analysis 
+
+package TicTacToeApp{
+    namespace Models{
+        class Game{
+            +SetGameModePlayer(gameModePlayers)
+            +GetPlayerType() : PlayerTyoe
+            +HasToken() : boolean
+            +PutToken(coordinate)
+            +FindPutTokenError(coordinate) : Error
+            +MoveToken(origin, target)
+            +FindOriginToMoveTokenError(coordinate) : Error
+            +FindTargetToMoveTokenError(origin, target) : Error
+            +Next()
+            +IsTicTacToe() : boolean
+            +GetCurrent() : Token
+            +GetToken(coordinate) : Token
+            +Reset()
+        }
+        Game *--> Board
+        Game *--> "2" Player
+        Game *--> Turn
+
+        class Board{
+            ~IsEmpty() : boolean
+            ~IsOccupiedBy(toke, coordinate) : boolean
+            ~PutToken(coordinate)
+            ~MoveToken(origin, target)
+            ~IsTicTacToe(token) : boolean
+            ~GetToken(coordinate) : Token
+            ~Reset()
+        }
+
+        class Player{
+            ~Player(board, playerType)
+            ~GetPlayerType() : PlayerTyoe
+            ~GetToken() : Token
+            ~HasToken() : boolean
+            ~PutToken(coordinate)
+            ~FindPutTokenError(coordinate) : Error
+            ~MoveToken(origin, target)
+            ~FindOriginToMoveTokenError(coordinate) : Error
+            ~FindTargetToMoveTokenError(origin, target) : Error
+            ~Reset()
+        }
+        Player --> Board
+
+        class Turn{
+            ~Turn(players[])
+            ~Next()
+            ~GetCurrent() : int
+            ~SetGameModePlayer(gameModePlayers)
+            ~Reset()
+        }
+        Turn --> "2" Player
+    }
+
+    namespace Types{
+        enum Token
+        enum Error
+        enum PlayerType
+        class Coordinate{}        
+    }
+
+    Models.Game ..> Types.Error
+    Models.Game ..> Types.Token
+    Models.Game ..> Types.PlayerType
+    Models.Game ..> Types.Coordinate
+
+    Models.Player ..> Types.Error
+    Models.Player ..> Types.Token
+    Models.Player ..> Types.PlayerType
+    Models.Player ..> Types.Coordinate
+    
+    Models.Turn ..> Types.Token
+    Models.Turn ..> Types.PlayerType
+    
+    Models.Board ..> Types.Token
+    Models.Board ..> Types.Coordinate
+}
+@enduml
+
+@startuml Types Analysis
+    title Types Analysis
+
+package TicTacToeApp{
+    
+    enum Token{
+        +X,
+        +O,
+        +Null
+        +{static}IsNull(token) : boolean
+    }
+
+    enum Error{
+        +InvalidGameModePlayers
+        +InvalidCoordinate
+        +SquareIsOccupied
+        +NotOwnerToken
+        +OriginAndTargetCoordinateCannontBeSame
+        +Null
+        +{static}IsNull(error) : boolean
+    }
+
+    enum PlayerType{
+        +UserPlayer
+        +MachinePlayer
+    }
+
+    class Coordinate{
+        -row : int
+        -colunm : int
+        +Coordinate()
+        +Coordinate(row, colunm)
+        +FindValidCoordinateError() : Error
+        -IsValid(value) : boolean
+    }
+    Coordinate ..> ClosedInterval
+    Coordinate ..> Error
+
+    class ClosedInterval{
+        -min : int
+        -max : int 
+        ~ClosedInterval(min, max)
+        ~IsValid(value) : boolean
+    }
+}
+@enduml

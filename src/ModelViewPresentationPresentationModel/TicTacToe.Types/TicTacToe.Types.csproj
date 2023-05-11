@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TicTacToe.Controllers\TicTacToe.Controllers.csproj" />
-    <ProjectReference Include="..\TicTacToe.GameViews\TicTacToe.GameViews.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -50,7 +50,6 @@ state IN_GAME
 state A as " "
 state B as " "
 state C as " "
-state D as " "
 state G as " "
 state F as " "
 state K as ":ShowBoardSpecification"
@@ -70,13 +69,7 @@ A --> B : System allows to select a game mode
     endnote
 B --> C : Player selects a game mode
 C --> if1
-    if1 --> D 
-    D --> K
-        note on link
-            1. Title
-            2. Attempts
-            3. Empty results
-        endnote
+    if1 --> K
     K --> IN_GAME : System allows to start playing
     IN_GAME --> [*]
 
