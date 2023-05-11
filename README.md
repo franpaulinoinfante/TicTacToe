@@ -386,6 +386,8 @@ Do you want to continue? (y/n)
 
 #### Analysis Play
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/55f6b1ce-f7c7-4368-b52d-e166d810af16)
+
 #### Analysis Resume
 
 ### Class Analysis 
