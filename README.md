@@ -378,7 +378,7 @@ Do you want to continue? (y/n)
 
 ### Architecture Analysis
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/5d63d872-cd00-42bc-abae-d52422b2f404)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/489614de-026e-4181-b3cc-a923aa2f8a9d)
 
 #### Analysis Start
 
