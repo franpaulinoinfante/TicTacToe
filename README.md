@@ -95,7 +95,7 @@
 
 #### Specification Start
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/06b8a6c6-c573-433f-9fc6-bbb5e005bfc0)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/2b1a2a42-3efe-4705-b583-f02ae4e7b733)
 
 #### Specification Play
 
