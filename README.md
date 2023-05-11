@@ -400,6 +400,8 @@ Do you want to continue? (y/n)
 
 #### Analysis Controllers
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/bce43e3f-7861-4d8b-928e-2d752072fc3b)
+
 #### Analysis Models
 
 #### Analysis Types
