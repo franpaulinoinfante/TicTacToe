@@ -404,7 +404,11 @@ Do you want to continue? (y/n)
 
 #### Analysis Models
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/c82c1218-32b2-4861-8ba3-4d66c5de041b)
+
 #### Analysis Types
+
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/38e1b961-f4c9-4454-89f1-51ac5a3123d7)
 
 ### Package Analysis 
 
