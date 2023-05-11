@@ -416,6 +416,8 @@ Do you want to continue? (y/n)
 
 ### Architecture Design
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/1b8e28a2-0837-4a34-b3ff-e939effff4c7)
+
 ### Use Cases Design 
 
 #### Design Start
@@ -424,13 +426,21 @@ Do you want to continue? (y/n)
 
 #### Design ConsoleApp
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/be22a17d-28b6-4715-b243-319d266f1aea)
+
 #### Design WinFormApp
 
-#### Design Mastermind
+#### Design TicTacToe
+
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/9b0304d5-3e0e-4de1-a623-962110c6a3b9)
 
 #### Design GameViews
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/f77b1228-7ae8-4938-ba06-fedb75ed1424)
+
 #### Design Controllers
+
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/8ff39ce8-f29a-480b-89ef-6da4f7704cbc)
 
 #### Design Models
 
