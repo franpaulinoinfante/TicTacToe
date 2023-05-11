@@ -390,7 +390,7 @@ Do you want to continue? (y/n)
 
 #### Analysis Resume
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/700976c3-84d2-456f-a5d2-2066a9e4a7aa)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/626806c9-bbba-45a1-8e70-f9863366ecd2)
 
 ### Class Analysis 
 
