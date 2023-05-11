@@ -408,7 +408,7 @@ Do you want to continue? (y/n)
 
 #### Analysis Types
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/dd4244c5-2f5a-4a07-be4e-0562ca24bf72)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/fdfca529-6b41-43ad-ae64-5a2500f869ce)
 
 ### Package Analysis 
 
