@@ -8,9 +8,9 @@ internal class StartView
 {
     internal void Interact(StartController startController)
     {
-        startController.SetGameModePlayers(new GameModePlayerView().Read(startController));
-
         new MessageView().WriteLine(Message.Title);
+
+        startController.SetGameModePlayers(new GameModePlayerView().Read());
 
         new BoardView().Show(startController);
 

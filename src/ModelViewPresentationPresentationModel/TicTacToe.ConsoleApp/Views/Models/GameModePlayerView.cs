@@ -6,7 +6,7 @@ namespace TicTacToe.ConsoleApp.Views.Models;
 
 internal class GameModePlayerView
 {
-    internal int Read(StartController startController)
+    internal int Read()
     {
 
         int numberOfPlayer = default;

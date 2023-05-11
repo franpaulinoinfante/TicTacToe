@@ -443,7 +443,7 @@ Actorr --> GameView : Resume()
 package TicTacToeApp{
     namespace Controllers{
         class Controller{
-            +Controller()
+            +Controller(Game, State)
             +GetToken(coordinate) : Token
         }
         Controller <|-- StartController

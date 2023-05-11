@@ -1,0 +1,342 @@
+@startuml Architecture Design
+    title Architecture Design
+
+package TicTacToeApp{
+    namespace TicTacToe{}
+    namespace ConsoleApp{}
+    namespace WinFormApp{}
+    namespace GameViews{}
+    namespace Controllers{}
+    namespace Models{}
+    namespace Types{}
+
+    ConsoleApp ..> TicTacToe
+    ConsoleApp ..> GameViews
+    ConsoleApp ..> Controllers
+    ConsoleApp ..> Types
+
+    WinFormApp ..> TicTacToe
+    WinFormApp ..> GameViews
+    WinFormApp ..> Controllers
+    WinFormApp ..> Types
+
+    TicTacToe ..> GameViews
+    TicTacToe ..> Controllers    
+
+    GameViews ..> Controllers
+    GameViews ..> Models
+    GameViews ..> Types
+
+    Controllers ..> Models
+    Controllers ..> Types
+
+    Models ..> Types
+}
+TicTacToeApp ..> System
+
+package System{
+}
+
+@enduml
+
+@startuml Start Design
+    title Start Design
+
+@enduml
+
+@startuml TicTacToe Design
+    title TicTacToe Design
+
+package TicTacToeApp{
+    namespace TicTacToe{
+        abstract TicTacToe{
+            +TicTacToe()
+            #{abstract}CreateGameView() : IGameView
+            +Run()
+        }
+    }
+
+    namespace Controllers{}
+
+    namespace GameViews{
+        interface IGameView
+    }
+
+    TicTacToe.TicTacToe *--> Controllers.Logic
+    TicTacToe.TicTacToe ..> Controllers.Controller
+    TicTacToe.TicTacToe --> GameViews.IGameView
+}
+@enduml
+
+@startuml ConsoleApp Design
+    title ConsoleApp Design
+
+package TicTacToeApp{
+    namespace ConsoleApp{
+        class Program{
+            +CreateGameView() : IGameView
+            ~Main(string[])
+        }
+
+        namespace Views{
+            class ConsoleView{
+                ~Visit(StartController)
+                ~Visit(PlayController)
+                ~Visit(ResumeController) : bool
+            }
+
+            class StartView{
+                ~Interact(StartController)
+            }
+
+            class PlayView{
+                ~Interact(PlayController)
+            }
+
+            namespace Models{
+                class MessageView{
+                    ~Write(Message)
+                    ~WriteLine(Messsage)
+                }
+
+                class GameModePlayerView{
+                    ~Read() : int
+                    -FindReadGameModePlayerError(gameModePlayers) : Error
+                }
+
+                class ErrorView{
+                    ~Show(Error)
+                }
+
+                class BoardView{
+                    ~Show(Controller)
+                }
+
+                class TokenView{
+                    ~Show(Token)
+                }
+
+                abstract PlayerView{
+                    ~PlayerView(PlayerType)
+                    ~Interact(PlayController)
+                    #PutToken()
+                    #{abstract}GetCoordinate(Message) : Coordinate
+                    #FindToPutTokenError(Coordinate) : Error
+                    #MoveToken()
+                    #{abstract}FindOriginToMoveToken(coordinate) : Error
+                    #{abstract}FindTargetToMoveToken(origin, target) : Error
+                }
+
+                class UserPlayerView{
+                    ~GetCoordinate(Message) : Coordinate
+                    ~FindToPutTokenError(Coordinate) : Error
+                    ~FindOriginToMoveToken(Coordinate) : Error
+                    ~FindTargetToMoveToken(origin, target) : Error
+                }
+
+                class MachinePlayerView{
+                    ~GetCoordinate(Message) : Coordinate
+                }
+
+                class CoordinateView{
+                    ~Read(outString) : Coordinate
+                }
+            }
+        }
+
+        namespace ConsoleIOs{
+            class ConsoleIO{
+                +ReadInt(outString) : int
+                +Write(outString)
+            }
+        }
+    }
+
+    abstract TicTacToe
+    interface IGameView
+    class Controller
+    class StartController
+    enum Message
+    enum Error
+    enum Token
+    enum PlayerType
+    class Coordinate
+
+    ConsoleApp.Program *--> ConsoleApp.Views.ConsoleView
+    ConsoleApp.Program -up-|> TicTacToe
+
+    ConsoleApp.Views.ConsoleView .up.|> IGameView
+    ConsoleApp.Views.ConsoleView *--> ConsoleApp.Views.StartView
+    ConsoleApp.Views.ConsoleView *--> ConsoleApp.Views.PlayView
+    ConsoleApp.Views.ConsoleView *--> ConsoleApp.Views.ResumeView
+    ConsoleApp.Views.ConsoleView ..> StartController
+    
+    ConsoleApp.Views.StartView --> StartController
+    ConsoleApp.Views.StartView ..> Message
+    ConsoleApp.Views.StartView ..> ConsoleApp.Views.Models.MessageView
+    ConsoleApp.Views.StartView ..> ConsoleApp.Views.Models.GameModePlayerView
+    ConsoleApp.Views.StartView ..> ConsoleApp.Views.Models.BoardView
+
+    ConsoleApp.Views.PlayView --> PlayController
+    ConsoleApp.Views.PlayView ..> Message
+    ConsoleApp.Views.PlayView ..> ConsoleApp.Views.Models.MessageView
+    ConsoleApp.Views.PlayView ..> ConsoleApp.Views.Models.BoardView
+    ConsoleApp.Views.PlayView ..> ConsoleApp.Views.Models.PlayerView
+    ConsoleApp.Views.PlayView ..> PlayerType
+
+    ConsoleApp.Views.Models.PlayerView ..> PlayController
+    ConsoleApp.Views.Models.PlayerView <|-- ConsoleApp.Views.Models.UserPlayerView
+    ConsoleApp.Views.Models.PlayerView <|-- ConsoleApp.Views.Models.MachinePlayerView
+    ConsoleApp.Views.Models.PlayerView ..> Error
+    ConsoleApp.Views.Models.PlayerView ..> ConsoleApp.Views.Models.ErrorView
+    ConsoleApp.Views.Models.PlayerView ..> Message
+    ConsoleApp.Views.Models.PlayerView ..> ConsoleApp.Views.Models.MessageView
+    ConsoleApp.Views.Models.PlayerView ..> Coordinate
+    ConsoleApp.Views.Models.PlayerView ..> ConsoleApp.Views.Models.CoordinateView
+
+    ConsoleApp.Views.Models.MessageView --> Message
+    ConsoleApp.Views.Models.MessageView ..> ConsoleApp.ConsoleIOs.ConsoleIO
+
+    ConsoleApp.Views.Models.GameModePlayerView ..> Message
+    ConsoleApp.Views.Models.GameModePlayerView ..> Error
+    ConsoleApp.Views.Models.GameModePlayerView ..> ConsoleApp.Views.Models.ErrorView
+    ConsoleApp.Views.Models.GameModePlayerView ..> ConsoleApp.ConsoleIOs.ConsoleIO    
+
+    ConsoleApp.Views.Models.ErrorView --> Error
+
+    ConsoleApp.Views.Models.BoardView ..> Controller
+    ConsoleApp.Views.Models.BoardView ..> Message
+    ConsoleApp.Views.Models.BoardView ..> ConsoleApp.Views.Models.MessageView
+    ConsoleApp.Views.Models.BoardView ..> ConsoleApp.Views.Models.TokenView
+    ConsoleApp.Views.Models.BoardView ..> Coordinate
+
+    ConsoleApp.Views.Models.TokenView ..> ConsoleApp.ConsoleIOs.ConsoleIO   
+    ConsoleApp.Views.Models.TokenView --> Token
+
+    ConsoleApp.Views.Models.CoordinateView ..> ConsoleApp.ConsoleIOs.ConsoleIO   
+    ConsoleApp.Views.Models.CoordinateView --> Coordinate
+}
+@enduml
+
+@startuml WinFormApp Design
+    title WinFormApp Design
+
+@enduml
+
+@startuml GameViews Design
+    title GameViews Design
+
+package TicTacToeApp{
+    namespace GameVIews{
+        interface IGameView
+
+        abstract ErrorView{
+            #{static}ErrorMessages : string[]
+            +{abstract}Show(Error)
+        }
+
+        enum Message{
+            +Title
+            +GameModePlayersDetails
+            +SelectGameModePlayers
+            +ErrorTitle
+            +HorizontalLine
+            +LeftSideOfSquare
+            +RightSideOfSquare
+            +CurrentTurn
+            +EnterCoordinateToPut
+            +EnterOriginCoordinateToMove
+            +EnterTargetCoordinateToMove
+            +WinnerMessage
+            +Resume
+            +{static}GetMessage(this Message) : string
+        }
+    }
+
+    namespace Controller{
+        interface IControllerVisitor
+    }
+
+    namespace Types{
+        enum Error
+    }
+
+    GameVIews.IGameView -up-|> Controller.IControllerVisitor
+    GameVIews.ErrorView ..> Types.Error
+}
+@enduml
+
+@startuml Controllers Design
+    title Controllers Design
+
+package TicTacToeApp{
+    namespace Controllers{
+        abstract Controller{
+            +Controller(Game, State)
+            +{abstract}Accept(IControllerVisitor)
+            +GetToken(coordinate) : Token
+        }
+        Controller <|-- StartController
+        Controller <|-- PlayController
+        Controller <|-- ResumeController
+        Controller ..> IControllerVisitor        
+
+        class StartController{
+            +SetGameModePlayers(gameModePlayers)
+        }
+        
+        class PlayController{
+            +PlayController()
+            +HasToken()
+            +PutToken(coordinate)
+            +FindPutTokenError(coordinate) : Error
+            +MoveToken(origin, target)
+            +FindOriginToMoveToken(coordinate) : Error
+            +FindTargetToMoveToken(origin, target) : Error
+            +Next()
+            +IsTicTacToe() : boolean
+            +GetCurrent() : Token
+            +GetPlayerType() : PlayerTyoe
+        }
+        
+        class ResumeController{
+            
+        }
+
+        interface IControllerVisitor{
+            +Visit(StartController)
+            +Visit(PlayController)
+            +Visit(ResumeController)
+        }
+        IControllerVisitor ..> StartController
+        IControllerVisitor ..> PlayController
+        IControllerVisitor ..> ResumeController
+
+        class Logic{
+            -controllersAssoc : Dictionary<StateCode, Controller>
+            +Controller : Controller { get; }
+            +Logic()
+        }
+        Logic *--> Controller
+
+    }
+
+    namespace Models{
+
+    }
+
+    Controllers.Controller --> Models.Game
+    Controllers.Controller --> Models.State
+}
+@enduml
+
+@startuml Models Design
+    title Models Design
+
+@enduml
+
+@startuml Types Design
+    title Types Design
+
+@enduml
+

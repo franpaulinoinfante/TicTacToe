@@ -9,7 +9,7 @@ internal class MessageView
         ConsoleIO.Instance.Write(message.GetMessage());
     }
 
-    internal void WriteLine(Message message)
+    internal void WriteLine(Message message, string v)
     {
         ConsoleIO.Instance.WriteLine(message.GetMessage());
     }
