@@ -378,15 +378,15 @@ Do you want to continue? (y/n)
 
 ### Architecture Analysis
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/489614de-026e-4181-b3cc-a923aa2f8a9d)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/35ffe703-4a00-4f38-8356-a56c6d4d90ee)
 
 #### Analysis Start
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/a04a53b1-0fb2-46f4-ac47-d3ea133fd6e0)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/e9906d27-58f5-43de-a29e-ae81507caee8)
 
 #### Analysis Play
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/55f6b1ce-f7c7-4368-b52d-e166d810af16)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/99706392-7739-4688-abe8-fcb7c689876f)
 
 #### Analysis Resume
 
@@ -400,7 +400,7 @@ Do you want to continue? (y/n)
 
 #### Analysis Controllers
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/ca262d97-1a25-4f84-84a6-03fb9b9fd403)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/90fad5e4-4cc0-4397-b717-ed5ab7b76076)
 
 #### Analysis Models
 
@@ -408,7 +408,7 @@ Do you want to continue? (y/n)
 
 #### Analysis Types
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/38e1b961-f4c9-4454-89f1-51ac5a3123d7)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/dd4244c5-2f5a-4a07-be4e-0562ca24bf72)
 
 ### Package Analysis 
 
