@@ -21,8 +21,8 @@ public static class MessageExtension
 {
     private static readonly string[] _messages = new string[]
     {
-        "--- TicTacToe ---",
-        "0. Machine vs Machine\r\n1. Player vs Machine\r\n2. Player vs Player",
+        "--- TicTacToe ---\n",
+        "0. Machine vs Machine\n1. Player vs Machine\n2. Player vs Player",
         "Select game mode of players: ",
         "Error!!",
         "---------",

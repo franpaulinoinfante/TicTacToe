@@ -11,7 +11,7 @@ public class State
 
     public StateCode StateCode { get; private set; }
 
-    private void Reset()
+    public void Reset()
     {
         StateCode = StateCode.Initial;
     }

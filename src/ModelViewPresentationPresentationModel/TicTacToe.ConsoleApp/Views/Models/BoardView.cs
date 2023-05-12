@@ -5,6 +5,7 @@ using TicTacToe.Types;
 namespace TicTacToe.ConsoleApp.Views.Models;
 internal class BoardView
 {
+
     internal void Show(Controller controller)
     {
         MessageView messageView = new MessageView();
@@ -22,5 +23,9 @@ internal class BoardView
         }
         messageView.WriteLine(Message.HorizontalLine);
         ConsoleIO.Instance.NewLine();
+    }
+    internal void Clear()
+    {
+        ConsoleIO.Instance.Clear();
     }
 }

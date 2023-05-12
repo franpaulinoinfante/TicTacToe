@@ -5,6 +5,7 @@ public enum Error
     InvalidGameMode,
     InvalidCoordinate,
     SquareIsOccupied,
+    SquareIsEmpty,
     NotOwnerToken,
     OriginAndTargetCoordinateCannotBeSame,
     Null

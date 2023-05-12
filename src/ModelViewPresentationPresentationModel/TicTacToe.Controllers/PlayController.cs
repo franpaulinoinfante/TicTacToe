@@ -16,46 +16,51 @@ public class PlayController : Controller
 
     public PlayerType GetPlayerType()
     {
-        throw new NotImplementedException();
+        return Game.GetPlayerType();
     }
 
     public bool IsTicTacToe()
     {
-        throw new NotImplementedException();
+        return Game.IsTicTacToe();
     }
 
-    public Token GetCurrentToken()
+    public Token GetCurrentTokenFromTurn()
     {
-        return Token.X;
+        return Game.GetCurrentTokenFromTurn();
     }
 
     public bool HasToken()
     {
-        throw new NotImplementedException();
+        return Game.HasToken();
     }
 
     public void PutToken(Coordinate coordinate)
     {
-        throw new NotImplementedException();
+        Game.PutToken(coordinate);
     }
 
     public Error FindToPutTokenError(Coordinate coordinate)
     {
-        throw new NotImplementedException();
+        return Game.FindToPutTokenError(coordinate);
     }
 
     public void MoveToken(Coordinate[] coordinates)
     {
-        throw new NotImplementedException();
+        Game.MoveToken(coordinates);
     }
 
-    public Error FindOrigiToMoveError(Coordinate coordinate)
+    public Error FindOriginToMoveError(Coordinate coordinate)
     {
-        throw new NotImplementedException();
+        return Game.FindOriginToMoveError(coordinate);
     }
 
     public Error FindTargetToMoveError(Coordinate[] coordinates)
     {
-        throw new NotImplementedException();
+        return Game.FindTargetToMoveError(coordinates);
+    }
+
+    public void NextTurn()
+    {
+        Game.NextTurn();
     }
 }

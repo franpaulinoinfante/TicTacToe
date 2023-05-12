@@ -93,6 +93,10 @@ package TicTacToeApp{
                 ~Interact(PlayController)
             }
 
+            class ResumeView{
+                ~Interact(ResumeController) : bool
+            }
+
             namespace Models{
                 class MessageView{
                     ~Write(Message)
@@ -149,6 +153,12 @@ package TicTacToeApp{
                 +ReadInt(outString) : int
                 +Write(outString)
             }
+
+            class YesNotDialog{
+                +Read(outString)
+                +IsAffirmative() : bool
+            }
+            YesNotDialog ..> ConsoleIO
         }
     }
 
@@ -156,6 +166,8 @@ package TicTacToeApp{
     interface IGameView
     class Controller
     class StartController
+    class PlayController
+    class ResumeController
     enum Message
     enum Error
     enum Token
@@ -184,6 +196,12 @@ package TicTacToeApp{
     ConsoleApp.Views.PlayView ..> ConsoleApp.Views.Models.PlayerView
     ConsoleApp.Views.PlayView ..> PlayerType
 
+    ConsoleApp.Views.ResumeView --> ResumeController
+    ConsoleApp.Views.ResumeView ..> Message
+    ConsoleApp.Views.ResumeView ..> ConsoleApp.ConsoleIOs.YesNotDialog
+    ConsoleApp.Views.ResumeView ..> ConsoleApp.Views.Models.BoardView
+
+
     ConsoleApp.Views.Models.PlayerView ..> PlayController
     ConsoleApp.Views.Models.PlayerView <|-- ConsoleApp.Views.Models.UserPlayerView
     ConsoleApp.Views.Models.PlayerView <|-- ConsoleApp.Views.Models.MachinePlayerView
@@ -209,6 +227,7 @@ package TicTacToeApp{
     ConsoleApp.Views.Models.BoardView ..> ConsoleApp.Views.Models.MessageView
     ConsoleApp.Views.Models.BoardView ..> ConsoleApp.Views.Models.TokenView
     ConsoleApp.Views.Models.BoardView ..> Coordinate
+    ConsoleApp.Views.Models.BoardView ..> ConsoleApp.ConsoleIOs.ConsoleIO
 
     ConsoleApp.Views.Models.TokenView ..> ConsoleApp.ConsoleIOs.ConsoleIO   
     ConsoleApp.Views.Models.TokenView --> Token
@@ -273,6 +292,7 @@ package TicTacToeApp{
     namespace Controllers{
         abstract Controller{
             +Controller(Game, State)
+            #Game : Game { get; }
             +{abstract}Accept(IControllerVisitor)
             +GetToken(coordinate) : Token
         }
@@ -282,11 +302,14 @@ package TicTacToeApp{
         Controller ..> IControllerVisitor        
 
         class StartController{
+            +StartController(Game, State)
+            +Accept(IControllerVisitor)
             +SetGameModePlayers(gameModePlayers)
         }
         
         class PlayController{
-            +PlayController()
+            +PlayController(Game, State)
+            +Accept(IControllerVisitor)
             +HasToken()
             +PutToken(coordinate)
             +FindPutTokenError(coordinate) : Error
@@ -300,7 +323,9 @@ package TicTacToeApp{
         }
         
         class ResumeController{
-            
+            +ResumeController(Game, State)
+            +Accept(IControllerVisitor)
+            +Reset()
         }
 
         interface IControllerVisitor{
@@ -327,16 +352,139 @@ package TicTacToeApp{
 
     Controllers.Controller --> Models.Game
     Controllers.Controller --> Models.State
+
+    Controllers.Logic *--> Models.Game
+    Controllers.Logic *--> Models.State
 }
 @enduml
 
 @startuml Models Design
     title Models Design
 
+package TicTacToeApp{
+    
+    namespace Models{
+        class Game{
+            +SetGameModePlayer(gameModePlayers)
+            +GetPlayerType() : PlayerTyoe
+            +HasToken() : boolean
+            +PutToken(coordinate)
+            +FindPutTokenError(coordinate) : Error
+            +MoveToken(origin, target)
+            +FindOriginToMoveTokenError(coordinate) : Error
+            +FindTargetToMoveTokenError(origin, target) : Error
+            +Next()
+            +IsTicTacToe() : boolean
+            +GetCurrent() : Token
+            +GetToken(coordinate) : Token
+            +Reset()
+        }
+        Game *--> Board
+        Game *--> "2" Player
+        Game *--> Turn
+
+        class Board{
+            ~IsEmpty() : boolean
+            ~IsOccupiedBy(toke, coordinate) : boolean
+            ~PutToken(coordinate)
+            ~MoveToken(origin, target)
+            ~IsTicTacToe(token) : boolean
+            ~GetToken(coordinate) : Token
+            ~Reset()
+        }
+
+        class Player{
+            ~Player(board, playerType)
+            ~GetPlayerType() : PlayerTyoe
+            ~GetToken() : Token
+            ~HasToken() : boolean
+            ~PutToken(coordinate)
+            ~FindPutTokenError(coordinate) : Error
+            ~MoveToken(origin, target)
+            ~FindOriginToMoveTokenError(coordinate) : Error
+            ~FindTargetToMoveTokenError(origin, target) : Error
+            ~Reset()
+        }
+        Player --> Board
+
+        class Turn{
+            ~Turn(players[])
+            ~Next()
+            ~GetCurrent() : int
+            ~SetGameModePlayer(gameModePlayers)
+            ~Reset()
+        }
+        Turn --> "2" Player
+        Turn ..> Board
+    }
+
+    namespace Types{
+        enum PlayerType
+        enum Error
+        enum Token
+    }
+
+    Models.Game ..> Types.PlayerType
+    Models.Game ..> Types.Error
+    Models.Game ..> Types.Coordinate
+    Models.Game ..> Types.Token
+
+    Models.Turn ..> Types.PlayerType
+    Models.Turn ..> Types.Token
+
+    Models.Player --> Types.PlayerType
+    Models.Player ..> Types.Error
+    Models.Player ..> Types.Coordinate
+    Models.Player --> Types.Token
+
+    Models.Board o--> "3x3" Types.Token
+    Models.Board ..> Types.Coordinate
+}
 @enduml
 
 @startuml Types Design
     title Types Design
 
+package TicTacToeApp{    
+    enum Token{
+        +X,
+        +O,
+        +Null
+        +{static}IsNull(token) : boolean
+    }
+
+    enum Error{
+        +InvalidGameModePlayers
+        +InvalidCoordinate
+        +SquareIsOccupied
+        +NotOwnerToken
+        +OriginAndTargetCoordinateCannontBeSame
+        +Null
+        +{static}IsNull(error) : boolean
+    }
+
+    enum PlayerType{
+        +UserPlayer
+        +MachinePlayer
+    }
+
+    class Coordinate{
+        -row : int
+        -colunm : int
+        +Coordinate()
+        +Coordinate(row, colunm)
+        +FindValidCoordinateError() : Error
+        -IsValid(value) : boolean
+    }
+    Coordinate ..> ClosedInterval
+    Coordinate ..> Error
+
+    class ClosedInterval{
+        -min : int
+        -max : int 
+        ~ClosedInterval(min, max)
+        ~IsValid(value) : boolean
+    }
+}
 @enduml
 

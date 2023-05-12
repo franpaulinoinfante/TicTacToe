@@ -434,7 +434,7 @@ Actorr --> GameView : Resume()
 @startuml Views Analysis 
     title Views Analysis 
 
-
+    
 @enduml
 
 @startuml Controllers Analysis

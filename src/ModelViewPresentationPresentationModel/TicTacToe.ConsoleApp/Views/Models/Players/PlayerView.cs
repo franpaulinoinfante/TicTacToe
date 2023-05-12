@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TicTacToe.Controllers;
-using TicTacToe.GameViews;
+﻿using TicTacToe.Controllers;
 using TicTacToe.Types;
 
 namespace TicTacToe.ConsoleApp.Views.Models.Players;
 
-internal abstract class PlayerView 
+internal abstract class PlayerView
 {
     private readonly PlayController _playController;
 
@@ -32,35 +26,26 @@ internal abstract class PlayerView
 
     private void PutToken()
     {
-        Coordinate coordinate;
-        Error error;
-        do
-        {
-            coordinate = GetCoordinate(Message.EnterCoordinateToPut);
-            error = FindToPutTokenError(coordinate);
-            new ErrorView().Show(error);
-        } while (!error.IsNull());
-
-        _playController.PutToken(coordinate);
+        _playController.PutToken(ReadCoordinateToPut());
     }
 
-    protected abstract Coordinate GetCoordinate(Message enterCoordinateToPut);
+    protected abstract Coordinate ReadCoordinateToPut();
 
-    protected virtual Error FindToPutTokenError(Coordinate coordinate)
+    protected Error FindToPutTokenError(Coordinate coordinate)
     {
         return _playController.FindToPutTokenError(coordinate);
     }
 
     private void MoveToken()
     {
-        _playController.MoveToken(GetCoordinatesToMove());
+        _playController.MoveToken(ReadCoordinatesToMove());
     }
 
-    protected abstract Coordinate[] GetCoordinatesToMove();
+    protected abstract Coordinate[] ReadCoordinatesToMove();
 
     protected Error FindOriginToMoveError(Coordinate coordinate)
     {
-        return _playController.FindOrigiToMoveError(coordinate);
+        return _playController.FindOriginToMoveError(coordinate);
     }
 
     protected Error FindTargetToMoveError(Coordinate[] coordinates)

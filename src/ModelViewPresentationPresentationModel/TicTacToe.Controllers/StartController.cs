@@ -1,4 +1,5 @@
 ﻿using TicTacToe.Models;
+using TicTacToe.Types;
 
 namespace TicTacToe.Controllers;
 
@@ -13,7 +14,7 @@ public class StartController : Controller
         visitor.Visit(this);
     }
 
-    public void SetGameModePlayers(int numberOfPlayer)
+    public void SetGameMode(GameMode numberOfPlayer)
     {
         Game.SetGameModePlayers(numberOfPlayer);
     }

@@ -20,12 +20,18 @@ public abstract class Controller
 
     public abstract void Accept(IControllerVisitor visitor);
 
-    public Token GetToken(Coordinate coordinate)
+    public void Reset()
     {
-        throw new NotImplementedException();
+        _game.Reset();
+        _state.Reset();
     }
 
-    public void Next()
+    public Token GetToken(Coordinate coordinate)
+    {
+        return _game.GetToken(coordinate);
+    }
+
+    public void NextState()
     {
         _state.Next();
     }

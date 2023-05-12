@@ -10,7 +10,9 @@ internal class TokenView
         {
             ConsoleIO.Instance.Write(' ');
         }
-
-        ConsoleIO.Instance.Write(token.ToString());
+        else
+        {
+            ConsoleIO.Instance.Write(token.ToString());
+        }
     }
 }

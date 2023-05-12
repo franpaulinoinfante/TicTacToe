@@ -10,10 +10,12 @@ internal class StartView
     {
         new MessageView().WriteLine(Message.Title);
 
-        startController.SetGameModePlayers(new GameModePlayerView().Read());
+        startController.SetGameMode(new GameModeView().ReadGameMode());
+
+        ConsoleIO.Instance.NewLine();
 
         new BoardView().Show(startController);
 
-        startController.Next();
+        startController.NextState();
     }
 }
