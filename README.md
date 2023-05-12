@@ -436,15 +436,19 @@ Do you want to continue? (y/n)
 
 #### Design GameViews
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/f77b1228-7ae8-4938-ba06-fedb75ed1424)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/2b057fde-babc-46ad-a598-eb1676f35630)
 
 #### Design Controllers
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/8ff39ce8-f29a-480b-89ef-6da4f7704cbc)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/54b31169-50d2-4003-8759-cd70b11365c2)
 
 #### Design Models
 
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/5a2a72a3-bdb6-4a3c-ad50-3ecb3e47524e)
+
 #### Design Types
+
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/b4253afb-15d0-4723-bcda-ef4be5a577e4)
 
 ## Implementation View
 
