@@ -4,6 +4,8 @@ namespace TicTacToe.Models;
 
 internal class Player
 {
+    private const int MaxToken = 3;
+
     private readonly Token _token;
     private readonly Board _board;
     private readonly PlayerType _playerType;
@@ -25,7 +27,7 @@ internal class Player
 
     internal void Reset()
     {
-        _tokens = Coordinate.Dimension;
+        _tokens = Player.MaxToken;
     }
 
     internal bool HasToken()

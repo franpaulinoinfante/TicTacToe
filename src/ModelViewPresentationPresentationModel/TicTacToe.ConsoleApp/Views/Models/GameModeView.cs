@@ -13,14 +13,14 @@ internal class GameModeView
         {
             new MessageView().WriteLine(Message.GameModePlayersDetails);
             gameModeValue = ConsoleIO.Instance.ReadInt(Message.SelectGameModePlayers.GetMessage());
-            error = FindSelectGameModeError(gameModeValue);
+            error = FindSelectedGameModeError(gameModeValue);
             new ErrorView().Show(error);
         } while (!error.IsNull());
 
         return Enum.GetValues<GameMode>()[gameModeValue];
     }
 
-    private Error FindSelectGameModeError(int gameMode)
+    private Error FindSelectedGameModeError(int gameMode)
     {
         if ((((int)GameMode.MachineVsMachine) > gameMode) || (gameMode > (int)GameMode.PlayerVsPlayer))
         {
