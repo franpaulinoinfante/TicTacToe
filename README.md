@@ -1,4 +1,4 @@
-# ----- Tic-Tac-Toe - MVP - Presentation Model -----
+# ----- Tic-Tac-Toe - Model View Presenter - Presentation Model -----
 
 **Index**
 - [Domain Model](#domain-model)  
@@ -15,12 +15,15 @@
         -   [Specification Play](#Specification-Play)  
         -   [Specification Resume](#Specification-Resume)  
     -   [User Interface Prototype](#User-Interface-Prototype)  
-        -   [Winning Game](#Winning-Game)  
-        -   [Lost Game](#Lost-Game)  
+        -   [Machine vs Machine](#Machine-vs-Machine)  
+        -   [Machine vs Player](#Machine-vs-Player)  
+        -   [Player vs Player](#Player-vs-Player)  
 - [Analysis](#Analysis)  
     -   [Architecture Analysis](#Architecture-Analysis)  
     -   [Use Cases Analysis](#Uses-Case-Analysis)  
         -   [Analysis Start](#Analysis-Start)  
+        -   [Analysis Play](#Analysis-Play)  
+        -   [Analysis Resume](#Analysis-Resume)  
     -   [Class Analysis](#Class-Analysis) 
         -   [Analysis Views](#Analysis-Views)  
         -   [Analysis Controllers](#Analysis-Controllers)  

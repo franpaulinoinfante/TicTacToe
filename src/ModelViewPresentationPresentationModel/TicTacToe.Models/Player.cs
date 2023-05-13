@@ -19,9 +19,9 @@ internal class Player
         Reset();
     }
 
-    public PlayerType PlayerType => _playerType;
-
     public Token Token => _token;
+
+    public PlayerType PlayerType => _playerType;
 
     internal void Reset()
     {
