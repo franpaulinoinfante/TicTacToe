@@ -407,7 +407,7 @@ Do you want to continue? (y/n)
 
 #### Analysis Models
 
-![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/c82c1218-32b2-4861-8ba3-4d66c5de041b)
+![image](https://github.com/franpaulinoinfante/TicTacToe/assets/46433173/c4f3a13c-19f3-4c62-82e8-afefd05da9de)
 
 #### Analysis Types
 
