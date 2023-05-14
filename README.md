@@ -37,7 +37,7 @@
     -   [Class Design](#Class-Design)  
         -   [Design ConsoleApp](#Design-ConsoleApp) 
         -   [Design WinFormApp](#Design-WinFormApp)  
-        -   [Design Mastermind](#Design-Mastermind)  
+        -   [Design TicTacToe](#Design-TicTacToe)  
         -   [Design GameViews](#Design-GameViews)  
         -   [Design Controllers](#Design-Controllers)  
         -   [Design Models](#Design-Models)  
