@@ -76,6 +76,10 @@ internal class Player
         const int origin = 0;
         const int target = 1;
 
+        if (!_board.IsEmpty(coordinates[target]))
+        {
+            return Error.SquareIsOccupied;
+        }
         if (coordinates[origin].Equals(coordinates[target]))
         {
             return Error.OriginAndTargetCoordinateCannotBeSame;

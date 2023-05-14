@@ -2,7 +2,7 @@ using TicTacToe.GameViews;
 
 namespace TicTacToe.WinFormApp;
 
-internal class Program 
+internal class Program
 {
     [STAThread]
     private static void Main()
@@ -10,7 +10,7 @@ internal class Program
 
         ApplicationConfiguration.Initialize();
 
-        IGameView gameView = new Main();
+        IMainView gameView = new Main();
         new MainPresenter(gameView);
         Application.Run((Form)gameView);
     }

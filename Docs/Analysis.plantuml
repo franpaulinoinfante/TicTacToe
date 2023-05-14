@@ -568,7 +568,7 @@ package TicTacToeApp{
     Models.Turn ..> Types.Token
     Models.Turn ..> Types.PlayerType
     
-    Models.Board ..> Types.Token
+    Models.Board o--> "3x3" Types.Token
     Models.Board ..> Types.Coordinate
 }
 @enduml

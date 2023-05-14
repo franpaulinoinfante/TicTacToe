@@ -7,7 +7,7 @@ internal class ErrorView : GameViews.ErrorView
     {
         if (!error.IsNull())
         {
-            MessageView messageView = new MessageView();
+            MessageView messageView = new();
 
             messageView.WriteLine(GameViews.Message.HorizontalLine);
             messageView.WriteLine(GameViews.Message.ErrorTitle);

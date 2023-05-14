@@ -8,7 +8,7 @@ internal class ResumeView
 {
     internal bool Interact(ResumeController resumeController)
     {
-        YesNoDialog yesNoDialog = new YesNoDialog();
+        YesNoDialog yesNoDialog = new();
         yesNoDialog.Read(Message.Resume.GetMessage());
 
         if (yesNoDialog.IsAffirmative())

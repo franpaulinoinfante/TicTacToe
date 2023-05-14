@@ -16,7 +16,7 @@ public abstract class TicTacToe
 
     protected abstract IGameView CreateGameView();
 
-    public void Play()
+    public void Run()
     {
         Controller controller;
         do

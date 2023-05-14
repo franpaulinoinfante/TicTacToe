@@ -74,7 +74,7 @@ internal class Board
 
     private List<Direction> GetDirections(Token token)
     {
-        List<Direction> directions = new List<Direction>();
+        List<Direction> directions = new();
         List<Coordinate> coordinates = GetCoordinates(token);
 
         if (coordinates.Any())
@@ -90,7 +90,7 @@ internal class Board
 
     private List<Coordinate> GetCoordinates(Token token)
     {
-        List<Coordinate> coordinates = new List<Coordinate>();
+        List<Coordinate> coordinates = new();
 
         for (int i = 0; i < Coordinate.Dimension; i++)
         {

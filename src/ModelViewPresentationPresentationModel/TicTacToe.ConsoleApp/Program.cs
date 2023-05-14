@@ -10,6 +10,6 @@ internal class Program : TicTacToe.TicTacToe
 
     private static void Main(string[] args)
     {
-        new Program().Play();
+        new Program().Run();
     }
 }

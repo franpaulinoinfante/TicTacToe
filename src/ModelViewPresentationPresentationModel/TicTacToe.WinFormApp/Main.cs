@@ -1,27 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TicTacToe.Controllers;
+﻿using TicTacToe.Controllers;
 using TicTacToe.GameViews;
 
 namespace TicTacToe.WinFormApp;
 
-public partial class Main : Form, IGameView
+public partial class Main : Form, IMainView
 {
     public Main()
     {
         InitializeComponent();
+
+
+        AssociateAndRaiseViewEvents();
     }
+
+    public event EventHandler btnOpenGame;
+
+    private void AssociateAndRaiseViewEvents()
+    {
+        button1.Click += delegate
+        { btnOpenGame?.Invoke(this, EventArgs.Empty); };
+    }
+
 
     public void Visit(StartController startController)
     {
-        throw new NotImplementedException();
+        MessageBox.Show("Hello");
     }
 
     public void Visit(PlayController startController)

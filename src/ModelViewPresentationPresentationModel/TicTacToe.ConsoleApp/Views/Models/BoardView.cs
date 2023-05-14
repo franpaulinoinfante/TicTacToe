@@ -8,7 +8,7 @@ internal class BoardView
 
     internal void Show(Controller controller)
     {
-        MessageView messageView = new MessageView();
+        MessageView messageView = new();
 
         messageView.WriteLine(GameViews.Message.HorizontalLine);
         for (int i = 0; i < Coordinate.Dimension; i++)
