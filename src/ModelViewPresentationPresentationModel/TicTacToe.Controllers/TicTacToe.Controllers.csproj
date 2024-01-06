@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TicTacToe.Models\TicTacToe.Models.csproj" />
+    <ProjectReference Include="..\TicTacToe.Types\TicTacToe.Types.csproj" />
   </ItemGroup>
 
 </Project>

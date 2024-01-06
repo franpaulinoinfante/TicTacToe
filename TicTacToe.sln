@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe.Types", "src\Mode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe.ConsoleApp", "src\ModelViewPresentationPresentationModel\TicTacToe.ConsoleApp\TicTacToe.ConsoleApp.csproj", "{71111055-E78F-42DA-B6C2-CA91BF9C259A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{16180ED7-6076-49F2-AB79-54CE91849EDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp", "src\ModelViewPresentationPresentationModel\WinFormsApp\WinFormsApp.csproj", "{35D085C4-4E0C-4970-9FE4-1FE3F3BFDF39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{71111055-E78F-42DA-B6C2-CA91BF9C259A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71111055-E78F-42DA-B6C2-CA91BF9C259A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71111055-E78F-42DA-B6C2-CA91BF9C259A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D085C4-4E0C-4970-9FE4-1FE3F3BFDF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D085C4-4E0C-4970-9FE4-1FE3F3BFDF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D085C4-4E0C-4970-9FE4-1FE3F3BFDF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D085C4-4E0C-4970-9FE4-1FE3F3BFDF39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +69,8 @@ Global
 		{2C836B7A-3944-4666-8E20-9004FC847C96} = {5155182D-2327-4B17-913D-E99D6056FC00}
 		{5CB97A26-2731-4AEE-ADC7-9AF77386D121} = {5155182D-2327-4B17-913D-E99D6056FC00}
 		{71111055-E78F-42DA-B6C2-CA91BF9C259A} = {5155182D-2327-4B17-913D-E99D6056FC00}
+		{16180ED7-6076-49F2-AB79-54CE91849EDE} = {5155182D-2327-4B17-913D-E99D6056FC00}
+		{35D085C4-4E0C-4970-9FE4-1FE3F3BFDF39} = {16180ED7-6076-49F2-AB79-54CE91849EDE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2663C275-E7A7-4337-BF55-963A8C6715AE}

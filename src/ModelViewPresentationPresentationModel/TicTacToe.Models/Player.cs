@@ -43,12 +43,9 @@ internal class Player
 
     internal Error FindToPutTokenError(Coordinate coordinate)
     {
-        if (!_board.IsEmpty(coordinate))
-        {
-            return Error.SquareIsOccupied;
-        }
-
-        return Error.Null;
+        return !_board.IsEmpty(coordinate) ? 
+            Error.SquareIsOccupied : 
+            Error.Null;
     }
 
     internal void MoveToken(Coordinate[] coordinates)
