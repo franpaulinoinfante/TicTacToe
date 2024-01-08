@@ -16,8 +16,6 @@ public abstract class Controller
 
     protected Game Game { get => _game; }
 
-    protected State State { get => _state; }
-
     public abstract void Accept(IControllerVisitor visitor);
 
     public void Reset()

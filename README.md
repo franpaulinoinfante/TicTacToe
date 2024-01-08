@@ -9,7 +9,7 @@
     - [Activities](#activities)  
 - [Requirements](#Requirements)  
     -   [Use Cases](#Use-Cases)
-    -   [Use Cases Initial Description](#Use-Cases-Initial-Description)  
+    -   (Use Cases Initial Description)[Use Cases Initial Description]  (#Use-Cases-Initial-Description)  
     -   [Use Case Specifications](#Use-Case-Specifications)   
         -   [Specification Start](#Specification-Start)  
         -   [Specification Play](#Specification-Play)  
