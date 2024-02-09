@@ -19,10 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe.Types", "src\Mode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe.ConsoleApp", "src\ModelViewPresentationPresentationModel\TicTacToe.ConsoleApp\TicTacToe.ConsoleApp.csproj", "{71111055-E78F-42DA-B6C2-CA91BF9C259A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.WinFormsApp", "src\ModelViewPresentationPresentationModel\TicTacToe.WinFormsApp\TicTacToe.WinFormsApp.csproj", "{AF8435BD-66D0-4F89-9548-2749C0B57EC6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.TicTacToeV2", "src\ModelViewPresentationPresentationModel\TicTacToe.TicTacToeV2\TicTacToe.TicTacToeV2.csproj", "{745734C0-4244-42BE-B5CB-A9E75E0DC0A6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,14 +49,6 @@ Global
 		{71111055-E78F-42DA-B6C2-CA91BF9C259A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71111055-E78F-42DA-B6C2-CA91BF9C259A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71111055-E78F-42DA-B6C2-CA91BF9C259A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF8435BD-66D0-4F89-9548-2749C0B57EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF8435BD-66D0-4F89-9548-2749C0B57EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF8435BD-66D0-4F89-9548-2749C0B57EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF8435BD-66D0-4F89-9548-2749C0B57EC6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{745734C0-4244-42BE-B5CB-A9E75E0DC0A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{745734C0-4244-42BE-B5CB-A9E75E0DC0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{745734C0-4244-42BE-B5CB-A9E75E0DC0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{745734C0-4244-42BE-B5CB-A9E75E0DC0A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,8 +61,6 @@ Global
 		{2C836B7A-3944-4666-8E20-9004FC847C96} = {5155182D-2327-4B17-913D-E99D6056FC00}
 		{5CB97A26-2731-4AEE-ADC7-9AF77386D121} = {5155182D-2327-4B17-913D-E99D6056FC00}
 		{71111055-E78F-42DA-B6C2-CA91BF9C259A} = {5155182D-2327-4B17-913D-E99D6056FC00}
-		{AF8435BD-66D0-4F89-9548-2749C0B57EC6} = {5155182D-2327-4B17-913D-E99D6056FC00}
-		{745734C0-4244-42BE-B5CB-A9E75E0DC0A6} = {5155182D-2327-4B17-913D-E99D6056FC00}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2663C275-E7A7-4337-BF55-963A8C6715AE}
